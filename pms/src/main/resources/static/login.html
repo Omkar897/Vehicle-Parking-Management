@@ -1,0 +1,726 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ParkEasy</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .navbar {
+            background: rgba(44, 62, 80, 0.9) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--light-color) !important;
+        }
+        
+        .navbar-brand span {
+            color: var(--primary-color);
+        }
+        
+        .nav-link {
+            color: var(--light-color) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .login-container {
+            width: 100%;
+            max-width: 420px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .login-header h2 {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .login-header p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+        
+        .login-header::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+        
+        .form-floating > label {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            border-radius: 8px;
+            padding: 12px 15px;
+        }
+        
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-color: var(--primary-color);
+            color: white;
+            box-shadow: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .login-options a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .login-options a:hover {
+            color: var(--primary-color);
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .divider::before {
+            margin-right: 0.5rem;
+        }
+        
+        .divider::after {
+            margin-left: 0.5rem;
+        }
+        
+        .social-login {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .btn-social {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-google {
+            background-color: #ea4335;
+            color: white;
+            border-color: #ea4335;
+        }
+        
+        .btn-google:hover {
+            background-color: #d33b2b;
+            border-color: #d33b2b;
+            transform: translateY(-2px);
+        }
+        
+        .btn-facebook {
+            background-color: #3b5998;
+            color: white;
+            border-color: #3b5998;
+        }
+        
+        .btn-facebook:hover {
+            background-color: #30497c;
+            border-color: #30497c;
+            transform: translateY(-2px);
+        }
+        
+        .register-link {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+        
+        .register-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .register-link a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        
+        .alert {
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            display: none;
+        }
+        
+        .alert-success {
+            background-color: rgba(40, 167, 69, 0.2);
+            border: 1px solid rgba(40, 167, 69, 0.3);
+            color: #28a745;
+        }
+        
+        .alert-danger {
+            background-color: rgba(220, 53, 69, 0.2);
+            border: 1px solid rgba(220, 53, 69, 0.3);
+            color: #dc3545;
+        }
+        
+        .alert-show {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Admin login toggle */
+        .admin-toggle {
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .admin-toggle a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .admin-toggle a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 575.98px) {
+            .login-container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .social-login {
+                flex-direction: column;
+            }
+        }
+
+           /* Make admin modal input text visible (dark on light background) */
+          #adminLoginModal .form-control {
+          color: #222;           /* dark readable text */
+          background-color: #fff; /* white background */
+          border: 1px solid rgba(52, 73, 94, 0.15); /* subtle border */
+          }
+
+        #adminLoginModal .form-control::placeholder {
+        color: #888;            /* medium grey placeholder */
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-parking"></i> Park<span>Easy</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#about"><i class="fas fa-info-circle"></i> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#contact"><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register.html"><i class="fas fa-user-plus"></i> Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Form -->
+    <div class="container py-5">
+        <div class="login-container">
+            <div class="login-header">
+                <h2>User Login</h2>
+                <p>Access your parking account</p>
+            </div>
+            
+            <!-- Alert messages -->
+            <div id="alertContainer"></div>
+            
+            <!-- Login form -->
+            <form id="loginForm">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="username" placeholder="Username or Email" required>
+                    <label for="username">Username or Email</label>
+                </div>
+
+                <div class="form-floating mb-3" style="position: relative;">
+                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                    <label for="password">Password</label>
+                    <button type="button" id="toggleUserPassword" style="
+        position: absolute;
+        top: 16px;  /* adjust for best alignment */
+        right: 18px;
+        background: none;
+        border: none;
+        color: #3498db;
+        font-size: 1.1rem;
+        cursor: pointer;
+        padding: 0;
+        z-index: 3;
+    " tabindex="-1">
+                        <i class="fa fa-eye"></i>
+                    </button>
+                </div>
+
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                    <label class="form-check-label text-white" for="rememberMe">
+                        Remember me
+                    </label>
+                </div>
+                <div class="login-options">
+                    <a href="#" id="forgotPasswordLink">Forgot password?</a>
+
+
+                    <a href="#" id="adminLoginLink">Admin Login</a>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt me-2"></i> Login
+                </button>
+            </form>
+            
+            <div class="divider">OR</div>
+
+            <!-- Register link -->
+            <div class="register-link">
+                Don't have an account? <a href="/register.html">Register here</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="forgotPasswordModalLabel">Reset Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="forgotPasswordForm">
+                        <div class="mb-3">
+                            <label for="fpEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="fpEmail" placeholder="Enter your email" required style="background:#eef4fa; color:#333;">
+                        </div>
+                        <div class="mb-3" style="position: relative;">
+                            <label for="fpNewPassword" class="form-label">New Password</label>
+                            <input type="password" class="form-control" id="fpNewPassword" placeholder="New Password" required style="background:#eef4fa; color:#333;">
+                            <button type="button" id="fpTogglePw" style="position:absolute;top:33px;right:14px;background:transparent;border:none;color:#3498db;font-size:1.15rem;">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="mb-3" style="position: relative;">
+                            <label for="fpConfirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="fpConfirmPassword" placeholder="Confirm Password" required style="background:#eef4fa; color:#333;">
+                            <button type="button" id="fpToggleConfirmPw" style="position:absolute;top:33px;right:14px;background:transparent;border:none;color:#3498db;font-size:1.15rem;">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
+                        <div id="fpMsg" class="mt-1 mb-2 text-center" style="font-size:0.98em;color:#dc3545;"></div>
+                        <button type="submit" class="btn btn-primary w-100">Reset Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="modal fade" id="adminLoginModal" tabindex="-1" aria-labelledby="adminLoginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="adminLoginModalLabel">Admin Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="adminLoginForm">
+                        <div class="mb-3">
+                            <label for="adminUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="adminUsername" required>
+                        </div>
+                        <div class="mb-3" style="position: relative;">
+                            <label for="adminPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="adminPassword" required>
+                            <button type="button" id="toggleAdminPassword" style="
+        position: absolute;
+        top: 32px;
+        right: 12px;
+        background: none;
+        border: none;
+        color: #3498db;
+        font-size: 1.1rem;
+        cursor: pointer;
+        padding: 0;
+    " tabindex="-1">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Login as Admin</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            const adminLoginForm = document.getElementById('adminLoginForm');
+            const alertContainer = document.getElementById('alertContainer');
+            const adminLoginLink = document.getElementById('adminLoginLink');
+            const forgotPasswordLink = document.getElementById('forgotPassword');
+            
+            // Show alert function
+            function showAlert(message, type) {
+                alertContainer.innerHTML = `
+                    <div class="alert alert-${type} alert-show">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        ${message}
+                    </div>
+                `;
+                
+                // Hide alert after 5 seconds
+                setTimeout(() => {
+                    const alert = document.querySelector('.alert');
+                    if (alert) {
+                        alert.classList.remove('alert-show');
+                        setTimeout(() => {
+                            alert.remove();
+                        }, 500);
+                    }
+                }, 5000);
+            }
+            
+            // Handle user login
+           loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (!email || !password) {
+        showAlert('Please enter both email and password.', 'danger');
+        return;
+    }
+
+    fetch(`http://localhost:8080/api/user/login?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`, {
+        method: 'POST',
+        credentials: 'include' // send cookies for session if needed
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.text(); // backend sends string messages
+        } else {
+            throw new Error('Invalid email or password');
+        }
+    })
+    .then(message => {
+        showAlert(message, 'success');
+        setTimeout(() => {
+            window.location.href = 'user.html'; // redirect to user dashboard
+        }, 1000);
+    })
+    .catch(error => {
+        showAlert(error.message, 'danger');
+    });
+});
+
+
+
+            // Handle admin login
+
+    document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const username = document.getElementById('adminUsername').value.trim();
+    const password = document.getElementById('adminPassword').value.trim();
+
+    if (!username || !password) {
+        alert('Please enter both username and password.');
+        return;
+    }
+
+    fetch('http://localhost:8080/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+        credentials: 'include' // include cookies if your session uses them
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success && data.user && data.user.role === 'ADMIN') {
+            // Save admin user info to localStorage
+            localStorage.setItem('adminUser', JSON.stringify(data.user));
+            alert('Admin login successful! Redirecting...');
+            setTimeout(() => {
+                window.location.href = 'admin.html';  // Admin dashboard page
+            }, 1000);
+        } else {
+            alert(data.message || 'Invalid admin credentials');
+        }
+    })
+    .catch(() => {
+        alert('Server error, please try again later.');
+    });
+});
+
+
+    loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (!email || !password) {
+        showAlert('Please enter both email and password.', 'danger');
+        return;
+    }
+
+    fetch(`http://localhost:8080/api/user/login?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`, {
+        method: 'POST',
+        credentials: 'include'
+    })
+    .then(async response => {
+        const text = await response.text();
+        if (response.ok) {
+            showAlert(text, 'success');
+            setTimeout(() => window.location.href = 'user.html', 1000);
+        } else {
+            showAlert(text, 'danger');
+        }
+    })
+    .catch(() => {
+        showAlert('Server or network error, please try again later.', 'danger');
+    });
+});
+
+            
+            // Show admin login modal
+            adminLoginLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                const adminModal = new bootstrap.Modal(document.getElementById('adminLoginModal'));
+                adminModal.show();
+            });
+
+        });
+
+        // Show/hide Admin Password logic
+const adminPasswordInput = document.getElementById('adminPassword');
+const toggleAdminPwBtn = document.getElementById('toggleAdminPassword');
+let adminPWVisible = false;
+if (adminPasswordInput && toggleAdminPwBtn) {
+    toggleAdminPwBtn.addEventListener('click', function () {
+        adminPWVisible = !adminPWVisible;
+        adminPasswordInput.type = adminPWVisible ? 'text' : 'password';
+        toggleAdminPwBtn.innerHTML = adminPWVisible
+            ? '<i class="fa fa-eye-slash"></i>'
+            : '<i class="fa fa-eye"></i>';
+    });
+}
+        // Show/hide User Password logic
+const userPasswordInput = document.getElementById('password');
+const toggleUserPwBtn = document.getElementById('toggleUserPassword');
+let userPWVisible = false;
+if (userPasswordInput && toggleUserPwBtn) {
+    toggleUserPwBtn.addEventListener('click', function () {
+        userPWVisible = !userPWVisible;
+        userPasswordInput.type = userPWVisible ? 'text' : 'password';
+        toggleUserPwBtn.innerHTML = userPWVisible
+            ? '<i class="fa fa-eye-slash"></i>'
+            : '<i class="fa fa-eye"></i>';
+    });
+}
+
+
+// Show Forgot Password modal when link clicked
+document.getElementById('forgotPasswordLink').addEventListener('click', function(e) {
+  e.preventDefault();
+  var modal = new bootstrap.Modal(document.getElementById('forgotPasswordModal'));
+  modal.show();
+});
+
+// Toggle visibility for new password
+let fpShow = false;
+document.getElementById('fpTogglePw').addEventListener('click', function (e) {
+  e.preventDefault();
+  fpShow = !fpShow;
+  const pwField = document.getElementById('fpNewPassword');
+  pwField.type = fpShow ? 'text' : 'password';
+  this.innerHTML = fpShow ? '<i class="fa fa-eye-slash"></i>' : '<i class="fa fa-eye"></i>';
+});
+
+// Toggle visibility for confirm password
+let fpShow2 = false;
+document.getElementById('fpToggleConfirmPw').addEventListener('click', function (e) {
+  e.preventDefault();
+  fpShow2 = !fpShow2;
+  const pwField = document.getElementById('fpConfirmPassword');
+  pwField.type = fpShow2 ? 'text' : 'password';
+  this.innerHTML = fpShow2 ? '<i class="fa fa-eye-slash"></i>' : '<i class="fa fa-eye"></i>';
+});
+
+// Handle reset password form submit
+document.getElementById('forgotPasswordForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const email = document.getElementById('fpEmail').value.trim();
+  const pw = document.getElementById('fpNewPassword').value;
+  const cpw = document.getElementById('fpConfirmPassword').value;
+  const msg = document.getElementById('fpMsg');
+  msg.style.color="#dc3545";
+  msg.textContent = "";
+  if (!email) { msg.textContent = "Enter your email!"; return; }
+  if (pw !== cpw) { msg.textContent = "Passwords do not match!"; return; }
+  fetch('/api/auth/reset-password', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email, newPassword: pw })
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        msg.style.color = "#28a745";
+        msg.textContent = "Password reset! Now log in with new password.";
+        setTimeout(function(){
+          bootstrap.Modal.getInstance(document.getElementById('forgotPasswordModal')).hide();
+          msg.textContent = "";
+        }, 1700);
+      } else {
+        msg.textContent = data.message || "Reset failed.";
+      }
+    })
+    .catch(() => msg.textContent = "Server error. Try again.");
+});
+
+    </script>
+</body>
+</html>

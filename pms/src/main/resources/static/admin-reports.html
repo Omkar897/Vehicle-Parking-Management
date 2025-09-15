@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Admin Dashboard Reports</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background: #24496a;
+          color: #fff;
+          padding: 2rem;
+        }
+        h1 {
+          text-align: center;
+          margin-bottom: 2rem;
+        }
+        .chart-container {
+          max-width: 600px;
+          margin: 0 auto 3rem;
+          background: rgba(255,255,255,0.1);
+          padding: 1rem 1.5rem;
+          border-radius: 15px;
+        }
+        canvas {
+          background: #2c3e50;
+          border-radius: 8px;
+          padding: 10px;
+        }
+        a.btn.btn-primary:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 14px rgba(0, 86, 179, 0.6);
+  transform: translateY(-2px);
+}
+
+    </style>
+</head>
+<body>
+<h1>Admin Dashboard Reports</h1>
+<div id="reportsAlertContainer" style="text-align: center; margin-bottom: 10px;"></div>
+
+<div class="chart-container">
+    <h2>User Statistics</h2>
+    <canvas id="usersChart" width="600" height="300"></canvas>
+</div>
+
+<div class="chart-container">
+    <h2>Revenue</h2>
+    <canvas id="revenueChart" width="600" height="300"></canvas>
+</div>
+
+<div class="chart-container">
+    <h2>Booking Stats</h2>
+    <canvas id="bookingsChart" width="600" height="300"></canvas>
+</div>
+
+<script>
+    async function fetchAndRenderReports() {
+      try {
+        const res = await fetch('/api/admin/report/summary');
+        if (!res.ok) throw new Error('Failed to fetch reports data');
+        const stats = await res.json();
+
+        // User chart
+        const ctxUsers = document.getElementById('usersChart').getContext('2d');
+        new Chart(ctxUsers, {
+          type: 'bar',
+          data: {
+            labels: ['Total Users'],
+            datasets: [{
+              label: 'Users',
+              data: [stats.userCount],
+              backgroundColor: '#3498db'
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { labels: { color: '#fff' } },
+              title: {
+                display: true,
+                text: 'Registered Users',
+                color: '#fff',
+                font: { size: 18, weight: 'bold' }
+              }
+            },
+            scales: {
+              y: { beginAtZero: true, ticks: { color: '#fff' } },
+              x: { ticks: { color: '#fff' } }
+            }
+          }
+        });
+
+        // Revenue chart
+        const ctxRevenue = document.getElementById('revenueChart').getContext('2d');
+        new Chart(ctxRevenue, {
+          type: 'bar',
+          data: {
+            labels: ['Total Revenue'],
+            datasets: [{
+              label: 'Revenue (₹)',
+              data: [stats.totalRevenue],
+              backgroundColor: '#27ae60'
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { labels: { color: '#fff' } },
+              title: {
+                display: true,
+                text: 'Total Revenue',
+                color: '#fff',
+                font: { size: 18, weight: 'bold' }
+              }
+            },
+            scales: {
+              y: { beginAtZero: true, ticks: { color: '#fff' } },
+              x: { ticks: { color: '#fff' } }
+            }
+          }
+        });
+
+        // Bookings chart
+        const ctxBookings = document.getElementById('bookingsChart').getContext('2d');
+        new Chart(ctxBookings, {
+          type: 'bar',
+          data: {
+            labels: ['Total Bookings', 'Today Bookings'],
+            datasets: [{
+              label: 'Bookings',
+              data: [stats.totalBookings, stats.todayBookings],
+              backgroundColor: ['#e67e22', '#f39c12']
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { labels: { color: '#fff' } },
+              title: {
+                display: true,
+                text: 'Bookings Overview',
+                color: '#fff',
+                font: { size: 18, weight: 'bold' }
+              }
+            },
+            scales: {
+              y: { beginAtZero: true, ticks: { color: '#fff' } },
+              x: { ticks: { color: '#fff' } }
+            }
+          }
+        });
+
+      } catch (error) {
+        alert('Error loading reports: ' + error.message);
+      }
+    }
+
+    // Load and render charts on page load
+    window.onload = fetchAndRenderReports;
+
+
+
+</script>
+
+
+<a href="admin.html" class="btn btn-primary" style="margin: 20px; display: inline-flex; align-items: center; border-radius: 30px; padding: 10px 20px; font-weight: 600; box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5); transition: transform 0.2s ease;">
+    <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Back to Dashboard
+</a>
+
+
+</body>
+</html>

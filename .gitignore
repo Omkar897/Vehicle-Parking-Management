@@ -1,0 +1,46 @@
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IDE specific files
+.idea/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+bin/
+
+# Log files
+*.log
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs
+hs_err_pid*
+
+# Spring Boot
+application-*.properties
+!application.properties
+
+# Local development files
+.env
+
+# Frontend dependencies
+node_modules/
+
+# Build directories
+pms/target/
+pms/bin/
+
+# System Files
+.DS_Store
+Thumbs.db
