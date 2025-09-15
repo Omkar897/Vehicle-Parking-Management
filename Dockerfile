@@ -24,5 +24,6 @@ USER appuser
 # Expose Railway's port
 EXPOSE $PORT
 
-# No HEALTHCHECK needed - Railway handles this automatically
-ENTRYPOINT ["sh", "-c", "exec java $JAVA_OPTS -Dserver.port=${PORT:-8080} -Dserver.address=0.0.0.0 -jar app.jar"]
+# Even simpler approach - no JAVA_OPTS variable needed
+ENTRYPOINT ["sh", "-c", "exec java -Xmx512m -Xms256m -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -Dserver.port=${PORT:-8080} -Dserver.address=0.0.0.0 -jar app.jar"]
+
