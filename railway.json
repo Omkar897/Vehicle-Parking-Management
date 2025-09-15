@@ -1,10 +1,10 @@
 {
     "$schema": "https://schema.up.railway.app/railway.schema.json",
     "build": {
-      "buildCommand": "cd pms && ./mvnw clean package -DskipTests"
+      "buildCommand": "cd pms && mvn clean package -DskipTests"
     },
     "deploy": {
-      "startCommand": "cd pms && java -jar target/pms-0.0.1-SNAPSHOT.jar",
+      "startCommand": "cd pms && java -jar target/*.jar",
       "restartPolicyType": "ON_FAILURE",
       "restartPolicyMaxRetries": 10
     }
