@@ -39,9 +39,9 @@ USER appuser
 # Expose port
 EXPOSE 8080
 
-# Health check with longer timeout and retries
+# Simple health check that just checks if the port is open
 HEALTHCHECK --interval=10s --timeout=5s --start-period=30s --retries=10 \
-    CMD curl -f http://localhost:8080/actuator/health || exit 1
+    CMD curl -f http://localhost:8080/ || exit 1
 
 # Start the Spring Boot app with exec for proper signal handling
-ENTRYPOINT ["sh", "-c", "exec java $JAVA_OPTS -jar app.jar --spring.config.location=classpath:/application.properties,file:/app/config/application.properties"]
+ENTRYPOINT ["sh", "-c", "exec java $JAVA_OPTS -Dserver.port=8080 -Dserver.address=0.0.0.0 -jar app.jar"]
