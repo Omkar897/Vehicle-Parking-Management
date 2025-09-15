@@ -1,5 +1,8 @@
 # Stage 1: build
-FROM maven:3.9.2-eclipse-temurin-21 AS build
+FROM eclipse-temurin:21-jdk-jammy AS build
+
+# Install Maven
+RUN apt-get update && apt-get install -y maven
 
 WORKDIR /app
 
