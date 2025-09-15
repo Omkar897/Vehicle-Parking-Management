@@ -1,5 +1,5 @@
 # Stage 1: build
-FROM maven:3.9.2-eclipse-temurin-17 AS build
+FROM maven:3.9.2-eclipse-temurin-21 AS build
 
 WORKDIR /app
 
@@ -16,7 +16,7 @@ COPY pms/src ./src
 RUN mvn -B clean package -DskipTests
 
 # Stage 2: runtime
-FROM eclipse-temurin:17-jre-jammy
+FROM eclipse-temurin:21-jre-jammy
 
 WORKDIR /app
 
