@@ -6,16 +6,16 @@ import com.example.model.User;
 import com.example.repository.BookingRepository;
 import com.example.repository.ParkingSlotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
+
+@Transactional
 public class BookingService {
  
  @Autowired
@@ -24,40 +24,44 @@ public class BookingService {
  @Autowired
  private ParkingSlotService parkingSlotService;
 
- @Transactional
- public List<Booking> getAllBookings() {
-     updateExpiredBookingsAndFreeSlots();
-     return bookingRepository.findAllWithUserAndSlot();
- }
+public List<Booking> getAllBookings() {
+    updateExpiredBookingsAndFreeSlots();  // update statuses before fetching
+    return bookingRepository.findAllWithUserAndSlot();
+}
 
- @Transactional
- public List<Booking> getUserBookings(User user) {
-     updateExpiredBookingsAndFreeSlots();
-     return bookingRepository.findByUser(user);
- }
+
+    public List<Booking> getUserBookings(User user) {
+        updateExpiredBookingsAndFreeSlots();
+        return bookingRepository.findByUser(user);
+    }
  
  public Booking getBookingById(Long id) {
      Optional<Booking> booking = bookingRepository.findById(id);
      return booking.orElse(null);
  }
  
- @Transactional
  public Booking createBooking(User user, ParkingSlot parkingSlot,String vehicleType, LocalDateTime entryTime, LocalDateTime exitTime) {
+     // Check if the slot is available
      if (!parkingSlot.isAvailable()) {
          return null;
      }
      
+     // Check for overlapping bookings - get all bookings for this slot except cancelled ones
      List<Booking> existingBookings = bookingRepository.findByParkingSlotIdAndStatusNot(
          parkingSlot.getId(), "CANCELLED");
      
+     // Filter out the bookings that overlap with the new booking
      for (Booking existingBooking : existingBookings) {
          if (isOverlapping(existingBooking.getEntryTime(), existingBooking.getExitTime(), 
              entryTime, exitTime)) {
-             return null;
+             return null; // Overlapping booking exists
          }
      }
      
+     // Create new booking
      Booking booking = new Booking(user, parkingSlot, vehicleType,entryTime, exitTime);
+     
+     // Mark slot as occupied
      parkingSlotService.updateSlotAvailability(parkingSlot.getId(), false);
      
      return bookingRepository.save(booking);
@@ -68,7 +72,6 @@ public class BookingService {
      return start1.isBefore(end2) && start2.isBefore(end1);
  }
  
- @Transactional
  public Booking updateBookingStatus(Long bookingId, String status) {
      Booking booking = getBookingById(bookingId);
      if (booking != null) {
@@ -78,17 +81,19 @@ public class BookingService {
      return null;
  }
  
- @Transactional
  public void cancelBooking(Long bookingId) {
      Booking booking = getBookingById(bookingId);
      if (booking != null && "BOOKED".equals(booking.getStatus())) {
          booking.setStatus("CANCELLED");
          bookingRepository.save(booking);
+         
+         // Make the slot available again
          parkingSlotService.updateSlotAvailability(booking.getParkingSlot().getId(), true);
      }
  }
  
  public long getTotalBookingsCount() {
+
     return bookingRepository.count();
  }
  
@@ -102,14 +107,14 @@ public class BookingService {
          .count();
  }
 
- public Booking saveBooking(Booking booking) {
+    public Booking saveBooking(Booking booking) {
     return bookingRepository.save(booking);
- }
+    }
 
- public BookingResponseDTO mapToDTO(Booking booking) {
+    public BookingResponseDTO mapToDTO(Booking booking) {
     BookingResponseDTO dto = new BookingResponseDTO();
     dto.setId(booking.getId());
-    dto.setUser(new UserDTO(booking.getUser()));
+    dto.setUser(new UserDTO(booking.getUser()));  // your existing UserDTO constructor excludes password
     dto.setParkingSlot(new ParkingSlotDTO(booking.getParkingSlot()));
 
     dto.setVehicleType(booking.getVehicleType());
@@ -119,63 +124,20 @@ public class BookingService {
     dto.setStatus(booking.getStatus());
     dto.setPayment(booking.getPayment() != null ? new PaymentDTO(booking.getPayment()) : null);
     return dto;
- }
+}
+    @Transactional
+    public void updateExpiredBookingsAndFreeSlots() {
+        LocalDateTime now = LocalDateTime.now();
+        List<String> activeStatuses = List.of("BOOKED", "PAID");
 
- // 🎯 FIXED VERSION - Uses simple findAll() instead of complex repository method
- @Scheduled(fixedRate = 60000) // Every 1 minute
- @Transactional
- public void updateExpiredBookingsAndFreeSlots() {
-     LocalDateTime now = LocalDateTime.now();
-     
-     System.out.println("🔍 Expiry scheduler running at " + now);
-     
-     try {
-         // Get ALL bookings and filter in Java (more reliable)
-         List<Booking> allBookings = bookingRepository.findAll();
-         
-         List<Booking> expiredBookings = allBookings.stream()
-             .filter(booking -> {
-                 // Check if status is BOOKED or PAID
-                 boolean isActiveStatus = "BOOKED".equals(booking.getStatus()) || "PAID".equals(booking.getStatus());
-                 
-                 // Check if exit time has passed
-                 boolean isExpired = booking.getExitTime() != null && booking.getExitTime().isBefore(now);
-                 
-                 return isActiveStatus && isExpired;
-             })
-             .collect(Collectors.toList());
+        List<Booking> expiredBookings = bookingRepository.findByStatusInAndExitTimeBefore(activeStatuses, now);
 
-         System.out.println("🔍 Total bookings: " + allBookings.size());
-         System.out.println("🔍 Found " + expiredBookings.size() + " expired bookings to process");
+        for (Booking booking : expiredBookings) {
+            booking.setStatus("COMPLETED");  // or another status indicating booking ended
+            bookingRepository.save(booking);
+            parkingSlotService.updateSlotAvailability(booking.getParkingSlot().getId(), true);
+        }
+    }
 
-         int processedCount = 0;
-         for (Booking booking : expiredBookings) {
-             try {
-                 String oldStatus = booking.getStatus();
-                 booking.setStatus("COMPLETED");
-                 bookingRepository.save(booking);
-                 
-                 // Free the parking slot
-                 if (booking.getParkingSlot() != null) {
-                     parkingSlotService.updateSlotAvailability(booking.getParkingSlot().getId(), true);
-                     processedCount++;
-                     
-                     System.out.println("✅ Booking #" + booking.getId() + " expired: " +
-                                      "Slot " + booking.getParkingSlot().getSlotNumber() + 
-                                      " freed (was " + oldStatus + " -> COMPLETED)");
-                 }
-             } catch (Exception e) {
-                 System.err.println("❌ Error processing booking #" + booking.getId() + ": " + e.getMessage());
-             }
-         }
-         
-         if (processedCount > 0) {
-             System.out.println("🎉 Successfully processed " + processedCount + " expired bookings");
-         }
-         
-     } catch (Exception e) {
-         System.err.println("❌ Error in scheduler: " + e.getMessage());
-         e.printStackTrace();
-     }
- }
+
 }
