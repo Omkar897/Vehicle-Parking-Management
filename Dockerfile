@@ -1,4 +1,4 @@
-# Stage 1: build
+# Stage 1: build  
 FROM eclipse-temurin:21-jdk-jammy AS build
 RUN apt-get update && apt-get install -y maven
 WORKDIR /app
@@ -11,18 +11,5 @@ RUN mvn -B clean package -DskipTests
 FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
-
-# Set JAVA_OPTS as environment variable
-ENV JAVA_OPTS="-Xmx512m -Xms256m -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0"
-
-# Create non-root user
-RUN addgroup --system --gid 1001 appuser && \
-    adduser --system --uid 1001 --gid 1001 appuser && \
-    chown -R appuser:appuser /app
-USER appuser
-
-# Expose Railway's port
-EXPOSE $PORT
-
-# Fixed ENTRYPOINT with proper variable expansion
-ENTRYPOINT ["sh", "-c", "exec java ${JAVA_OPTS} -Dserver.port=${PORT:-8080} -Dserver.address=0.0.0.0 -jar app.jar"]
+EXPOSE 8080
+CMD ["java", "-jar", "app.jar"]
