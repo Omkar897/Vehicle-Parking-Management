@@ -1,6 +1,15 @@
 # Maven
 target/
 !.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Maven Wrapper
+.mvn/wrapper/maven-wrapper.properties
+mvnw
+mvnw.cmd
+pms/mvnw
+pms/mvnw.cmd
 
 # IDE specific files
 .idea/
@@ -11,6 +20,10 @@ target/
 .project
 .settings/
 bin/
+.vscode/
+*.launch
+*.sublime-workspace
+*.sublime-project
 
 # Log files
 *.log
@@ -36,6 +49,8 @@ application-*.properties
 
 # Frontend dependencies
 node_modules/
+package-lock.json
+yarn.lock
 
 # Build directories
 pms/target/
