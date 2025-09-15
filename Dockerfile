@@ -27,7 +27,7 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
 # Set JVM options for better memory management
-ENV JAVA_OPTS="-Xmx512m -Xms256m -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0"
+ENV JAVA_OPTS="-Xmx512m -Xms256m -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -Dserver.port=8080 -Dserver.address=0.0.0.0"
 
 # Create a non-root user and switch to it
 RUN addgroup --system --gid 1001 appuser && \
@@ -39,9 +39,9 @@ USER appuser
 # Expose port
 EXPOSE 8080
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+# Health check with longer timeout and retries
+HEALTHCHECK --interval=10s --timeout=5s --start-period=30s --retries=10 \
     CMD curl -f http://localhost:8080/actuator/health || exit 1
 
-# Start the Spring Boot app
-ENTRYPOINT ["sh", "-c", "exec java $JAVA_OPTS -jar app.jar"]
+# Start the Spring Boot app with exec for proper signal handling
+ENTRYPOINT ["sh", "-c", "exec java $JAVA_OPTS -jar app.jar --spring.config.location=classpath:/application.properties,file:/app/config/application.properties"]
