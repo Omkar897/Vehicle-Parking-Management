@@ -1,22 +1,24 @@
-# Use official OpenJDK 17
-FROM openjdk:17-slim
+# Stage 1: build
+FROM maven:3.9.2-eclipse-temurin-17 AS build
 
-# Set working directory
 WORKDIR /app
 
-# Copy project
+# Copy project files
 COPY . /app
 
-# Install Maven
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y maven && \
-    rm -rf /var/lib/apt/lists/*
+# Build using Maven
+RUN mvn -f pms/pom.xml clean package -DskipTests
 
-# Build the project using system Maven (not mvnw)
-RUN cd pms && mvn clean package -DskipTests
+# Stage 2: runtime
+FROM eclipse-temurin:17-jdk-jammy
+
+WORKDIR /app
+
+# Copy JAR from build stage
+COPY --from=build /app/pms/target/*.jar app.jar
 
 # Expose port
 EXPOSE 8080
 
-# Run the JAR (explicit filename)
-CMD ["java", "-jar", "pms/target/vehicle-parking-management-system-0.0.1-SNAPSHOT.jar"]
+# Start the Spring Boot app
+CMD ["java", "-jar", "app.jar"]
