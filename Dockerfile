@@ -1,23 +1,22 @@
-# Use official OpenJDK 17 image
+# Use official OpenJDK 17
 FROM openjdk:17-slim
 
 # Set working directory
 WORKDIR /app
 
-# Copy all project files into container
+# Copy project
 COPY . /app
 
-# Make mvnw executable
-RUN chmod +x ./pms/mvnw
+# Install Maven
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y maven && \
+    rm -rf /var/lib/apt/lists/*
 
-# Install Maven (optional, in case you want to use system mvn)
-RUN apt-get update && apt-get install -y maven
+# Build the project using system Maven (not mvnw)
+RUN cd pms && mvn clean package -DskipTests
 
-# Build the Spring Boot project
-RUN cd pms && ./mvnw clean package -DskipTests
-
-# Expose port used by Spring Boot (default 8080)
+# Expose port
 EXPOSE 8080
 
-# Start the Spring Boot app
-CMD ["java", "-jar", "pms/target/*.jar"]
+# Run the JAR (explicit filename)
+CMD ["java", "-jar", "pms/target/vehicle-parking-management-system-0.0.1-SNAPSHOT.jar"]
