@@ -1,6 +1,7 @@
 <!-- user.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +19,7 @@
             --light-color: #ecf0f1;
             --dark-color: #34495e;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -27,7 +28,7 @@
             padding: 0;
             color: #333;
         }
-        
+
         .navbar {
             background: rgba(44, 62, 80, 0.9) !important;
             backdrop-filter: blur(10px);
@@ -36,28 +37,28 @@
             top: 0;
             z-index: 1000;
         }
-        
+
         .navbar-brand {
             font-weight: 700;
             font-size: 1.8rem;
             color: var(--light-color) !important;
         }
-        
+
         .navbar-brand span {
             color: var(--primary-color);
         }
-        
+
         .nav-link {
             color: var(--light-color) !important;
             font-weight: 500;
             transition: all 0.3s ease;
             position: relative;
         }
-        
+
         .nav-link:hover {
             color: var(--primary-color) !important;
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -68,28 +69,28 @@
             background-color: var(--primary-color);
             transition: all 0.3s ease;
         }
-        
+
         .nav-link:hover::after {
             width: 100%;
             left: 0;
         }
-        
+
         .user-container {
             padding: 3rem 0;
         }
-        
+
         .dashboard-header {
             margin-bottom: 2rem;
             padding-bottom: 1rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .dashboard-title {
             color: white;
             font-weight: 700;
             font-size: 2.2rem;
         }
-        
+
         .user-info {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -98,7 +99,7 @@
             margin-bottom: 2rem;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .user-avatar {
             width: 80px;
             height: 80px;
@@ -107,18 +108,18 @@
             border: 3px solid var(--primary-color);
             margin-right: 1rem;
         }
-        
+
         .user-details h4 {
             color: white;
             margin-bottom: 0.5rem;
         }
-        
+
         .user-details p {
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 0.2rem;
             font-size: 0.95rem;
         }
-        
+
         .card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -128,28 +129,28 @@
             transition: all 0.3s ease;
             overflow: hidden;
         }
-        
+
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        
+
         .card-header {
             background-color: rgba(255, 255, 255, 0.05);
             padding: 1rem 1.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .card-title {
             color: white;
             font-weight: 600;
             margin: 0;
         }
-        
+
         .card-body {
             padding: 1.5rem;
         }
-        
+
         .btn-primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
@@ -157,14 +158,14 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-primary:hover {
             background-color: #2980b9;
             border-color: #2980b9;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
         }
-        
+
         .btn-outline-light {
             border-color: var(--light-color);
             color: var(--light-color);
@@ -172,14 +173,14 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-outline-light:hover {
             background-color: var(--light-color);
             color: var(--secondary-color);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(236, 240, 241, 0.4);
         }
-        
+
         .btn-danger {
             background-color: var(--accent-color);
             border-color: var(--accent-color);
@@ -187,14 +188,14 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-danger:hover {
             background-color: #c0392b;
             border-color: #c0392b;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
         }
-        
+
         .btn-success {
             background-color: #27ae60;
             border-color: #27ae60;
@@ -202,14 +203,14 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-success:hover {
             background-color: #219653;
             border-color: #219653;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
         }
-        
+
         .booking-item {
             padding: 1rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -217,33 +218,33 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .booking-item:last-child {
             border-bottom: none;
         }
-        
+
         .booking-details {
             flex: 1;
         }
-        
+
         .booking-slot {
             color: white;
             font-weight: 600;
             margin-bottom: 0.3rem;
         }
-        
+
         .booking-time {
             color: rgba(255, 255, 255, 0.8);
             font-size: 0.9rem;
             margin-bottom: 0.3rem;
         }
-        
+
         .booking-amount {
             color: var(--primary-color);
             font-weight: 600;
             font-size: 1.1rem;
         }
-        
+
         .booking-status {
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
@@ -251,112 +252,122 @@
             font-weight: 600;
             text-transform: uppercase;
         }
-        
+
         .status-booked {
             background-color: rgba(52, 152, 219, 0.2);
             color: var(--primary-color);
         }
-        
+
         .status-completed {
             background-color: rgba(46, 204, 113, 0.2);
             color: #27ae60;
         }
-        
+
         .status-cancelled {
             background-color: rgba(231, 76, 60, 0.2);
             color: var(--accent-color);
         }
-        
+
         .form-label {
             color: rgba(255, 255, 255, 0.9);
             font-weight: 500;
         }
-        
-        .form-control, .form-select {
+
+        .form-control,
+        .form-select {
             background-color: rgba(255, 255, 255, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
             border-radius: 8px;
             padding: 10px 15px;
         }
-        
-        .form-control::placeholder, .form-select {
+
+        .form-control::placeholder,
+        .form-select {
             color: rgba(255, 255, 255, 0.7);
         }
-        
-        .form-control:focus, .form-select:focus {
+
+        .form-control:focus,
+        .form-select:focus {
             background-color: rgba(255, 255, 255, 0.3);
             border-color: var(--primary-color);
             color: white;
             box-shadow: none;
         }
-        
-        .form-floating > label {
+
+        .form-floating>label {
             color: rgba(255, 255, 255, 0.7);
         }
-        
+
         .alert {
             border-radius: 8px;
             margin-bottom: 1rem;
             padding: 1rem;
             display: none;
         }
-        
+
         .alert-success {
             background-color: rgba(40, 167, 69, 0.2);
             border: 1px solid rgba(40, 167, 69, 0.3);
             color: #28a745;
         }
-        
+
         .alert-danger {
             background-color: rgba(220, 53, 69, 0.2);
             border: 1px solid rgba(220, 53, 69, 0.3);
             color: #dc3545;
         }
-        
+
         .alert-show {
             display: block;
             animation: fadeIn 0.5s;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .modal-content {
             background: rgba(44, 62, 80, 0.95);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
         }
-        
+
         .modal-header {
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding: 1.5rem;
         }
-        
+
         .modal-title {
             color: white;
             font-weight: 600;
         }
-        
+
         .modal-body {
             padding: 1.5rem;
             color: rgba(255, 255, 255, 0.9);
         }
-        
+
         .modal-footer {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding: 1rem 1.5rem;
         }
-        
+
         .payment-method {
             display: flex;
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .payment-option {
             flex: 1;
             padding: 1rem;
@@ -367,36 +378,37 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
-        .payment-option:hover, .payment-option.selected {
+
+        .payment-option:hover,
+        .payment-option.selected {
             border-color: var(--primary-color);
             background-color: rgba(52, 152, 219, 0.1);
             color: var(--primary-color);
             transform: translateY(-2px);
         }
-        
+
         .payment-option i {
             font-size: 2rem;
             margin-bottom: 0.5rem;
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 767.98px) {
             .user-details {
                 text-align: center;
                 margin-bottom: 1rem;
             }
-            
+
             .user-avatar {
                 margin: 0 auto 1rem auto;
                 display: block;
             }
-            
+
             .booking-item {
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .booking-actions {
                 margin-top: 1rem;
                 display: flex;
@@ -405,6 +417,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -412,7 +425,8 @@
             <a class="navbar-brand" href="/">
                 <i class="fas fa-parking"></i> Park<span>Easy</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -444,10 +458,11 @@
                 <h1 class="dashboard-title">Welcome, <span id="userName">John</span>!</h1>
                 <p class="text-white-50">Manage your parking bookings and account settings</p>
             </div>
-            
+
             <!-- User Info -->
             <div class="user-info d-flex align-items-center">
-                <img src="https://ui-avatars.com/api/?name=John+Doe&background=3498db&color=fff&size=128" alt="User Avatar" class="user-avatar">
+                <img src="https://ui-avatars.com/api/?name=John+Doe&background=3498db&color=fff&size=128"
+                    alt="User Avatar" class="user-avatar">
                 <div class="user-details">
                     <h4 id="userFullName">John Doe</h4>
                     <p><i class="fas fa-envelope me-2"></i> <span id="userEmail">john@example.com</span></p>
@@ -455,7 +470,7 @@
                     <p><i class="fas fa-calendar-alt me-2"></i> Member since: <span id="userSince">Jan 2023</span></p>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-8">
                     <!-- Book Parking Slot Card -->
@@ -466,7 +481,7 @@
                         <div class="card-body">
                             <!-- Alert messages -->
                             <div id="bookingAlertContainer"></div>
-                            
+
                             <form id="bookingForm">
                                 <div class="row g-3">
                                     <div class="col-md-6">
@@ -519,7 +534,7 @@
                             </form>
                         </div>
                     </div>
-                    
+
                     <!-- My Bookings Card -->
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
@@ -531,15 +546,16 @@
                         <div class="card-body">
                             <!-- Alert messages -->
                             <div id="bookingsAlertContainer"></div>
-                            
+
                             <div id="bookingsList">
                                 <!-- Booking items will be populated here -->
-                                <p class="text-center text-white-50">No bookings found. Book your first parking slot!</p>
+                                <p class="text-center text-white-50">No bookings found. Book your first parking slot!
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4">
                     <!-- Parking Statistics Card -->
                     <div class="card">
@@ -557,11 +573,12 @@
                                     <p class="text-white-50 mb-0" id="availableSlotsCount">15</p>
                                 </div>
                             </div>
-                            
+
                             <div class="progress mb-4" style="height: 10px;">
-                                <div class="progress-bar bg-primary" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 50%;"
+                                    aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            
+
                             <div class="row g-3">
                                 <div class="col-12">
                                     <div class="d-flex justify-content-between">
@@ -584,7 +601,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Quick Actions Card -->
                     <div class="card">
                         <div class="card-header">
@@ -592,7 +609,8 @@
                         </div>
                         <div class="card-body">
                             <div class="d-grid gap-2">
-                                <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                <button class="btn btn-outline-light" data-bs-toggle="modal"
+                                    data-bs-target="#bookingModal">
                                     <i class="fas fa-calendar-plus me-2"></i> New Booking
                                 </button>
                                 <button class="btn btn-outline-light" id="viewHistory">
@@ -624,7 +642,8 @@
                     <p><strong>Exit Time:</strong> <span id="modalExitTime">2023-06-15 14:00</span></p>
                     <p><strong>Duration:</strong> <span id="modalDuration">4</span> hours</p>
                     <p><strong>Total Cost:</strong> $<span id="modalCost">20.00</span></p>
-                    <p class="text-warning"><i class="fas fa-exclamation-triangle me-2"></i> Please arrive on time. Late arrivals may result in slot unavailability.</p>
+                    <p class="text-warning"><i class="fas fa-exclamation-triangle me-2"></i> Please arrive on time. Late
+                        arrivals may result in slot unavailability.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -645,7 +664,7 @@
                 <div class="modal-body">
                     <p><strong>Booking:</strong> <span id="paymentBookingId">#12345</span></p>
                     <p><strong>Amount:</strong> $<span id="paymentAmount">20.00</span></p>
-                    
+
                     <h6 class="mt-4 mb-3">Select Payment Method</h6>
                     <div class="payment-method">
                         <div class="payment-option" data-method="CREDIT_CARD">
@@ -661,7 +680,7 @@
                             <div>UPI</div>
                         </div>
                     </div>
-                    
+
                     <form id="paymentForm">
                         <input type="hidden" id="paymentBookingIdInput">
                         <div class="alert alert-info">
@@ -690,7 +709,8 @@
                     <p>Are you sure you want to cancel this booking?</p>
                     <p><strong>Slot:</strong> <span id="cancelSlotNumber">A1</span></p>
                     <p><strong>Date:</strong> <span id="cancelDate">June 15, 2023</span></p>
-                    <p class="text-danger"><i class="fas fa-exclamation-triangle me-2"></i> Cancellation is final. No refund will be provided for already paid bookings.</p>
+                    <p class="text-danger"><i class="fas fa-exclamation-triangle me-2"></i> Cancellation is final. No
+                        refund will be provided for already paid bookings.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keep Booking</button>
@@ -702,39 +722,45 @@
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- Custom JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        // FIXED: Dynamic base URL detection for production deployment
+        const BASE_URL = window.location.origin;
+        // This will automatically be:
+        // - http://localhost:8080 (when testing locally)
+        // - https://vehicle-parking-management-production.up.railway.app (when deployed)
+
+        document.addEventListener('DOMContentLoaded', function () {
             // DOM elements
             const userName = document.getElementById('userName');
             const userFullName = document.getElementById('userFullName');
             const userEmail = document.getElementById('userEmail');
             const userPhone = document.getElementById('userPhone');
             const userSince = document.getElementById('userSince');
-            
+
             const vehicleType = document.getElementById('vehicleType');
             const slotNumber = document.getElementById('slotNumber');
             const entryTime = document.getElementById('entryTime');
             const exitTime = document.getElementById('exitTime');
             const duration = document.getElementById('duration');
             const cost = document.getElementById('cost');
-            
+
             const bookingForm = document.getElementById('bookingForm');
             const bookingAlertContainer = document.getElementById('bookingAlertContainer');
             const bookingsAlertContainer = document.getElementById('bookingsAlertContainer');
             const bookingsList = document.getElementById('bookingsList');
-            
+
             const availableSlotsCount = document.getElementById('availableSlotsCount');
             const twoWheelerStats = document.getElementById('twoWheelerStats');
             const threeWheelerStats = document.getElementById('threeWheelerStats');
             const fourWheelerStats = document.getElementById('fourWheelerStats');
-            
+
             const logoutLink = document.getElementById('logoutLink');
             const refreshBookings = document.getElementById('refreshBookings');
             const viewHistory = document.getElementById('viewHistory');
             const updateProfile = document.getElementById('updateProfile');
-            
+
             // Modal elements
             const bookingModal = document.getElementById('bookingModal');
             const modalSlotNumber = document.getElementById('modalSlotNumber');
@@ -744,18 +770,18 @@
             const modalDuration = document.getElementById('modalDuration');
             const modalCost = document.getElementById('modalCost');
             const confirmBookingBtn = document.getElementById('confirmBooking');
-            
+
             const paymentModal = document.getElementById('paymentModal');
             const paymentBookingId = document.getElementById('paymentBookingId');
             const paymentAmount = document.getElementById('paymentAmount');
             const paymentBookingIdInput = document.getElementById('paymentBookingIdInput');
             const processPaymentBtn = document.getElementById('processPayment');
-            
+
             const cancelModal = document.getElementById('cancelModal');
             const cancelSlotNumber = document.getElementById('cancelSlotNumber');
             const cancelDate = document.getElementById('cancelDate');
             const confirmCancelBtn = document.getElementById('confirmCancel');
-            
+
             // Current user data (in a real app, this would come from the API)
             const currentUser = {
                 id: 1,
@@ -765,22 +791,22 @@
                 phoneNumber: '+1 (555) 123-4567',
                 createdAt: '2023-01-15'
             };
-            
+
             // Set current user data
             function setCurrentUser(user) {
                 userName.textContent = user.username;
                 userFullName.textContent = user.fullName;
                 userEmail.textContent = user.email;
                 userPhone.textContent = user.phoneNumber;
-                userSince.textContent = new Date(user.createdAt).toLocaleDateString('en-US', { 
-                    year: 'numeric', 
-                    month: 'long' 
+                userSince.textContent = new Date(user.createdAt).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long'
                 });
             }
-            
+
             // Set current user
             setCurrentUser(currentUser);
-            
+
             // Show alert function
             function showAlert(container, message, type) {
                 container.innerHTML = `
@@ -789,7 +815,7 @@
                         ${message}
                     </div>
                 `;
-                
+
                 // Hide alert after 5 seconds
                 setTimeout(() => {
                     const alert = container.querySelector('.alert');
@@ -801,7 +827,7 @@
                     }
                 }, 5000);
             }
-            
+
             // Format date and time
             function formatDateTime(dateTimeStr) {
                 const date = new Date(dateTimeStr);
@@ -813,18 +839,18 @@
                     minute: '2-digit'
                 });
             }
-            
+
             // Calculate duration and cost
             function calculateDurationAndCost() {
                 if (entryTime.value && exitTime.value) {
                     const entry = new Date(entryTime.value);
                     const exit = new Date(exitTime.value);
-                    
+
                     if (exit > entry) {
                         const diffMs = exit - entry;
                         const diffHrs = Math.ceil(diffMs / (1000 * 60 * 60)); // Round up to nearest hour
                         duration.textContent = diffHrs;
-                        
+
                         // Get selected slot to determine rate
                         const selectedSlotOption = slotNumber.options[slotNumber.selectedIndex];
                         const hourlyRate = parseFloat(selectedSlotOption.getAttribute('data-rate')) || 5.00;
@@ -838,38 +864,43 @@
                     cost.textContent = '0.00';
                 }
             }
-            
-            // Load available slots based on vehicle type
+
+            // FIXED: Load available slots based on vehicle type using dynamic BASE_URL
             function loadAvailableSlots(vehicleType) {
-    slotNumber.innerHTML = '<option value="">Select Slot</option>';
-    slotNumber.disabled = true;
+                slotNumber.innerHTML = '<option value="">Select Slot</option>';
+                slotNumber.disabled = true;
 
-    if (!vehicleType) return;
+                if (!vehicleType) return;
 
-    fetch(`http://localhost:8080/api/parkingSlots?vehicleType=${vehicleType}&available=true`, { credentials: 'include' })
-        .then(response => response.json())
-        .then(slots => {
-            if (slots && slots.length > 0) {
-                slots.forEach(slot => {
-                    const option = document.createElement('option');
-                    option.value = slot.id; // Use real slot ID for backend booking
-                    option.textContent = `${slot.slotNumber} - $${slot.hourlyRate}/hr`;
-                    option.setAttribute('data-rate', slot.hourlyRate);
-                    slotNumber.appendChild(option);
-                });
-                slotNumber.disabled = false;
+                fetch(`${BASE_URL}/api/parkingSlots?vehicleType=${vehicleType}&available=true`, { credentials: 'include' })
+                    .then(response => response.json())
+                    .then(slots => {
+                        if (slots && slots.length > 0) {
+                            slots.forEach(slot => {
+                                const option = document.createElement('option');
+                                option.value = slot.id; // Use real slot ID for backend booking
+                                option.textContent = `${slot.slotNumber} - $${slot.hourlyRate}/hr`;
+                                option.setAttribute('data-rate', slot.hourlyRate);
+                                slotNumber.appendChild(option);
+                            });
+                            slotNumber.disabled = false;
+                        }
+                    })
+                    .catch(() => {
+                        showAlert(bookingAlertContainer, 'Failed to load available slots.', 'danger');
+                    });
             }
-        })
-        .catch(() => {
-            showAlert(bookingAlertContainer, 'Failed to load available slots.', 'danger');
-        });
-}
 
-            
-            // Populate bookings list
+            // Populate bookings list (currently using demo data)
             function populateBookings() {
-                // In a real app, this would be an API call
-                // For demo, we'll create some sample bookings
+                // TODO: Replace with real API call when backend is ready
+                // fetch(`${BASE_URL}/api/bookings/frontend`, { credentials: 'include' })
+                //     .then(response => response.json())
+                //     .then(bookings => {
+                //         // Process real bookings data
+                //     });
+
+                // For now, using demo data
                 const bookings = [
                     {
                         id: 12345,
@@ -902,17 +933,17 @@
                         status: 'COMPLETED'
                     }
                 ];
-                
+
                 if (bookings.length === 0) {
                     bookingsList.innerHTML = '<p class="text-center text-white-50">No bookings found. Book your first parking slot!</p>';
                     return;
                 }
-                
+
                 let bookingsHTML = '';
                 bookings.forEach(booking => {
                     const vehicleIcon = booking.vehicleType === 'TWO_WHEELER' ? 'motorcycle' :
-                                        booking.vehicleType === 'THREE_WHEELER' ? 'truck-pickup' : 'car';
-                    
+                        booking.vehicleType === 'THREE_WHEELER' ? 'truck-pickup' : 'car';
+
                     bookingsHTML += `
                         <div class="booking-item">
                             <div class="booking-details">
@@ -928,7 +959,7 @@
                             <div class="booking-status status-${booking.status.toLowerCase()}">${booking.status}</div>
                             <div class="booking-actions ms-3">
                     `;
-                    
+
                     if (booking.status === 'BOOKED') {
                         bookingsHTML += `
                                 <button class="btn btn-sm btn-success pay-btn" data-booking-id="${booking.id}" data-amount="${booking.totalAmount}">
@@ -945,84 +976,89 @@
                                 </button>
                         `;
                     }
-                    
+
                     bookingsHTML += `
                             </div>
                         </div>
                     `;
                 });
-                
+
                 bookingsList.innerHTML = bookingsHTML;
-                
+
                 // Add event listeners to payment buttons
                 document.querySelectorAll('.pay-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
+                    btn.addEventListener('click', function () {
                         const bookingId = this.getAttribute('data-booking-id');
                         const amount = this.getAttribute('data-amount');
-                        
+
                         paymentBookingId.textContent = '#' + bookingId;
                         paymentAmount.textContent = amount;
                         paymentBookingIdInput.value = bookingId;
-                        
+
                         const paymentModalInstance = bootstrap.Modal.getOrCreateInstance(paymentModal);
                         paymentModalInstance.show();
                     });
                 });
-                
+
                 // Add event listeners to cancel buttons
                 document.querySelectorAll('.cancel-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
+                    btn.addEventListener('click', function () {
                         const bookingId = this.getAttribute('data-booking-id');
                         const slot = this.getAttribute('data-slot');
                         const date = this.getAttribute('data-date');
-                        
+
                         cancelSlotNumber.textContent = slot;
                         cancelDate.textContent = date;
                         confirmCancelBtn.setAttribute('data-booking-id', bookingId);
-                        
+
                         const cancelModalInstance = bootstrap.Modal.getOrCreateInstance(cancelModal);
                         cancelModalInstance.show();
                     });
                 });
             }
-            
-            // Load parking statistics
+
+            // Load parking statistics (currently using demo data)
             function loadStatistics() {
-                // In a real app, this would be an API call
-                // For demo, we'll use sample data
+                // TODO: Replace with real API call when backend is ready
+                // fetch(`${BASE_URL}/api/parkingSlots/stats`)
+                //     .then(response => response.json())
+                //     .then(data => {
+                //         // Process real statistics data
+                //     });
+
+                // For now, using demo data
                 availableSlotsCount.textContent = '15';
-                
+
                 // Update progress bar
                 const progressBar = document.querySelector('.progress-bar');
                 progressBar.style.width = '50%';
-                
+
                 // Update vehicle statistics
                 twoWheelerStats.textContent = '5/10';
                 threeWheelerStats.textContent = '3/5';
                 fourWheelerStats.textContent = '7/15';
             }
-            
-            // Event Listeners
 
-vehicleType.addEventListener('change', function() {
-    loadAvailableSlots(this.value);
-    duration.textContent = '0';
-    cost.textContent = '0.00';
-});
-            
+            // Event Listeners
+            vehicleType.addEventListener('change', function () {
+                loadAvailableSlots(this.value);
+                duration.textContent = '0';
+                cost.textContent = '0.00';
+            });
+
             slotNumber.addEventListener('change', calculateDurationAndCost);
             entryTime.addEventListener('change', calculateDurationAndCost);
             exitTime.addEventListener('change', calculateDurationAndCost);
-            
+
             // Booking form submission
-            bookingForm.addEventListener('submit', function(e) {
+            bookingForm.addEventListener('submit', function (e) {
                 e.preventDefault();
-                
+
                 if (!vehicleType.value || !slotNumber.value || !entryTime.value || !exitTime.value) {
                     showAlert(bookingAlertContainer, 'Please fill in all fields.', 'danger');
                     return;
                 }
-                
+
                 // Set modal values
                 modalSlotNumber.textContent = slotNumber.value;
                 modalVehicleType.textContent = vehicleType.options[vehicleType.selectedIndex].text;
@@ -1030,7 +1066,7 @@ vehicleType.addEventListener('change', function() {
                 modalExitTime.textContent = formatDateTime(exitTime.value);
                 modalDuration.textContent = duration.textContent;
                 modalCost.textContent = cost.textContent;
-                
+
                 // Store form data for later use
                 modalCost.formData = {
                     vehicleType: vehicleType.value,
@@ -1040,121 +1076,119 @@ vehicleType.addEventListener('change', function() {
                     totalHours: parseInt(duration.textContent),
                     totalAmount: parseFloat(cost.textContent)
                 };
-                
+
                 // Show booking modal
                 const bookingModalInstance = bootstrap.Modal.getOrCreateInstance(bookingModal);
                 bookingModalInstance.show();
             });
-            
-            // Confirm booking
-              confirmBookingBtn.addEventListener('click', function() {
-               console.log("DEBUG: vehicleType element value = ", vehicleType.value);
-    const bookingData = {
-        parkingSlotId: slotNumber.value,  // Ensure this is the actual slot ID
-        entryTime: entryTime.value,
-        exitTime: exitTime.value
-    };
 
-    fetch('http://localhost:8080/api/bookings', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify(bookingData)
-    })
-    .then(response => {
-        if (!response.ok) throw new Error('Booking failed');
-        return response.json();
-    })
-    .then(data => {
-        showAlert(bookingAlertContainer, 'Parking slot booked successfully!', 'success');
-        const bookingModalInstance = bootstrap.Modal.getInstance(bookingModal);
-        bookingModalInstance.hide();
-        bookingForm.reset();
-        duration.textContent = '0';
-        cost.textContent = '0.00';
-        slotNumber.disabled = true;
-        populateBookings(); // Fetch bookings from backend and refresh list
-    })
-    .catch(error => {
-        showAlert(bookingAlertContainer, error.message, 'danger');
-    });
-});
+            // FIXED: Confirm booking using dynamic BASE_URL
+            confirmBookingBtn.addEventListener('click', function () {
+                console.log("DEBUG: vehicleType element value = ", vehicleType.value);
+                const bookingData = {
+                    parkingSlotId: slotNumber.value,  // Ensure this is the actual slot ID
+                    entryTime: entryTime.value,
+                    exitTime: exitTime.value
+                };
 
-                
-                // Close modal
-                const bookingModalInstance = bootstrap.Modal.getInstance(bookingModal);
-                bookingModalInstance.hide();
-                
-                // Reset form
-                bookingForm.reset();
-                duration.textContent = '0';
-                cost.textContent = '0.00';
-                slotNumber.disabled = true;
-                
-                // Refresh bookings list
-                populateBookings();
+                fetch(`${BASE_URL}/api/bookings`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify(bookingData)
+                })
+                    .then(response => {
+                        if (!response.ok) throw new Error('Booking failed');
+                        return response.json();
+                    })
+                    .then(data => {
+                        showAlert(bookingAlertContainer, 'Parking slot booked successfully!', 'success');
+                        const bookingModalInstance = bootstrap.Modal.getInstance(bookingModal);
+                        bookingModalInstance.hide();
+                        bookingForm.reset();
+                        duration.textContent = '0';
+                        cost.textContent = '0.00';
+                        slotNumber.disabled = true;
+                        populateBookings(); // Refresh bookings list
+                    })
+                    .catch(error => {
+                        showAlert(bookingAlertContainer, error.message, 'danger');
+                    });
             });
-            
-            // Process payment
-            processPaymentBtn.addEventListener('click', function() {
-                // In a real app, this would be an API call
-                // For demo, we'll simulate a successful payment
+
+            // Process payment (currently demo functionality)
+            processPaymentBtn.addEventListener('click', function () {
+                // TODO: Replace with real API call when backend is ready
+                // const bookingId = paymentBookingIdInput.value;
+                // fetch(`${BASE_URL}/api/payments/initiate`, {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({ bookingId: bookingId, paymentMethod: 'CASH' }),
+                //     credentials: 'include'
+                // });
+
+                // For now, simulate successful payment
                 showAlert(bookingsAlertContainer, 'Payment processed successfully!', 'success');
-                
+
                 // Close modal
                 const paymentModalInstance = bootstrap.Modal.getInstance(paymentModal);
                 paymentModalInstance.hide();
-                
+
                 // Refresh bookings list
                 populateBookings();
             });
-            
-            // Confirm cancel booking
-            confirmCancelBtn.addEventListener('click', function() {
+
+            // Confirm cancel booking (currently demo functionality)
+            confirmCancelBtn.addEventListener('click', function () {
                 const bookingId = this.getAttribute('data-booking-id');
-                
-                // In a real app, this would be an API call
-                // For demo, we'll simulate a successful cancellation
+
+                // TODO: Replace with real API call when backend is ready
+                // fetch(`${BASE_URL}/api/bookings/${bookingId}`, {
+                //     method: 'DELETE',
+                //     credentials: 'include'
+                // });
+
+                // For now, simulate successful cancellation
                 showAlert(bookingsAlertContainer, 'Booking cancelled successfully!', 'success');
-                
+
                 // Close modal
                 const cancelModalInstance = bootstrap.Modal.getInstance(cancelModal);
                 cancelModalInstance.hide();
-                
+
                 // Refresh bookings list
                 populateBookings();
             });
-            
+
             // Refresh bookings
-            refreshBookings.addEventListener('click', function() {
+            refreshBookings.addEventListener('click', function () {
                 showAlert(bookingsAlertContainer, 'Bookings refreshed!', 'info');
                 populateBookings();
             });
-            
+
             // View booking history
-            viewHistory.addEventListener('click', function() {
+            viewHistory.addEventListener('click', function () {
                 showAlert(bookingsAlertContainer, 'Showing booking history...', 'info');
                 // In a real app, this might filter to show only completed bookings
             });
-            
+
             // Update profile
-            updateProfile.addEventListener('click', function() {
+            updateProfile.addEventListener('click', function () {
                 showAlert(bookingAlertContainer, 'Profile update feature coming soon!', 'info');
             });
-            
+
             // Logout
-            logoutLink.addEventListener('click', function(e) {
+            logoutLink.addEventListener('click', function (e) {
                 e.preventDefault();
                 if (confirm('Are you sure you want to logout?')) {
                     // In a real app, this would clear the session and redirect
                     window.location.href = 'index.html';
                 }
             });
-            
+
             // Initialize the page
             loadStatistics();
             populateBookings();
-            
+
             // Set minimum date for datetime-local inputs
             const now = new Date();
             const year = now.getFullYear();
@@ -1162,30 +1196,33 @@ vehicleType.addEventListener('change', function() {
             const day = String(now.getDate()).padStart(2, '0');
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
-            
-            const minDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
 
-            
+            const minDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+            entryTime.setAttribute('min', minDateTime);
+            exitTime.setAttribute('min', minDateTime);
+
             // Payment method selection
             document.querySelectorAll('.payment-option').forEach(option => {
-                option.addEventListener('click', function() {
+                option.addEventListener('click', function () {
                     // Remove selected class from all options
                     document.querySelectorAll('.payment-option').forEach(opt => {
                         opt.classList.remove('selected');
                     });
-                    
+
                     // Add selected class to clicked option
                     this.classList.add('selected');
-                    
+
                     // Store selected payment method
                     document.getElementById('paymentForm').setAttribute('data-payment-method', this.getAttribute('data-method'));
                 });
             });
-            
-            // Set a default payment method
-            document.querySelector('.payment-option').click();
-        });
 
+            // Set a default payment method
+            if (document.querySelector('.payment-option')) {
+                document.querySelector('.payment-option').click();
+            }
+        });
     </script>
 </body>
+
 </html>

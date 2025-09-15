@@ -1,66 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <title>Admin Dashboard Reports</title>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard Reports</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body {
-          font-family: Arial, sans-serif;
-          background: #24496a;
-          color: #fff;
-          padding: 2rem;
-        }
-        h1 {
-          text-align: center;
-          margin-bottom: 2rem;
-        }
-        .chart-container {
-          max-width: 600px;
-          margin: 0 auto 3rem;
-          background: rgba(255,255,255,0.1);
-          padding: 1rem 1.5rem;
-          border-radius: 15px;
-        }
-        canvas {
-          background: #2c3e50;
-          border-radius: 8px;
-          padding: 10px;
-        }
-        a.btn.btn-primary:hover {
-  background-color: #0056b3;
-  box-shadow: 0 6px 14px rgba(0, 86, 179, 0.6);
-  transform: translateY(-2px);
-}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #24496a;
+      color: #fff;
+      padding: 2rem;
+    }
 
-    </style>
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .chart-container {
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem 1.5rem;
+      border-radius: 15px;
+    }
+
+    canvas {
+      background: #2c3e50;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    a.btn.btn-primary:hover {
+      background-color: #0056b3;
+      box-shadow: 0 6px 14px rgba(0, 86, 179, 0.6);
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
-<body>
-<h1>Admin Dashboard Reports</h1>
-<div id="reportsAlertContainer" style="text-align: center; margin-bottom: 10px;"></div>
 
-<div class="chart-container">
+<body>
+  <h1>Admin Dashboard Reports</h1>
+  <div id="reportsAlertContainer" style="text-align: center; margin-bottom: 10px;"></div>
+
+  <div class="chart-container">
     <h2>User Statistics</h2>
     <canvas id="usersChart" width="600" height="300"></canvas>
-</div>
+  </div>
 
-<div class="chart-container">
+  <div class="chart-container">
     <h2>Revenue</h2>
     <canvas id="revenueChart" width="600" height="300"></canvas>
-</div>
+  </div>
 
-<div class="chart-container">
+  <div class="chart-container">
     <h2>Booking Stats</h2>
     <canvas id="bookingsChart" width="600" height="300"></canvas>
-</div>
+  </div>
 
-<script>
+  <script>
+    // FIXED: Dynamic base URL detection for production deployment
+    const BASE_URL = window.location.origin;
+    // This will automatically be:
+    // - http://localhost:8080 (when testing locally)
+    // - https://vehicle-parking-management-production.up.railway.app (when deployed)
+
     async function fetchAndRenderReports() {
       try {
-        const res = await fetch('/api/admin/report/summary');
+        // FIXED: Using dynamic BASE_URL instead of hardcoded localhost
+        const res = await fetch(`${BASE_URL}/api/admin/report/summary`);
         if (!res.ok) throw new Error('Failed to fetch reports data');
         const stats = await res.json();
 
@@ -155,22 +167,23 @@
         });
 
       } catch (error) {
-        alert('Error loading reports: ' + error.message);
+        console.error('Error loading reports:', error);
+        document.getElementById('reportsAlertContainer').innerHTML =
+          `<div style="color: #ff6b6b; background: rgba(255,107,107,0.1); padding: 10px; border-radius: 5px; margin: 10px 0;">
+             Error loading reports: ${error.message}. Please check if the backend API is running.
+           </div>`;
       }
     }
 
     // Load and render charts on page load
     window.onload = fetchAndRenderReports;
+  </script>
 
-
-
-</script>
-
-
-<a href="admin.html" class="btn btn-primary" style="margin: 20px; display: inline-flex; align-items: center; border-radius: 30px; padding: 10px 20px; font-weight: 600; box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5); transition: transform 0.2s ease;">
+  <a href="admin.html" class="btn btn-primary"
+    style="margin: 20px; display: inline-flex; align-items: center; border-radius: 30px; padding: 10px 20px; font-weight: 600; box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5); transition: transform 0.2s ease;">
     <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Back to Dashboard
-</a>
-
+  </a>
 
 </body>
+
 </html>

@@ -1,246 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Manage Users - ParkEasy Admin</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Manage Users - ParkEasy Admin</title>
 
-    <!-- Bootstrap CSS (Ensure matching version to your admin dashboard) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap CSS (Ensure matching version to your admin dashboard) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- FontAwesome for icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-
-
-
-    <style>
-        /* Your existing admin dashboard CSS copied here ensure exact styling */
-        /* ... (Paste the entire CSS you provided here) ... */
-
-.table {
-    background-color: #24496a !important;   /* Set a dark blue background */
-    color: #fff;
-}
-
-.table th, .table td {
-    background-color: inherit !important;   /* Ensure cells use the table bg color */
-    color: #fff !important;                 /* White text in all table cells */
-}
-
-        /* Additional styles specific for this page */
-        body {
-            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
-            color: #fff;
-            padding-bottom: 3rem;
-        }
-
-        .container {
-            max-width: 900px;
-            margin-top: 2rem;
-        }
-
-h1 {
-    color: #fff;
-    margin-bottom: 1rem;
-    text-align: center;           /* <-- Center the heading */
-    font-weight: 700;
-    /* Optionally increase font-size for more emphasis */
-    font-size: 2.6rem;
-    letter-spacing: 1px;
-}
+  <!-- FontAwesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
 
-        /* Styled card container matching dashboard */
-        .card {
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 1rem 1.5rem;
-            margin-bottom: 2rem;
-        }
 
-        /* Table styling consistent with your theme */
-        table {
-            color: #fff;
-        }
-        thead th {
-            border-bottom-color: rgba(255,255,255,0.2);
-        }
-        tbody tr:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
+  <style>
+    /* Your existing admin dashboard CSS copied here ensure exact styling */
+    /* ... (Paste the entire CSS you provided here) ... */
 
-#alertContainer {
-    position: fixed;
-    top: 30px;          /* Space below your navbar/header */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 350px;       /* Or 90%, max-width: 400px; for mobile-friendly */
-    z-index: 1050;
-    text-align: center;
-}
-#alertContainer {
-    position: fixed;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1050;
-    width: 400px;
-    max-width: 90%;
-    text-align: center;
-}
+    .table {
+      background-color: #24496a !important;
+      /* Set a dark blue background */
+      color: #fff;
+    }
 
-.alert {
-    display: inline-block;
-    font-size: 1.3rem;
-    font-weight: 800;
-    padding: 1.2rem 1.5rem;
-    border-radius: 12px;
-    border-width: 3px;
-    border-style: solid;
-    margin: 0 auto;
-    box-shadow: 0 4px 36px rgba(44, 62, 80, 0.24);
+    .table th,
+    .table td {
+      background-color: inherit !important;
+      /* Ensure cells use the table bg color */
+      color: #fff !important;
+      /* White text in all table cells */
+    }
 
-    /* Always a solid background for maximum contrast: */
-    background: #183655;
-    color: #fff;
-    letter-spacing: 0.02em;
-    min-width: 220px;
-}
+    /* Additional styles specific for this page */
+    body {
+      background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+      color: #fff;
+      padding-bottom: 3rem;
+    }
 
-.alert-success {
-    border-color: #27ae60;
-    background: #27ae60 !important;
-    color: #fff !important;
-}
+    .container {
+      max-width: 900px;
+      margin-top: 2rem;
+    }
 
-.alert-danger {
-    border-color: #e74c3c;
-    background: #e74c3c !important;
-    color: #fff !important;
-}
+    h1 {
+      color: #fff;
+      margin-bottom: 1rem;
+      text-align: center;
+      /* <-- Center the heading */
+      font-weight: 700;
+      /* Optionally increase font-size for more emphasis */
+      font-size: 2.6rem;
+      letter-spacing: 1px;
+    }
 
-.alert-warning {
-    border-color: #f1c40f;
-    background: #f1c40f !important;
-    color: #333 !important;
-}
 
-        /* Buttons */
-        .btn-icon {
-            background: transparent;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            font-size: 1.2rem;
-            margin-left: 8px;
-        }
+    /* Styled card container matching dashboard */
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+    }
 
-   .btn-icon.save,
-.btn-icon.cancel {
-    color: #27ae60; /* for save */
-    /* color: #f1c40f; for cancel, you can keep or move below */
-    display: none;
-}
-.btn-icon.cancel {
-    color: #f1c40f;
-}
+    /* Table styling consistent with your theme */
+    table {
+      color: #fff;
+    }
 
-        .btn-icon.edit {
-            color: #3498db;
-        }
-        .btn-icon.delete {
-            color: #e74c3c;
-        }
+    thead th {
+      border-bottom-color: rgba(255, 255, 255, 0.2);
+    }
 
-        /* Back to dashboard button */
-        #backBtn {
-            margin-bottom: 1.5rem;
-            color: #3498db;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        #backBtn:hover {
-            text-decoration: underline;
-        }
+    tbody tr:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
 
-        input.input-field {
-    width: 100%;
-    min-width: 0;
-    box-sizing: border-box;
-    padding: 0.3em 0.7em;
-    font-size: 1rem;
-    background: rgba(255,255,255,0.08);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    transition: background 0.2s, box-shadow 0.2s;
-    margin: 0;
-    display: block;
-}
-input.input-field[readonly] {
-    background: rgba(255,255,255,0.08);
-    color: #fff;
-    border: none;
-}
-input.input-field:focus {
-    background: rgba(255,255,255,0.18);
-    outline: 2px solid #3498db;
-    box-shadow: 0 0 2px #3498db;
-}
-.table td, .table th {
-    vertical-align: middle !important;
-}
+    #alertContainer {
+      position: fixed;
+      top: 30px;
+      /* Space below your navbar/header */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 350px;
+      /* Or 90%, max-width: 400px; for mobile-friendly */
+      z-index: 1050;
+      text-align: center;
+    }
 
-    </style>
+    #alertContainer {
+      position: fixed;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1050;
+      width: 400px;
+      max-width: 90%;
+      text-align: center;
+    }
+
+    .alert {
+      display: inline-block;
+      font-size: 1.3rem;
+      font-weight: 800;
+      padding: 1.2rem 1.5rem;
+      border-radius: 12px;
+      border-width: 3px;
+      border-style: solid;
+      margin: 0 auto;
+      box-shadow: 0 4px 36px rgba(44, 62, 80, 0.24);
+
+      /* Always a solid background for maximum contrast: */
+      background: #183655;
+      color: #fff;
+      letter-spacing: 0.02em;
+      min-width: 220px;
+    }
+
+    .alert-success {
+      border-color: #27ae60;
+      background: #27ae60 !important;
+      color: #fff !important;
+    }
+
+    .alert-danger {
+      border-color: #e74c3c;
+      background: #e74c3c !important;
+      color: #fff !important;
+    }
+
+    .alert-warning {
+      border-color: #f1c40f;
+      background: #f1c40f !important;
+      color: #333 !important;
+    }
+
+    /* Buttons */
+    .btn-icon {
+      background: transparent;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1.2rem;
+      margin-left: 8px;
+    }
+
+    .btn-icon.save,
+    .btn-icon.cancel {
+      color: #27ae60;
+      /* for save */
+      /* color: #f1c40f; for cancel, you can keep or move below */
+      display: none;
+    }
+
+    .btn-icon.cancel {
+      color: #f1c40f;
+    }
+
+    .btn-icon.edit {
+      color: #3498db;
+    }
+
+    .btn-icon.delete {
+      color: #e74c3c;
+    }
+
+    /* Back to dashboard button */
+    #backBtn {
+      margin-bottom: 1.5rem;
+      color: #3498db;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    #backBtn:hover {
+      text-decoration: underline;
+    }
+
+    input.input-field {
+      width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      padding: 0.3em 0.7em;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      transition: background 0.2s, box-shadow 0.2s;
+      margin: 0;
+      display: block;
+    }
+
+    input.input-field[readonly] {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: none;
+    }
+
+    input.input-field:focus {
+      background: rgba(255, 255, 255, 0.18);
+      outline: 2px solid #3498db;
+      box-shadow: 0 0 2px #3498db;
+    }
+
+    .table td,
+    .table th {
+      vertical-align: middle !important;
+    }
+  </style>
 </head>
+
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="admin.html">
-            <i class="fas fa-parking"></i> Park<span>Easy</span> Admin
-        </a>
-        <a id="backBtn" href="admin.html" class="btn btn-outline-light">
-            <i class="fas fa-arrow-left"></i> Back to Dashboard
-        </a>
+      <a class="navbar-brand" href="admin.html">
+        <i class="fas fa-parking"></i> Park<span>Easy</span> Admin
+      </a>
+      <a id="backBtn" href="admin.html" class="btn btn-outline-light">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+      </a>
 
     </div>
-</nav>
+  </nav>
 
 
-<div class="container">
+  <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="mb-0">User Management</h1>
-        <button class="btn btn-sm btn-outline-light" id="refreshUsers">
-            <i class="fas fa-sync"></i> Refresh
-        </button>
+      <h1 class="mb-0">User Management</h1>
+      <button class="btn btn-sm btn-outline-light" id="refreshUsers">
+        <i class="fas fa-sync"></i> Refresh
+      </button>
     </div>
     <div class="card">
 
-    <div class="table-responsive">
-            <table class="table table-borderless text-white align-middle">
-                <thead>
-                <tr>
-                    <th scope="col" style="width:5%;">ID</th>
-                    <th scope="col" style="width:30%;">Username</th>
-                    <th scope="col" style="width:35%;">Email</th>
-                    <th scope="col" style="width:20%;">Phone Number</th>
-                    <th scope="col" style="width:10%;" class="text-center">Actions</th>
-                </tr>
-                </thead>
-                <tbody id="usersTableBody">
-                <tr><td colspan="5" class="text-center text-muted">Loading users...</td></tr>
-                </tbody>
-            </table>
-        </div>
+      <div class="table-responsive">
+        <table class="table table-borderless text-white align-middle">
+          <thead>
+            <tr>
+              <th scope="col" style="width:5%;">ID</th>
+              <th scope="col" style="width:30%;">Username</th>
+              <th scope="col" style="width:35%;">Email</th>
+              <th scope="col" style="width:20%;">Phone Number</th>
+              <th scope="col" style="width:10%;" class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="usersTableBody">
+            <tr>
+              <td colspan="5" class="text-center text-muted">Loading users...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-</div>
+  </div>
 
-<div id="alertContainer" style="position: fixed; top: 1rem; right: 1rem; z-index: 1050;"></div>
+  <div id="alertContainer" style="position: fixed; top: 1rem; right: 1rem; z-index: 1050;"></div>
 
-<script>
-    const API_BASE = '/api/admin';
+  <script>
+    // FIXED: Dynamic base URL detection for production deployment
+    const BASE_URL = window.location.origin;
+    // This will automatically be:
+    // - http://localhost:8080 (when testing locally)
+    // - https://vehicle-parking-management-production.up.railway.app (when deployed)
+
+    const API_BASE = `${BASE_URL}/api/admin`; // FIXED: Using dynamic BASE_URL
     const usersTableBody = document.getElementById('usersTableBody');
     const alertContainer = document.getElementById('alertContainer');
 
@@ -262,6 +289,7 @@ input.input-field:focus {
     async function fetchUsers() {
       usersTableBody.innerHTML = `<tr><td colspan="5" class="text-center text-muted">Loading users...</td></tr>`;
       try {
+        // FIXED: API_BASE now includes dynamic BASE_URL
         const res = await fetch(`${API_BASE}/usermanagement/users`);
         if (!res.ok) throw new Error(`Failed to load users: ${res.status}`);
         const users = await res.json();
@@ -274,17 +302,17 @@ input.input-field:focus {
           const tr = document.createElement('tr');
           tr.dataset.id = user.id;
           tr.innerHTML = `
-            <td>${user.id}</td>
-            <td><input type="text" class="input-field" value="${user.username || ''}" readonly></td>
-            <td><input type="email" class="input-field" value="${user.email || ''}" readonly></td>
-            <td><input type="tel" class="input-field" value="${user.phoneNumber || ''}" readonly></td>
-            <td class="text-center">
-              <button class="btn-icon edit" title="Edit"><i class="fas fa-pen"></i></button>
-              <button class="btn-icon save" title="Save"><i class="fas fa-check"></i></button>
-              <button class="btn-icon cancel" title="Cancel"><i class="fas fa-times"></i></button>
-              <button class="btn-icon delete" title="Delete"><i class="fas fa-trash"></i></button>
-            </td>
-          `;
+          <td>${user.id}</td>
+          <td><input type="text" class="input-field" value="${user.username || ''}" readonly></td>
+          <td><input type="email" class="input-field" value="${user.email || ''}" readonly></td>
+          <td><input type="tel" class="input-field" value="${user.phoneNumber || ''}" readonly></td>
+          <td class="text-center">
+            <button class="btn-icon edit" title="Edit"><i class="fas fa-pen"></i></button>
+            <button class="btn-icon save" title="Save"><i class="fas fa-check"></i></button>
+            <button class="btn-icon cancel" title="Cancel"><i class="fas fa-times"></i></button>
+            <button class="btn-icon delete" title="Delete"><i class="fas fa-trash"></i></button>
+          </td>
+        `;
           usersTableBody.appendChild(tr);
 
           const inputs = tr.querySelectorAll('input');
@@ -315,68 +343,69 @@ input.input-field:focus {
             btnSave.style.display = 'none';
             btnCancel.style.display = 'none';
           });
-btnSave.addEventListener('click', async () => {
-  const data = {
-    username: inputs[0].value.trim(),
-    email: inputs[1].value.trim(),
-    phoneNumber: inputs[2].value.trim(),
-  };
 
-  // Validate username
-  if (!data.username) {
-    showAlert('Username cannot be empty', 'warning');
-    return;
-  }
+          btnSave.addEventListener('click', async () => {
+            const data = {
+              username: inputs[0].value.trim(),
+              email: inputs[1].value.trim(),
+              phoneNumber: inputs[2].value.trim(),
+            };
 
-  // Validate email format
-  if (!validateEmail(data.email)) {
-    showAlert('Invalid email address', 'warning');
-    return;
-  }
+            // Validate username
+            if (!data.username) {
+              showAlert('Username cannot be empty', 'warning');
+              return;
+            }
 
-  try {
-    // Send update request to API
-    const res = await fetch(`${API_BASE}/usermanagement/users/${user.id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
+            // Validate email format
+            if (!validateEmail(data.email)) {
+              showAlert('Invalid email address', 'warning');
+              return;
+            }
 
-    // Parse JSON response
-    const result = await res.json();
+            try {
+              // FIXED: Send update request to API using dynamic BASE_URL
+              const res = await fetch(`${API_BASE}/usermanagement/users/${user.id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+              });
 
-    if (result.success) {
-      // Show success alert
-      showAlert('User updated successfully', 'success');
+              // Parse JSON response
+              const result = await res.json();
 
-      // Lock inputs and update default values
-      inputs.forEach(input => {
-        input.defaultValue = input.value;
-        input.setAttribute('readonly', true);
-      });
+              if (result.success) {
+                // Show success alert
+                showAlert('User updated successfully', 'success');
 
-      // Update button visibility: show Edit, hide Save & Cancel
-      btnEdit.style.display = 'inline-block';
-      btnSave.style.display = 'none';
-      btnCancel.style.display = 'none';
-    } else {
-      // On server-side error message, throw to catch block
-      throw new Error(result.message || 'Update failed');
-    }
-  } catch (err) {
-    // Show error alert
-    showAlert(err.message, 'danger');
+                // Lock inputs and update default values
+                inputs.forEach(input => {
+                  input.defaultValue = input.value;
+                  input.setAttribute('readonly', true);
+                });
 
-    // Keep Save and Cancel buttons visible for retrying
-    btnSave.style.display = 'inline-block';
-    btnCancel.style.display = 'inline-block';
-  }
-});
+                // Update button visibility: show Edit, hide Save & Cancel
+                btnEdit.style.display = 'inline-block';
+                btnSave.style.display = 'none';
+                btnCancel.style.display = 'none';
+              } else {
+                // On server-side error message, throw to catch block
+                throw new Error(result.message || 'Update failed');
+              }
+            } catch (err) {
+              // Show error alert
+              showAlert(err.message, 'danger');
 
+              // Keep Save and Cancel buttons visible for retrying
+              btnSave.style.display = 'inline-block';
+              btnCancel.style.display = 'inline-block';
+            }
+          });
 
           btnDelete.addEventListener('click', async () => {
             if (!confirm(`Delete user '${user.username}'? This cannot be undone.`)) return;
             try {
+              // FIXED: Delete request using dynamic BASE_URL
               const res = await fetch(`${API_BASE}/usermanagement/users/${user.id}`, {
                 method: 'DELETE'
               });
@@ -417,13 +446,13 @@ btnSave.addEventListener('click', async () => {
       window.location.href = 'admin.html'; // Your dashboard URL
     });
 
-    document.getElementById('refreshUsers').addEventListener('click', function() {
-    showAlert('User list refreshed!', 'info');
-    fetchUsers();
-});
+    document.getElementById('refreshUsers').addEventListener('click', function () {
+      showAlert('User list refreshed!', 'info');
+      fetchUsers();
+    });
+  </script>
 
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

@@ -1,6 +1,7 @@
 <!-- user.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,7 @@
             --light-color: #ecf0f1;
             --dark-color: #34495e;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -28,7 +29,7 @@
             padding: 0;
             color: #333;
         }
-        
+
         .navbar {
             background: rgba(44, 62, 80, 0.9) !important;
             backdrop-filter: blur(10px);
@@ -37,28 +38,28 @@
             top: 0;
             z-index: 1000;
         }
-        
+
         .navbar-brand {
             font-weight: 700;
             font-size: 1.8rem;
             color: var(--light-color) !important;
         }
-        
+
         .navbar-brand span {
             color: var(--primary-color);
         }
-        
+
         .nav-link {
             color: var(--light-color) !important;
             font-weight: 500;
             transition: all 0.3s ease;
             position: relative;
         }
-        
+
         .nav-link:hover {
             color: var(--primary-color) !important;
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -69,28 +70,28 @@
             background-color: var(--primary-color);
             transition: all 0.3s ease;
         }
-        
+
         .nav-link:hover::after {
             width: 100%;
             left: 0;
         }
-        
+
         .user-container {
             padding: 3rem 0;
         }
-        
+
         .dashboard-header {
             margin-bottom: 2rem;
             padding-bottom: 1rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .dashboard-title {
             color: white;
             font-weight: 700;
             font-size: 2.2rem;
         }
-        
+
         .user-info {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -99,7 +100,7 @@
             margin-bottom: 2rem;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .user-avatar {
             width: 80px;
             height: 80px;
@@ -108,18 +109,18 @@
             border: 3px solid var(--primary-color);
             margin-right: 1rem;
         }
-        
+
         .user-details h4 {
             color: white;
             margin-bottom: 0.5rem;
         }
-        
+
         .user-details p {
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 0.2rem;
             font-size: 0.95rem;
         }
-        
+
         .card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -129,28 +130,28 @@
             transition: all 0.3s ease;
             overflow: hidden;
         }
-        
+
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        
+
         .card-header {
             background-color: rgba(255, 255, 255, 0.05);
             padding: 1rem 1.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .card-title {
             color: white;
             font-weight: 600;
             margin: 0;
         }
-        
+
         .card-body {
             padding: 1.5rem;
         }
-        
+
         .btn-primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
@@ -158,14 +159,14 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-primary:hover {
             background-color: #2980b9;
             border-color: #2980b9;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
         }
-        
+
         .btn-outline-light {
             border-color: var(--light-color);
             color: var(--light-color);
@@ -173,14 +174,14 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-outline-light:hover {
             background-color: var(--light-color);
             color: var(--secondary-color);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(236, 240, 241, 0.4);
         }
-        
+
         .btn-danger {
             background-color: var(--accent-color);
             border-color: var(--accent-color);
@@ -188,14 +189,14 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-danger:hover {
             background-color: #c0392b;
             border-color: #c0392b;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
         }
-        
+
         .btn-success {
             background-color: #27ae60;
             border-color: #27ae60;
@@ -203,14 +204,14 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-success:hover {
             background-color: #219653;
             border-color: #219653;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
         }
-        
+
         .booking-item {
             padding: 1rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -218,33 +219,33 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .booking-item:last-child {
             border-bottom: none;
         }
-        
+
         .booking-details {
             flex: 1;
         }
-        
+
         .booking-slot {
             color: white;
             font-weight: 600;
             margin-bottom: 0.3rem;
         }
-        
+
         .booking-time {
             color: rgba(255, 255, 255, 0.8);
             font-size: 0.9rem;
             margin-bottom: 0.3rem;
         }
-        
+
         .booking-amount {
             color: var(--primary-color);
             font-weight: 600;
             font-size: 1.1rem;
         }
-        
+
         .booking-status {
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
@@ -252,112 +253,122 @@
             font-weight: 600;
             text-transform: uppercase;
         }
-        
+
         .status-booked {
             background-color: rgba(52, 152, 219, 0.2);
             color: var(--primary-color);
         }
-        
+
         .status-completed {
             background-color: rgba(46, 204, 113, 0.2);
             color: #27ae60;
         }
-        
+
         .status-cancelled {
             background-color: rgba(231, 76, 60, 0.2);
             color: var(--accent-color);
         }
-        
+
         .form-label {
             color: rgba(255, 255, 255, 0.9);
             font-weight: 500;
         }
-        
-        .form-control, .form-select {
+
+        .form-control,
+        .form-select {
             background-color: rgba(255, 255, 255, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
             border-radius: 8px;
             padding: 10px 15px;
         }
-        
-        .form-control::placeholder, .form-select {
+
+        .form-control::placeholder,
+        .form-select {
             color: rgba(255, 255, 255, 0.7);
         }
-        
-        .form-control:focus, .form-select:focus {
+
+        .form-control:focus,
+        .form-select:focus {
             background-color: rgba(255, 255, 255, 0.3);
             border-color: var(--primary-color);
             color: white;
             box-shadow: none;
         }
-        
-        .form-floating > label {
+
+        .form-floating>label {
             color: rgba(255, 255, 255, 0.7);
         }
-        
+
         .alert {
             border-radius: 8px;
             margin-bottom: 1rem;
             padding: 1rem;
             display: none;
         }
-        
+
         .alert-success {
             background-color: rgba(40, 167, 69, 0.2);
             border: 1px solid rgba(40, 167, 69, 0.3);
             color: #28a745;
         }
-        
+
         .alert-danger {
             background-color: rgba(220, 53, 69, 0.2);
             border: 1px solid rgba(220, 53, 69, 0.3);
             color: #dc3545;
         }
-        
+
         .alert-show {
             display: block;
             animation: fadeIn 0.5s;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .modal-content {
             background: rgba(44, 62, 80, 0.95);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
         }
-        
+
         .modal-header {
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding: 1.5rem;
         }
-        
+
         .modal-title {
             color: white;
             font-weight: 600;
         }
-        
+
         .modal-body {
             padding: 1.5rem;
             color: rgba(255, 255, 255, 0.9);
         }
-        
+
         .modal-footer {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding: 1rem 1.5rem;
         }
-        
+
         .payment-method {
             display: flex;
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .payment-option {
             flex: 1;
             padding: 1rem;
@@ -368,115 +379,125 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
-        .payment-option:hover, .payment-option.selected {
+
+        .payment-option:hover,
+        .payment-option.selected {
             border-color: var(--primary-color);
             background-color: rgba(52, 152, 219, 0.1);
             color: var(--primary-color);
             transform: translateY(-2px);
         }
-        
+
         .payment-option i {
             font-size: 2rem;
             margin-bottom: 0.5rem;
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 767.98px) {
             .user-details {
                 text-align: center;
                 margin-bottom: 1rem;
             }
-            
+
             .user-avatar {
                 margin: 0 auto 1rem auto;
                 display: block;
             }
-            
+
             .booking-item {
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .booking-actions {
                 margin-top: 1rem;
                 display: flex;
                 justify-content: center;
             }
         }
-/* Change background color of the closed dropdown */
-.form-select {
-  background-color: #ffffff !important; /* white background for the select box */
-  color: #000000 !important; /* black text for visibility */
-}
 
-/* Change background and text color of dropdown options */
-.form-select option {
-  background-color: #ffffff; /* white background for each option */
-  color: #000000; /* black text */
-}
+        /* Change background color of the closed dropdown */
+        .form-select {
+            background-color: #ffffff !important;
+            /* white background for the select box */
+            color: #000000 !important;
+            /* black text for visibility */
+        }
 
-/* Optional: Change selected option background color on hover */
-.form-select option:hover,
-.form-select option:focus {
-  background-color: #e0e0e0; /* light gray highlight on hover/focus */
-  color: #000000;
-}
+        /* Change background and text color of dropdown options */
+        .form-select option {
+            background-color: #ffffff;
+            /* white background for each option */
+            color: #000000;
+            /* black text */
+        }
+
+        /* Optional: Change selected option background color on hover */
+        .form-select option:hover,
+        .form-select option:focus {
+            background-color: #e0e0e0;
+            /* light gray highlight on hover/focus */
+            color: #000000;
+        }
 
         .parking-statistics {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
 
-.parking-statistics-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 14px;
-  color: white;
-}
+        .parking-statistics-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+            color: white;
+        }
 
-.parking-statistics-row .left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-grow: 1;
-}
+        .parking-statistics-row .left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-grow: 1;
+        }
 
-.parking-statistics-row .icon {
-  width: 20px;
-  height: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+        .parking-statistics-row .icon {
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.parking-statistics-row .usage {
-  min-width: 50px;
-  text-align: right;
-  font-weight: 600;
-}
+        .parking-statistics-row .usage {
+            min-width: 50px;
+            text-align: right;
+            font-weight: 600;
+        }
+
         .vehicle-label {
-  display: flex;
-  align-items: center;
-  min-width: 140px;
-}
-.vehicle-label i {
-  font-size: 1.2em;
-  min-width: 24px;
-  text-align: center;
-  vertical-align: middle;
-  margin-right: 8px;
-  line-height: 1 !important;
-}
-.stat, .avail {
-  font-variant-numeric: tabular-nums;
-}
+            display: flex;
+            align-items: center;
+            min-width: 140px;
+        }
 
+        .vehicle-label i {
+            font-size: 1.2em;
+            min-width: 24px;
+            text-align: center;
+            vertical-align: middle;
+            margin-right: 8px;
+            line-height: 1 !important;
+        }
 
+        .stat,
+        .avail {
+            font-variant-numeric: tabular-nums;
+        }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -484,7 +505,8 @@
             <a class="navbar-brand" href="/">
                 <i class="fas fa-parking"></i> Park<span>Easy</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -516,20 +538,21 @@
                 <h1 class="dashboard-title">Welcome, <span id="userName">John</span>!</h1>
                 <p class="text-white-50">Manage your parking bookings and account settings</p>
             </div>
-            
+
             <!-- User Info -->
             <div class="user-info d-flex align-items-center px-4 py-3">
-                <img src="https://ui-avatars.com/api/?name=John+Doe&background=3498db&color=fff&size=128" alt="User Avatar" class="user-avatar">
+                <img src="https://ui-avatars.com/api/?name=John+Doe&background=3498db&color=fff&size=128"
+                    alt="User Avatar" class="user-avatar">
                 <div class="user-meta d-flex align-items-center ms-3 flex-wrap" style="gap: 2rem;">
                     <span class="fw-bold fs-4 d-flex align-items-center" id="userFullName"></span>
                     <span class="d-flex align-items-center text-muted fs-6">
-            <i class="fas fa-envelope me-2"></i>
-            <span id="userEmail"></span>
-        </span>
+                        <i class="fas fa-envelope me-2"></i>
+                        <span id="userEmail"></span>
+                    </span>
                     <span class="d-flex align-items-center text-muted fs-6">
-            <i class="fas fa-phone me-2"></i>
-            <span id="userPhone"></span>
-        </span>
+                        <i class="fas fa-phone me-2"></i>
+                        <span id="userPhone"></span>
+                    </span>
                 </div>
             </div>
 
@@ -544,7 +567,7 @@
                         <div class="card-body">
                             <!-- Alert messages -->
                             <div id="bookingAlertContainer"></div>
-                            
+
                             <form id="bookingForm">
                                 <div class="row g-3">
                                     <div class="col-md-6">
@@ -600,7 +623,7 @@
                             </form>
                         </div>
                     </div>
-                    
+
                     <!-- My Bookings Card -->
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
@@ -612,15 +635,16 @@
                         <div class="card-body">
                             <!-- Alert messages -->
                             <div id="bookingsAlertContainer"></div>
-                            
+
                             <div id="bookingsList">
                                 <!-- Booking items will be populated here -->
-                                <p class="text-center text-white-50">No bookings found. Book your first parking slot!</p>
+                                <p class="text-center text-white-50">No bookings found. Book your first parking slot!
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4">
                     <!-- Parking Statistics Card -->
                     <div class="card">
@@ -643,16 +667,18 @@
                                     <p class="text-white-50 mb-0" id="availableSlotsCount">15</p>
                                 </div>
                             </div>
-                            
+
                             <div class="progress mb-4" style="height: 10px;">
-                                <div class="progress-bar bg-primary" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 50%;"
+                                    aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            
+
                             <div class="row g-3">
                                 <div class="col-12">
 
                                     <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <span class="vehicle-label"><i class="fas fa-motorcycle text-white"></i> Two Wheelers</span>
+                                        <span class="vehicle-label"><i class="fas fa-motorcycle text-white"></i> Two
+                                            Wheelers</span>
                                         <span class="stat text-white" id="twoWheelerStats">3/12</span>
                                         <span class="avail text-white" id="twoWheelerAvailable">9</span>
                                     </div>
@@ -660,7 +686,8 @@
                                 <div class="col-12">
 
                                     <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <span class="vehicle-label"><i class="fas fa-truck-pickup text-white"></i> Three Wheelers</span>
+                                        <span class="vehicle-label"><i class="fas fa-truck-pickup text-white"></i> Three
+                                            Wheelers</span>
                                         <span class="stat text-white" id="threeWheelerStats">6/13</span>
                                         <span class="avail text-white" id="threeWheelerAvailable">7</span>
                                     </div>
@@ -668,7 +695,8 @@
                                 <div class="col-12">
 
                                     <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <span class="vehicle-label"><i class="fas fa-car text-white"></i> Four Wheelers</span>
+                                        <span class="vehicle-label"><i class="fas fa-car text-white"></i> Four
+                                            Wheelers</span>
                                         <span class="stat text-white" id="fourWheelerStats">1/16</span>
                                         <span class="avail text-white" id="fourWheelerAvailable">15</span>
                                     </div>
@@ -677,7 +705,8 @@
                                 <div class="col-12">
 
                                     <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <span class="vehicle-label"><i class="fas fa-bolt text-white"></i> Electric Vehicles</span>
+                                        <span class="vehicle-label"><i class="fas fa-bolt text-white"></i> Electric
+                                            Vehicles</span>
                                         <span class="stat text-white" id="evWheelerStats">2/15</span>
                                         <span class="avail text-white" id="evWheelerAvailable">13</span>
                                     </div>
@@ -686,7 +715,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Quick Actions Card -->
                     <div class="card">
                         <div class="card-header">
@@ -725,7 +754,8 @@
                     <p><strong>Exit Time:</strong> <span id="modalExitTime">2023-06-15 14:00</span></p>
                     <p><strong>Duration:</strong> <span id="modalDuration">4</span> hours</p>
                     <p><strong>Total Cost:</strong> ₹<span id="modalCost">20.00</span></p>
-                    <p class="text-warning"><i class="fas fa-exclamation-triangle me-2"></i> Please arrive on time. Late arrivals may result in slot unavailability.</p>
+                    <p class="text-warning"><i class="fas fa-exclamation-triangle me-2"></i> Please arrive on time. Late
+                        arrivals may result in slot unavailability.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -746,7 +776,7 @@
                 <div class="modal-body">
                     <p><strong>Booking:</strong> <span id="paymentBookingId">#12345</span></p>
                     <p><strong>Amount:</strong> ₹<span id="paymentAmount">20.00</span></p>
-                    
+
                     <h6 class="mt-4 mb-3">Select Payment Method</h6>
                     <div class="payment-method">
                         <div class="payment-option" data-method="CREDIT_CARD">
@@ -762,7 +792,7 @@
                             <div>UPI</div>
                         </div>
                     </div>
-                    
+
                     <form id="paymentForm">
                         <input type="hidden" id="paymentBookingIdInput">
                         <div class="alert alert-info">
@@ -791,7 +821,8 @@
                     <p>Are you sure you want to cancel this booking?</p>
                     <p><strong>Slot:</strong> <span id="cancelSlotNumber">A1</span></p>
                     <p><strong>Date:</strong> <span id="cancelDate">June 15, 2023</span></p>
-                    <p class="text-danger"><i class="fas fa-exclamation-triangle me-2"></i> Cancellation is final. No refund will be provided for already paid bookings.</p>
+                    <p class="text-danger"><i class="fas fa-exclamation-triangle me-2"></i> Cancellation is final. No
+                        refund will be provided for already paid bookings.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keep Booking</button>
@@ -803,29 +834,35 @@
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- Custom JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        // FIXED: Dynamic base URL detection for production deployment
+        const BASE_URL = window.location.origin;
+        // This will automatically be:
+        // - http://localhost:8080 (when testing locally)
+        // - https://vehicle-parking-management-production.up.railway.app (when deployed)
+
+        document.addEventListener('DOMContentLoaded', function () {
             // DOM elements
             const userName = document.getElementById('userName');
             const userFullName = document.getElementById('userFullName');
             const userEmail = document.getElementById('userEmail');
             const userPhone = document.getElementById('userPhone');
             const userSince = document.getElementById('userSince');
-            
+
             const vehicleType = document.getElementById('vehicleType');
             const slotNumber = document.getElementById('slotNumber');
             const entryTime = document.getElementById('entryTime');
             const exitTime = document.getElementById('exitTime');
             const duration = document.getElementById('duration');
             const cost = document.getElementById('cost');
-            
+
             const bookingForm = document.getElementById('bookingForm');
             const bookingAlertContainer = document.getElementById('bookingAlertContainer');
             const bookingsAlertContainer = document.getElementById('bookingsAlertContainer');
             const bookingsList = document.getElementById('bookingsList');
-            
+
             const availableSlotsCount = document.getElementById('availableSlotsCount');
             const twoWheelerStats = document.getElementById('twoWheelerStats');
             const threeWheelerStats = document.getElementById('threeWheelerStats');
@@ -835,14 +872,13 @@
             const twoWheelerAvailable = document.getElementById('twoWheelerAvailable');
             const threeWheelerAvailable = document.getElementById('threeWheelerAvailable');
             const fourWheelerAvailable = document.getElementById('fourWheelerAvailable');
-           const evWheelerAvailable = document.getElementById('evWheelerAvailable');
+            const evWheelerAvailable = document.getElementById('evWheelerAvailable');
 
-            
             const logoutLink = document.getElementById('logoutLink');
             const refreshBookings = document.getElementById('refreshBookings');
             const viewHistory = document.getElementById('viewHistory');
             const updateProfile = document.getElementById('updateProfile');
-            
+
             // Modal elements
             const bookingModal = document.getElementById('bookingModal');
             const modalSlotNumber = document.getElementById('modalSlotNumber');
@@ -852,41 +888,39 @@
             const modalDuration = document.getElementById('modalDuration');
             const modalCost = document.getElementById('modalCost');
             const confirmBookingBtn = document.getElementById('confirmBooking');
-            
+
             const paymentModal = document.getElementById('paymentModal');
             const paymentBookingId = document.getElementById('paymentBookingId');
             const paymentAmount = document.getElementById('paymentAmount');
             const paymentBookingIdInput = document.getElementById('paymentBookingIdInput');
             const processPaymentBtn = document.getElementById('processPayment');
-            
+
             const cancelModal = document.getElementById('cancelModal');
             const cancelSlotNumber = document.getElementById('cancelSlotNumber');
             const cancelDate = document.getElementById('cancelDate');
             const confirmCancelBtn = document.getElementById('confirmCancel');
 
+            // FIXED: Fetch current user data from backend using dynamic BASE_URL
+            fetch(`${BASE_URL}/api/user/current`, { credentials: 'include' })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('User not logged in');
+                    }
+                    return response.json();
+                })
+                .then(user => {
+                    setCurrentUser(user);
+                    if (user && user.id) {
+                        document.getElementById('updateProfile').addEventListener('click', function () {
+                            window.location.href = 'user-profile.html?userId=' + user.id;
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Failed to load user data:', error);
+                    // Optional: Handle error or redirect to login page here
+                });
 
-             // Fetch current user data from backend and update UI
-           fetch('/api/user/current', { credentials: 'include' })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('User not logged in');
-      }
-      return response.json();
-    })
-    .then(user => {
-      setCurrentUser(user);
-      if (user && user.id) {
-      document.getElementById('updateProfile').addEventListener('click', function() {
-        window.location.href = 'user-profile.html?userId=' + user.id;
-      });
-    }
-    })
-    .catch(error => {
-      console.error('Failed to load user data:', error);
-      // Optional: Handle error or redirect to login page here
-    });
-
-            
             // Set current user data
             function setCurrentUser(user) {
                 userName.textContent = user.username;
@@ -895,24 +929,23 @@
                 userPhone.textContent = user.phoneNumber;
 
                 // NOW update the avatar image, using user.fullName
-    var avatarUrl = "https://ui-avatars.com/api/?name="
-                  + encodeURIComponent(user.fullName)
-                  + "&background=3498db&color=fff&size=128";
-    document.querySelector('.user-avatar').src = avatarUrl;
+                var avatarUrl = "https://ui-avatars.com/api/?name="
+                    + encodeURIComponent(user.fullName)
+                    + "&background=3498db&color=fff&size=128";
+                document.querySelector('.user-avatar').src = avatarUrl;
             }
-            
-          // This function attaches the event listener to your updateProfile button with the correct userId
-function enableProfileButton(userId) {
-  if (!userId) return;  // safety check
-  const updateProfile = document.getElementById('updateProfile');
-  if (updateProfile) {
-    updateProfile.addEventListener('click', function() {
-      window.location.href = 'user-profile.html?userId=' + userId;
-    });
-  }
-}
 
-            
+            // This function attaches the event listener to your updateProfile button with the correct userId
+            function enableProfileButton(userId) {
+                if (!userId) return;  // safety check
+                const updateProfile = document.getElementById('updateProfile');
+                if (updateProfile) {
+                    updateProfile.addEventListener('click', function () {
+                        window.location.href = 'user-profile.html?userId=' + userId;
+                    });
+                }
+            }
+
             // Show alert function
             function showAlert(container, message, type) {
                 container.innerHTML = `
@@ -921,7 +954,7 @@ function enableProfileButton(userId) {
                         ${message}
                     </div>
                 `;
-                
+
                 // Hide alert after 5 seconds
                 setTimeout(() => {
                     const alert = container.querySelector('.alert');
@@ -933,7 +966,7 @@ function enableProfileButton(userId) {
                     }
                 }, 5000);
             }
-            
+
             // Format date and time
             function formatDateTime(dateTimeStr) {
                 const date = new Date(dateTimeStr);
@@ -945,18 +978,18 @@ function enableProfileButton(userId) {
                     minute: '2-digit'
                 });
             }
-            
+
             // Calculate duration and cost
             function calculateDurationAndCost() {
                 if (entryTime.value && exitTime.value) {
                     const entry = new Date(entryTime.value);
                     const exit = new Date(exitTime.value);
-                    
+
                     if (exit > entry) {
                         const diffMs = exit - entry;
                         const diffHrs = Math.ceil(diffMs / (1000 * 60 * 60)); // Round up to nearest hour
                         duration.textContent = diffHrs;
-                        
+
                         // Get selected slot to determine rate
                         const selectedSlotOption = slotNumber.options[slotNumber.selectedIndex];
                         const hourlyRate = parseFloat(selectedSlotOption.getAttribute('data-rate')) || 5.00;
@@ -971,233 +1004,228 @@ function enableProfileButton(userId) {
                 }
             }
 
+            // FIXED: Function to load slots dynamically using dynamic BASE_URL
+            function loadAvailableSlots(vehicleType) {
+                slotNumber.innerHTML = '<option value="">Select Slot</option>';
+                slotNumber.disabled = true;
 
+                if (!vehicleType) return;
 
-// Function to load slots dynamically
-function loadAvailableSlots(vehicleType) {
-    slotNumber.innerHTML = '<option value="">Select Slot</option>';
-    slotNumber.disabled = true;
-
-    if (!vehicleType) return;
-
-    fetch(`http://localhost:8080/api/parkingSlots?vehicleType=${vehicleType}&available=true`, { credentials: 'include' })
-        .then(response => response.json())
-        .then(slots => {
-            console.log("Fetched slots:", slots); // Debugging line
-            if (slots && slots.length > 0) {
-                slots.forEach(slot => {
-                    const option = document.createElement('option');
-                    option.value = slot.id; // Use real slot ID for backend booking
-                    option.textContent = `${slot.slotNumber} - ₹${slot.hourlyRate}/hr`;
-                    option.setAttribute('data-rate', slot.hourlyRate);
-                    slotNumber.appendChild(option);
-                });
-                slotNumber.disabled = false;
+                fetch(`${BASE_URL}/api/parkingSlots?vehicleType=${vehicleType}&available=true`, { credentials: 'include' })
+                    .then(response => response.json())
+                    .then(slots => {
+                        console.log("Fetched slots:", slots); // Debugging line
+                        if (slots && slots.length > 0) {
+                            slots.forEach(slot => {
+                                const option = document.createElement('option');
+                                option.value = slot.id; // Use real slot ID for backend booking
+                                option.textContent = `${slot.slotNumber} - ₹${slot.hourlyRate}/hr`;
+                                option.setAttribute('data-rate', slot.hourlyRate);
+                                slotNumber.appendChild(option);
+                            });
+                            slotNumber.disabled = false;
+                        }
+                    })
+                    .catch(() => {
+                        showAlert(bookingAlertContainer, 'Failed to load available slots.', 'danger');
+                    });
             }
-        })
-        .catch(() => {
-            showAlert(bookingAlertContainer, 'Failed to load available slots.', 'danger');
-        });
-}
 
+            function arrayToISO(arr) {
+                if (!Array.isArray(arr)) return arr;
+                const [year, month, day, hour, minute] = arr;
+                return new Date(year, month - 1, day, hour, minute).toISOString();
+            }
 
-function arrayToISO(arr) {
-  if (!Array.isArray(arr)) return arr;
-  const [year, month, day, hour, minute] = arr;
-  return new Date(year, month - 1, day, hour, minute).toISOString();
-}
+            // FIXED: Populate bookings list using dynamic BASE_URL
+            function populateBookings() {
+                fetch(`${BASE_URL}/api/bookings/frontend`, { credentials: 'include' })
+                    .then(response => response.json())
+                    .then(bookings => {
+                        console.log('Raw bookings data from backend:', bookings);
+                        console.log('Fetched bookings:', bookings);
 
+                        if (!bookings.length) {
+                            bookingsList.innerHTML = '<p class="text-center text-white-50">No bookings found. Book your first parking slot!</p>';
+                            return;
+                        }
+                        bookings.sort((a, b) => b.id - a.id);
+                        if (bookings.length > 0) {
+                            console.log('First booking:', bookings[0]);
+                            console.log('Slot number:', bookings[0].parkingSlot ? bookings[0].parkingSlot.slotNumber : bookings[0].slot);
+                            console.log('Entry time raw:', bookings[0].entryTime);
+                        }
 
- // Populate bookings list
-function populateBookings() {
-  fetch('/api/bookings/frontend', { credentials: 'include' })
-    .then(response => response.json())
-    .then(bookings => {
-    console.log('Raw bookings data from backend:', bookings);
-      console.log('Fetched bookings:', bookings);
+                        let bookingsHTML = '';
+                        bookings.forEach(booking => {
+                            const slot = booking.parkingSlot ? booking.parkingSlot.slotNumber : booking.slot || 'Unknown';
+                            const vehicleType = booking.parkingSlot ? booking.parkingSlot.vehicleType : booking.vehicleType || 'FOUR_WHEELER';
 
-      if (!bookings.length) {
-        bookingsList.innerHTML = '<p class="text-center text-white-50">No bookings found. Book your first parking slot!</p>';
-        return;
-      }
-     bookings.sort((a, b) => b.id - a.id);
-      if (bookings.length > 0) {
-        console.log('First booking:', bookings[0]);
-        console.log('Slot number:', bookings[0].parkingSlot ? bookings[0].parkingSlot.slotNumber : bookings[0].slot);
-        console.log('Entry time raw:', bookings[0].entryTime);
-      }
+                            console.log(`Booking slot: ${slot}`);
 
-      let bookingsHTML = '';
-      bookings.forEach(booking => {
-        const slot = booking.parkingSlot ? booking.parkingSlot.slotNumber : booking.slot || 'Unknown';
-        const vehicleType = booking.parkingSlot ? booking.parkingSlot.vehicleType : booking.vehicleType || 'FOUR_WHEELER';
+                            const vehicleIcon = vehicleType === 'TWO_WHEELER' ? 'motorcycle' :
+                                vehicleType === 'THREE_WHEELER' ? 'truck-pickup' :
+                                    vehicleType === 'EV' ? 'bolt' : 'car';
 
-        console.log(`Booking slot: ${slot}`);
+                            const entryTimeISO = arrayToISO(booking.entryTime);
+                            const exitTimeISO = arrayToISO(booking.exitTime);
 
-        const vehicleIcon = vehicleType === 'TWO_WHEELER' ? 'motorcycle' :
-                            vehicleType === 'THREE_WHEELER' ? 'truck-pickup' :
-                            vehicleType === 'EV' ? 'bolt' : 'car';
+                            bookingsHTML += `
+                      <div class="booking-item">
+                        <div class="booking-details">
+                          <div class="booking-slot">
+                            <i class="fas fa-${vehicleIcon} me-2"></i>
+                            Slot ${slot}
+                          </div>
+                          <div class="booking-time">
+                            ${formatDateTime(entryTimeISO)} - ${formatDateTime(exitTimeISO)}
+                          </div>
+                          <div class="booking-amount">₹${booking.totalAmount.toFixed(2)}</div>
+                        </div>
+                        <div class="booking-status status-${booking.status.toLowerCase()}">${booking.status}</div>
+                        <div class="booking-actions ms-3">
+                    `;
 
-        const entryTimeISO = arrayToISO(booking.entryTime);
-        const exitTimeISO = arrayToISO(booking.exitTime);
+                            if (booking.status === 'BOOKED') {
+                                bookingsHTML += `
+                        <button class="btn btn-sm btn-success pay-btn" data-booking-id="${booking.id}" data-amount="${booking.totalAmount}">
+                          <i class="fas fa-indian-rupee-sign"></i>
+                        </button>
+                        <button class="btn btn-sm btn-danger cancel-btn" data-booking-id="${booking.id}" data-slot="${slot}" data-date="${formatDateTime(entryTimeISO)}">
+                          <i class="fas fa-times"></i>
+                        </button>
+                      `;
+                            } else if (booking.status === 'COMPLETED') {
+                                bookingsHTML += `
+                        <button class="btn btn-sm btn-secondary" disabled>
+                          <i class="fas fa-check"></i>
+                        </button>
+                      `;
+                            }
 
-        bookingsHTML += `
-          <div class="booking-item">
-            <div class="booking-details">
-              <div class="booking-slot">
-                <i class="fas fa-${vehicleIcon} me-2"></i>
-                Slot ${slot}
-              </div>
-              <div class="booking-time">
-                ${formatDateTime(entryTimeISO)} - ${formatDateTime(exitTimeISO)}
-              </div>
-              <div class="booking-amount">₹${booking.totalAmount.toFixed(2)}</div>
-            </div>
-            <div class="booking-status status-${booking.status.toLowerCase()}">${booking.status}</div>
-            <div class="booking-actions ms-3">
-        `;
+                            bookingsHTML += `
+                        </div>
+                      </div>
+                    `;
+                        });
 
-        if (booking.status === 'BOOKED') {
-          bookingsHTML += `
-            <button class="btn btn-sm btn-success pay-btn" data-booking-id="${booking.id}" data-amount="${booking.totalAmount}">
-              <i class="fas fa-indian-rupee-sign"></i>
-            </button>
-            <button class="btn btn-sm btn-danger cancel-btn" data-booking-id="${booking.id}" data-slot="${slot}" data-date="${formatDateTime(entryTimeISO)}">
-              <i class="fas fa-times"></i>
-            </button>
-          `;
-        } else if (booking.status === 'COMPLETED') {
-          bookingsHTML += `
-            <button class="btn btn-sm btn-secondary" disabled>
-              <i class="fas fa-check"></i>
-            </button>
-          `;
-        }
+                        console.log('Bookings HTML:', bookingsHTML);
+                        bookingsList.innerHTML = bookingsHTML;
 
-        bookingsHTML += `
-            </div>
-          </div>
-        `;
-      });
+                        // Reattach event listeners for payment and cancel buttons here if needed
+                        // Attach event listeners to pay buttons
+                        document.querySelectorAll('.pay-btn').forEach(btn => {
+                            btn.addEventListener('click', function () {
+                                const bookingId = this.getAttribute('data-booking-id');
+                                const amount = this.getAttribute('data-amount');
 
-      console.log('Bookings HTML:', bookingsHTML);
-      bookingsList.innerHTML = bookingsHTML;
+                                paymentBookingId.textContent = '#' + bookingId;
+                                paymentAmount.textContent = amount;
+                                paymentBookingIdInput.value = bookingId;
 
-      // Reattach event listeners for payment and cancel buttons here if needed
-      // Attach event listeners to pay buttons
-document.querySelectorAll('.pay-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        const bookingId = this.getAttribute('data-booking-id');
-        const amount = this.getAttribute('data-amount');
+                                const paymentModalInstance = bootstrap.Modal.getOrCreateInstance(paymentModal);
+                                paymentModalInstance.show();
+                            });
+                        });
 
-        paymentBookingId.textContent = '#' + bookingId;
-        paymentAmount.textContent = amount;
-        paymentBookingIdInput.value = bookingId;
+                        // Attach event listeners to cancel buttons
+                        document.querySelectorAll('.cancel-btn').forEach(btn => {
+                            btn.addEventListener('click', function () {
+                                const bookingId = this.getAttribute('data-booking-id');
+                                const slot = this.getAttribute('data-slot');
+                                const date = this.getAttribute('data-date');
 
-        const paymentModalInstance = bootstrap.Modal.getOrCreateInstance(paymentModal);
-        paymentModalInstance.show();
-    });
-});
+                                cancelSlotNumber.textContent = slot;
+                                cancelDate.textContent = date;
+                                confirmCancelBtn.setAttribute('data-booking-id', bookingId);
 
-// Attach event listeners to cancel buttons
-document.querySelectorAll('.cancel-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        const bookingId = this.getAttribute('data-booking-id');
-        const slot = this.getAttribute('data-slot');
-        const date = this.getAttribute('data-date');
+                                const cancelModalInstance = bootstrap.Modal.getOrCreateInstance(cancelModal);
+                                cancelModalInstance.show();
+                            });
+                        });
 
-        cancelSlotNumber.textContent = slot;
-        cancelDate.textContent = date;
-        confirmCancelBtn.setAttribute('data-booking-id', bookingId);
-
-        const cancelModalInstance = bootstrap.Modal.getOrCreateInstance(cancelModal);
-        cancelModalInstance.show();
-    });
-});
-
-    })
-    .catch(error => {
-      bookingsList.innerHTML = `<p class="text-center text-danger">${error.message}</p>`;
-      console.error('Error loading bookings:', error);
-    });
-}
-
-                // Add event listeners to payment buttons
-                document.querySelectorAll('.pay-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const bookingId = this.getAttribute('data-booking-id');
-                        const amount = this.getAttribute('data-amount');
-                        
-                        paymentBookingId.textContent = '#' + bookingId;
-                        paymentAmount.textContent = amount;
-                        paymentBookingIdInput.value = bookingId;
-                        
-                        const paymentModalInstance = bootstrap.Modal.getOrCreateInstance(paymentModal);
-                        paymentModalInstance.show();
+                    })
+                    .catch(error => {
+                        bookingsList.innerHTML = `<p class="text-center text-danger">${error.message}</p>`;
+                        console.error('Error loading bookings:', error);
                     });
+            }
+
+            // Add event listeners to payment buttons
+            document.querySelectorAll('.pay-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const bookingId = this.getAttribute('data-booking-id');
+                    const amount = this.getAttribute('data-amount');
+
+                    paymentBookingId.textContent = '#' + bookingId;
+                    paymentAmount.textContent = amount;
+                    paymentBookingIdInput.value = bookingId;
+
+                    const paymentModalInstance = bootstrap.Modal.getOrCreateInstance(paymentModal);
+                    paymentModalInstance.show();
                 });
-                
-                // Add event listeners to cancel buttons
-                document.querySelectorAll('.cancel-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const bookingId = this.getAttribute('data-booking-id');
-                        const slot = this.getAttribute('data-slot');
-                        const date = this.getAttribute('data-date');
-                        
-                        cancelSlotNumber.textContent = slot;
-                        cancelDate.textContent = date;
-                        confirmCancelBtn.setAttribute('data-booking-id', bookingId);
-                        
-                        const cancelModalInstance = bootstrap.Modal.getOrCreateInstance(cancelModal);
-                        cancelModalInstance.show();
+            });
+
+            // Add event listeners to cancel buttons
+            document.querySelectorAll('.cancel-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const bookingId = this.getAttribute('data-booking-id');
+                    const slot = this.getAttribute('data-slot');
+                    const date = this.getAttribute('data-date');
+
+                    cancelSlotNumber.textContent = slot;
+                    cancelDate.textContent = date;
+                    confirmCancelBtn.setAttribute('data-booking-id', bookingId);
+
+                    const cancelModalInstance = bootstrap.Modal.getOrCreateInstance(cancelModal);
+                    cancelModalInstance.show();
+                });
+            });
+
+            // FIXED: Load parking statistics using dynamic BASE_URL
+            function loadStatistics() {
+                fetch(`${BASE_URL}/api/parkingSlots/stats`)
+                    .then(response => {
+                        if (!response.ok) throw new Error('Failed to load parking stats');
+                        return response.json();
+                    })
+                    .then(data => {
+                        document.getElementById('totalSlotsCount').textContent = data.totalSlots;
+                        availableSlotsCount.textContent = data.availableSlots;
+                        const usedSlots = data.totalSlots - data.availableSlots;
+                        const percentUsed = (usedSlots / data.totalSlots) * 100;
+                        const progressBar = document.querySelector('.progress-bar');
+                        progressBar.style.width = percentUsed + '%';
+
+                        twoWheelerStats.textContent = `${data.twoWheelers.used}/${data.twoWheelers.total}`;
+                        threeWheelerStats.textContent = `${data.threeWheelers.used}/${data.threeWheelers.total}`;
+                        fourWheelerStats.textContent = `${data.fourWheelers.used}/${data.fourWheelers.total}`;
+                        evWheelerStats.textContent = `${data.evWheelers.used}/${data.evWheelers.total}`;
+
+                        twoWheelerAvailable.textContent = data.twoWheelers.available;
+                        threeWheelerAvailable.textContent = data.threeWheelers.available;
+                        fourWheelerAvailable.textContent = data.fourWheelers.available;
+                        evWheelerAvailable.textContent = data.evWheelers.available;
+                    })
+                    .catch(error => {
+                        console.error('Error loading parking stats:', error);
                     });
-                });
+            }
 
-
-  // Load parking statistics
-  function loadStatistics() {
-  fetch('/api/parkingSlots/stats')
-    .then(response => {
-      if (!response.ok) throw new Error('Failed to load parking stats');
-      return response.json();
-    })
-    .then(data => {
-    document.getElementById('totalSlotsCount').textContent = data.totalSlots;
-      availableSlotsCount.textContent = data.availableSlots;
-      const usedSlots = data.totalSlots - data.availableSlots;
-      const percentUsed = (usedSlots / data.totalSlots) * 100;
-      const progressBar = document.querySelector('.progress-bar');
-      progressBar.style.width = percentUsed + '%';
-
-      twoWheelerStats.textContent = `${data.twoWheelers.used}/${data.twoWheelers.total}`;
-      threeWheelerStats.textContent = `${data.threeWheelers.used}/${data.threeWheelers.total}`;
-      fourWheelerStats.textContent = `${data.fourWheelers.used}/${data.fourWheelers.total}`;
-      evWheelerStats.textContent = `${data.evWheelers.used}/${data.evWheelers.total}`;
-
-      twoWheelerAvailable.textContent = data.twoWheelers.available;
-      threeWheelerAvailable.textContent = data.threeWheelers.available;
-      fourWheelerAvailable.textContent = data.fourWheelers.available;
-      evWheelerAvailable.textContent = data.evWheelers.available;
-    })
-    .catch(error => {
-      console.error('Error loading parking stats:', error);
-    });
-}
-            
             // Event Listeners
-            vehicleType.addEventListener('change', function() {
+            vehicleType.addEventListener('change', function () {
                 loadAvailableSlots(this.value);
                 // Reset duration and cost when vehicle type changes
                 duration.textContent = '0';
                 cost.textContent = '0.00';
             });
-            
+
             slotNumber.addEventListener('change', calculateDurationAndCost);
             entryTime.addEventListener('change', calculateDurationAndCost);
             exitTime.addEventListener('change', calculateDurationAndCost);
-            
+
             // Booking form submission
-            bookingForm.addEventListener('submit', function(e) {
+            bookingForm.addEventListener('submit', function (e) {
                 e.preventDefault();
                 bookingAlertContainer.innerHTML = '';
 
@@ -1205,18 +1233,18 @@ document.querySelectorAll('.cancel-btn').forEach(btn => {
                     showAlert(bookingAlertContainer, 'Please fill in all fields.', 'danger');
                     return;
                 }
-                
+
                 // Get current date and time
                 const now = new Date();
                 const selectedEntryTime = new Date(entryTime.value);
                 const selectedExitTime = new Date(exitTime.value);
-                
+
                 // Check if entry time is in the past
                 if (selectedEntryTime < now) {
                     showAlert(bookingAlertContainer, 'Entry time cannot be in the past. Please select a future time.', 'danger');
                     return;
                 }
-                
+
                 // Check if exit time is after entry time
                 if (selectedExitTime <= selectedEntryTime) {
                     showAlert(bookingAlertContainer, 'Exit time must be after entry time. Please adjust your booking times.', 'danger');
@@ -1229,7 +1257,7 @@ document.querySelectorAll('.cancel-btn').forEach(btn => {
                 modalExitTime.textContent = formatDateTime(exitTime.value);
                 modalDuration.textContent = duration.textContent;
                 modalCost.textContent = cost.textContent;
-                
+
                 // Store form data for later use
                 modalCost.formData = {
                     vehicleType: vehicleType.value,
@@ -1239,153 +1267,149 @@ document.querySelectorAll('.cancel-btn').forEach(btn => {
                     totalHours: parseInt(duration.textContent),
                     totalAmount: parseFloat(cost.textContent)
                 };
-                
+
                 // Show booking modal
                 const bookingModalInstance = bootstrap.Modal.getOrCreateInstance(bookingModal);
                 bookingModalInstance.show();
             });
 
-            // confirm booking
-            confirmBookingBtn.addEventListener('click', function() {
-    const bookingData = {
-        slotNumber: slotNumber.options[slotNumber.selectedIndex].text.split(' - ')[0],
-        vehicleType: vehicleType.value,
-        entryTime: entryTime.value,
-        exitTime: exitTime.value
-    };
+            // FIXED: confirm booking using dynamic BASE_URL
+            confirmBookingBtn.addEventListener('click', function () {
+                const bookingData = {
+                    slotNumber: slotNumber.options[slotNumber.selectedIndex].text.split(' - ')[0],
+                    vehicleType: vehicleType.value,
+                    entryTime: entryTime.value,
+                    exitTime: exitTime.value
+                };
 
-console.log("Booking data being sent:", bookingData);
+                console.log("Booking data being sent:", bookingData);
 
-    fetch('http://localhost:8080/api/bookings', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify(bookingData)
-    })
-    .then(response => {
-        if (!response.ok) throw new Error('Booking failed');
-        return response.json();
-    })
-    .then(data => {
-        showAlert(bookingAlertContainer, 'Parking slot booked successfully!', 'success');
+                fetch(`${BASE_URL}/api/bookings`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify(bookingData)
+                })
+                    .then(response => {
+                        if (!response.ok) throw new Error('Booking failed');
+                        return response.json();
+                    })
+                    .then(data => {
+                        showAlert(bookingAlertContainer, 'Parking slot booked successfully!', 'success');
 
-// Hide booking modal
-const bookingModalInstance = bootstrap.Modal.getInstance(bookingModal);
-bookingModalInstance.hide();
+                        // Hide booking modal
+                        const bookingModalInstance = bootstrap.Modal.getInstance(bookingModal);
+                        bookingModalInstance.hide();
 
+                        paymentBookingId.textContent = '#' + data.id;
+                        paymentAmount.textContent = data.totalAmount;
+                        paymentBookingIdInput.value = data.id;
 
-paymentBookingId.textContent = '#' + data.id;
-paymentAmount.textContent = data.totalAmount;
-paymentBookingIdInput.value = data.id;
+                        const paymentModalInstance = bootstrap.Modal.getOrCreateInstance(paymentModal);
+                        paymentModalInstance.show();
 
-const paymentModalInstance = bootstrap.Modal.getOrCreateInstance(paymentModal);
-paymentModalInstance.show();
+                        // Then reset form and refresh bookings
+                        bookingForm.reset();
+                        duration.textContent = '0';
+                        cost.textContent = '0.00';
+                        slotNumber.disabled = true;
 
-// Then reset form and refresh bookings
-bookingForm.reset();
-duration.textContent = '0';
-cost.textContent = '0.00';
-slotNumber.disabled = true;
+                        populateBookings();
+                        // Refresh bookings list
+                    })
+                    .catch(error => {
+                        // Handle specific error messages from the server
+                        if (error.message.includes('Exit time must be after entry time')) {
+                            showAlert(bookingAlertContainer, 'Exit time must be after entry time. Please adjust your booking times.', 'danger');
+                        } else if (error.message.includes('Both entry time and exit time must be provided')) {
+                            showAlert(bookingAlertContainer, 'Please select both entry and exit times.', 'danger');
+                        } else if (error.message.includes('Slot unavailable or overlapping booking')) {
+                            showAlert(bookingAlertContainer, 'This slot is already booked for the selected time period. Please choose a different time or slot.', 'danger');
+                        } else {
+                            showAlert(bookingAlertContainer, 'Booking failed: ' + error.message, 'danger');
+                        }
+                    });
+            });
 
-populateBookings();
-              // Refresh bookings list
-    })
-    .catch(error => {
-        // Handle specific error messages from the server
-        if (error.message.includes('Exit time must be after entry time')) {
-            showAlert(bookingAlertContainer, 'Exit time must be after entry time. Please adjust your booking times.', 'danger');
-        } else if (error.message.includes('Both entry time and exit time must be provided')) {
-            showAlert(bookingAlertContainer, 'Please select both entry and exit times.', 'danger');
-        } else if (error.message.includes('Slot unavailable or overlapping booking')) {
-            showAlert(bookingAlertContainer, 'This slot is already booked for the selected time period. Please choose a different time or slot.', 'danger');
-        } else {
-            showAlert(bookingAlertContainer, 'Booking failed: ' + error.message, 'danger');
-        }
-    });
-});
+            // FIXED: Process payment using dynamic BASE_URL
+            processPaymentBtn.addEventListener('click', function () {
+                const bookingId = paymentBookingIdInput.value;
+                const selectedPaymentMethod = document.getElementById('paymentForm').getAttribute('data-payment-method') || 'CASH'; // default
 
-            
-            // Process payment
-            processPaymentBtn.addEventListener('click', function() {
-    const bookingId = paymentBookingIdInput.value;
-    const selectedPaymentMethod = document.getElementById('paymentForm').getAttribute('data-payment-method') || 'CASH'; // default
+                fetch(`${BASE_URL}/api/payments/initiate`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ bookingId: bookingId, paymentMethod: selectedPaymentMethod }),
+                    credentials: 'include'
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.id) {  // Payment success
+                            showAlert(bookingsAlertContainer, 'Payment processed successfully!', 'success');
 
-    fetch('/api/payments/initiate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ bookingId: bookingId, paymentMethod: selectedPaymentMethod }),
-        credentials: 'include'
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.id) {  // Payment success
-            showAlert(bookingsAlertContainer, 'Payment processed successfully!', 'success');
+                            const paymentModalInstance = bootstrap.Modal.getInstance(paymentModal);
+                            paymentModalInstance.hide();
 
-            const paymentModalInstance = bootstrap.Modal.getInstance(paymentModal);
-            paymentModalInstance.hide();
+                            populateBookings();  // Refresh bookings after payment
+                        } else {
+                            showAlert(bookingsAlertContainer, 'Payment failed: ' + (data.error || 'Unknown error'), 'danger');
+                        }
+                    })
+                    .catch(error => {
+                        showAlert(bookingsAlertContainer, 'Payment error: ' + error.message, 'danger');
+                    });
+            });
 
-            populateBookings();  // Refresh bookings after payment
-        } else {
-            showAlert(bookingsAlertContainer, 'Payment failed: ' + (data.error || 'Unknown error'), 'danger');
-        }
-    })
-    .catch(error => {
-        showAlert(bookingsAlertContainer, 'Payment error: ' + error.message, 'danger');
-    });
-});
+            // FIXED: Confirm cancel booking using dynamic BASE_URL
+            confirmCancelBtn.addEventListener('click', function () {
+                const bookingId = this.getAttribute('data-booking-id');
 
-            
-            // Confirm cancel booking
-          confirmCancelBtn.addEventListener('click', function() {
-    const bookingId = this.getAttribute('data-booking-id');
+                fetch(`${BASE_URL}/api/bookings/${bookingId}`, {
+                    method: 'DELETE',
+                    credentials: 'include',
+                })
+                    .then(response => {
+                        if (!response.ok) throw new Error('Failed to cancel booking');
+                        return response.text();
+                    })
+                    .then(message => {
+                        showAlert(bookingsAlertContainer, message, 'success');
 
-    fetch(`/api/bookings/${bookingId}`, {
-        method: 'DELETE',
-        credentials: 'include',
-    })
-    .then(response => {
-        if (!response.ok) throw new Error('Failed to cancel booking');
-        return response.text();
-    })
-    .then(message => {
-        showAlert(bookingsAlertContainer, message, 'success');
+                        const cancelModalInstance = bootstrap.Modal.getInstance(cancelModal);
+                        cancelModalInstance.hide();
 
-        const cancelModalInstance = bootstrap.Modal.getInstance(cancelModal);
-        cancelModalInstance.hide();
+                        populateBookings();  // Refresh bookings list
+                    })
+                    .catch(error => {
+                        showAlert(bookingsAlertContainer, error.message, 'danger');
+                    });
+            });
 
-        populateBookings();  // Refresh bookings list
-    })
-    .catch(error => {
-        showAlert(bookingsAlertContainer, error.message, 'danger');
-    });
-});
-
-            
             // Refresh bookings
-            refreshBookings.addEventListener('click', function() {
+            refreshBookings.addEventListener('click', function () {
                 showAlert(bookingsAlertContainer, 'Bookings refreshed!', 'info');
                 populateBookings();
             });
-            
+
             // View booking history
-            viewHistory.addEventListener('click', function() {
+            viewHistory.addEventListener('click', function () {
                 showAlert(bookingsAlertContainer, 'Showing booking history...', 'info');
                 // In a real app, this might filter to show only completed bookings
             });
 
             // Logout
-            logoutLink.addEventListener('click', function(e) {
+            logoutLink.addEventListener('click', function (e) {
                 e.preventDefault();
                 if (confirm('Are you sure you want to logout?')) {
                     // In a real app, this would clear the session and redirect
                     window.location.href = 'index.html';
                 }
             });
-            
+
             // Initialize the page
             loadStatistics();
             populateBookings();
-            
+
             // Set minimum date for datetime-local inputs
             const now = new Date();
             const year = now.getFullYear();
@@ -1393,22 +1417,22 @@ populateBookings();
             const day = String(now.getDate()).padStart(2, '0');
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
-            
+
             const minDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
             entryTime.setAttribute('min', minDateTime);
             exitTime.setAttribute('min', minDateTime);
-            
+
             // Payment method selection
             document.querySelectorAll('.payment-option').forEach(option => {
-                option.addEventListener('click', function() {
+                option.addEventListener('click', function () {
                     // Remove selected class from all options
                     document.querySelectorAll('.payment-option').forEach(opt => {
                         opt.classList.remove('selected');
                     });
-                    
+
                     // Add selected class to clicked option
                     this.classList.add('selected');
-                    
+
                     // Store selected payment method
                     document.getElementById('paymentForm').setAttribute('data-payment-method', this.getAttribute('data-method'));
                 });
@@ -1417,15 +1441,15 @@ populateBookings();
             const parkingStatsAlertContainer = document.getElementById('parkingStatsAlertContainer');
             const refreshParkingStats = document.getElementById('refreshParkingStats');
 
-           refreshParkingStats.addEventListener('click', function() {
-           showAlert(parkingStatsAlertContainer, 'Parking statistics refreshed!', 'info');
-           loadStatistics(); // this is your existing function to update stats
-           });
-
+            refreshParkingStats.addEventListener('click', function () {
+                showAlert(parkingStatsAlertContainer, 'Parking statistics refreshed!', 'info');
+                loadStatistics(); // this is your existing function to update stats
+            });
 
             // Set a default payment method
             document.querySelector('.payment-option').click();
         });
     </script>
 </body>
+
 </html>

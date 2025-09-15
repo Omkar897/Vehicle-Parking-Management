@@ -1,6 +1,7 @@
 <!-- admin.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +22,7 @@
             --warning-color: #f39c12;
             --info-color: #9b59b6;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
@@ -30,7 +31,7 @@
             padding: 0;
             color: #333;
         }
-        
+
         .navbar {
             background: rgba(44, 62, 80, 0.95) !important;
             backdrop-filter: blur(10px);
@@ -39,28 +40,28 @@
             top: 0;
             z-index: 1000;
         }
-        
+
         .navbar-brand {
             font-weight: 700;
             font-size: 1.8rem;
             color: var(--light-color) !important;
         }
-        
+
         .navbar-brand span {
             color: var(--primary-color);
         }
-        
+
         .nav-link {
             color: var(--light-color) !important;
             font-weight: 500;
             transition: all 0.3s ease;
             position: relative;
         }
-        
+
         .nav-link:hover {
             color: var(--primary-color) !important;
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -71,28 +72,28 @@
             background-color: var(--primary-color);
             transition: all 0.3s ease;
         }
-        
+
         .nav-link:hover::after {
             width: 100%;
             left: 0;
         }
-        
+
         .admin-container {
             padding: 3rem 0;
         }
-        
+
         .dashboard-header {
             margin-bottom: 2rem;
             padding-bottom: 1rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .dashboard-title {
             color: white;
             font-weight: 700;
             font-size: 2.2rem;
         }
-        
+
         .admin-info {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -103,7 +104,7 @@
             display: flex;
             align-items: center;
         }
-        
+
         .admin-avatar {
             width: 80px;
             height: 80px;
@@ -112,18 +113,18 @@
             border: 3px solid var(--primary-color);
             margin-right: 1rem;
         }
-        
+
         .admin-details h4 {
             color: white;
             margin-bottom: 0.5rem;
         }
-        
+
         .admin-details p {
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 0.2rem;
             font-size: 0.95rem;
         }
-        
+
         .card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -134,12 +135,12 @@
             overflow: hidden;
             color: white;
         }
-        
+
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        
+
         .card-header {
             background-color: rgba(255, 255, 255, 0.05);
             padding: 1rem 1.5rem;
@@ -148,7 +149,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .card-title {
             color: white;
             font-weight: 600;
@@ -156,16 +157,16 @@
             display: flex;
             align-items: center;
         }
-        
+
         .card-title i {
             margin-right: 0.5rem;
             color: var(--primary-color);
         }
-        
+
         .card-body {
             padding: 1.5rem;
         }
-        
+
         .btn-primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
@@ -173,14 +174,14 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-primary:hover {
             background-color: #2980b9;
             border-color: #2980b9;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
         }
-        
+
         .btn-outline-light {
             border-color: var(--light-color);
             color: var(--light-color);
@@ -188,14 +189,14 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-outline-light:hover {
             background-color: var(--light-color);
             color: var(--secondary-color);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(236, 240, 241, 0.4);
         }
-        
+
         .btn-danger {
             background-color: var(--accent-color);
             border-color: var(--accent-color);
@@ -203,14 +204,14 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-danger:hover {
             background-color: #c0392b;
             border-color: #c0392b;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
         }
-        
+
         .btn-success {
             background-color: var(--success-color);
             border-color: var(--success-color);
@@ -218,14 +219,14 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-success:hover {
             background-color: #219653;
             border-color: #219653;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
         }
-        
+
         .btn-warning {
             background-color: var(--warning-color);
             border-color: var(--warning-color);
@@ -233,14 +234,14 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-warning:hover {
             background-color: #e67e22;
             border-color: #e67e22;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
         }
-        
+
         .btn-info {
             background-color: var(--info-color);
             border-color: var(--info-color);
@@ -248,92 +249,93 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-info:hover {
             background-color: #8e44ad;
             border-color: #8e44ad;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(155, 89, 182, 0.4);
         }
-        
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
         }
-        
+
         .stat-card {
             text-align: center;
             padding: 1.5rem;
             border-radius: 10px;
             transition: all 0.3s ease;
         }
-        
+
         .stat-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
-        
+
         .stat-label {
             font-size: 1rem;
             opacity: 0.9;
         }
-        
+
         .bg-primary-stat {
             background: rgba(52, 152, 219, 0.2);
             border: 1px solid rgba(52, 152, 219, 0.3);
         }
-        
+
         .bg-success-stat {
             background: rgba(46, 204, 113, 0.2);
             border: 1px solid rgba(46, 204, 113, 0.3);
         }
-        
+
         .bg-warning-stat {
             background: rgba(243, 156, 18, 0.2);
             border: 1px solid rgba(243, 156, 18, 0.3);
         }
-        
+
         .bg-info-stat {
             background: rgba(155, 89, 182, 0.2);
             border: 1px solid rgba(155, 89, 182, 0.3);
         }
-        
+
         .table {
             color: white;
             background-color: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             overflow: hidden;
         }
-        
+
         .table thead {
             background-color: rgba(255, 255, 255, 0.1);
         }
-        
+
         .table th {
             border-top: none;
             font-weight: 600;
             color: rgba(255, 255, 255, 0.9);
         }
-        
-        .table td, .table th {
+
+        .table td,
+        .table th {
             border-color: rgba(255, 255, 255, 0.1);
             vertical-align: middle;
         }
-        
+
         .table tbody tr {
             transition: all 0.3s ease;
         }
-        
+
         .table tbody tr:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
-        
+
         .badge {
             padding: 0.5em 0.8em;
             border-radius: 20px;
@@ -341,162 +343,172 @@
             text-transform: uppercase;
             font-size: 0.8em;
         }
-        
+
         .badge-success {
             background-color: rgba(46, 204, 113, 0.2);
             color: #27ae60;
         }
-        
+
         .badge-danger {
             background-color: rgba(231, 76, 60, 0.2);
             color: #e74c3c;
         }
-        
+
         .badge-warning {
             background-color: rgba(243, 156, 18, 0.2);
             color: #f39c12;
         }
-        
+
         .badge-info {
             background-color: rgba(52, 152, 219, 0.2);
             color: #3498db;
         }
-        
+
         .action-buttons .btn {
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
         }
-        
+
         .action-buttons .btn:last-child {
             margin-right: 0;
         }
-        
+
         .form-label {
             color: rgba(255, 255, 255, 0.9);
             font-weight: 500;
         }
-        
-        .form-control, .form-select {
+
+        .form-control,
+        .form-select {
             background-color: rgba(255, 255, 255, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
             border-radius: 8px;
             padding: 10px 15px;
         }
-        
-        .form-control::placeholder, .form-select {
+
+        .form-control::placeholder,
+        .form-select {
             color: rgba(255, 255, 255, 0.7);
         }
-        
-        .form-control:focus, .form-select:focus {
+
+        .form-control:focus,
+        .form-select:focus {
             background-color: rgba(255, 255, 255, 0.3);
             border-color: var(--primary-color);
             color: white;
             box-shadow: none;
         }
-        
-        .form-floating > label {
+
+        .form-floating>label {
             color: rgba(255, 255, 255, 0.7);
         }
-        
+
         .alert {
             border-radius: 8px;
             margin-bottom: 1rem;
             padding: 1rem;
             display: none;
         }
-        
+
         .alert-success {
             background-color: rgba(40, 167, 69, 0.2);
             border: 1px solid rgba(40, 167, 69, 0.3);
             color: #28a745;
         }
-        
+
         .alert-danger {
             background-color: rgba(220, 53, 69, 0.2);
             border: 1px solid rgba(220, 53, 69, 0.3);
             color: #dc3545;
         }
-        
+
         .alert-info {
             background-color: rgba(0, 123, 255, 0.2);
             border: 1px solid rgba(0, 123, 255, 0.3);
             color: #007bff;
         }
-        
+
         .alert-show {
             display: block;
             animation: fadeIn 0.5s;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .modal-content {
             background: rgba(44, 62, 80, 0.95);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
         }
-        
+
         .modal-header {
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding: 1.5rem;
         }
-        
+
         .modal-title {
             color: white;
             font-weight: 600;
         }
-        
+
         .modal-body {
             padding: 1.5rem;
             color: rgba(255, 255, 255, 0.9);
         }
-        
+
         .modal-footer {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding: 1rem 1.5rem;
         }
-        
+
         .progress {
             height: 10px;
             border-radius: 5px;
             background-color: rgba(255, 255, 255, 0.1);
         }
-        
+
         .progress-bar {
             border-radius: 5px;
         }
-        
+
         .chart-container {
             position: relative;
             height: 300px;
             margin: 2rem 0;
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 767.98px) {
             .admin-details {
                 text-align: center;
                 margin-bottom: 1rem;
             }
-            
+
             .admin-avatar {
                 margin: 0 auto 1rem auto;
                 display: block;
             }
-            
+
             .stats-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .action-buttons {
                 text-align: center;
             }
-            
+
             .action-buttons .btn {
                 margin-right: 0;
                 margin-bottom: 0.5rem;
@@ -504,6 +516,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -511,7 +524,8 @@
             <a class="navbar-brand" href="/">
                 <i class="fas fa-parking"></i> Park<span>Easy</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -543,17 +557,19 @@
                 <h1 class="dashboard-title">Admin Dashboard</h1>
                 <p class="text-white-50">Manage parking system and monitor operations</p>
             </div>
-            
+
             <!-- Admin Info -->
             <div class="admin-info">
-                <img src="https://ui-avatars.com/api/?name=Admin+User&background=d35400&color=fff&size=128" alt="Admin Avatar" class="admin-avatar">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=d35400&color=fff&size=128"
+                    alt="Admin Avatar" class="admin-avatar">
                 <div class="admin-details">
                     <h4 id="adminName">Admin User</h4>
                     <p><i class="fas fa-envelope me-2"></i> <span id="adminEmail">admin@parkeasy.com</span></p>
-                    <p><i class="fas fa-calendar-alt me-2"></i> Last login: <span id="lastLogin">Today, 10:30 AM</span></p>
+                    <p><i class="fas fa-calendar-alt me-2"></i> Last login: <span id="lastLogin">Today, 10:30 AM</span>
+                    </p>
                 </div>
             </div>
-            
+
             <!-- Dashboard Stats -->
             <div class="card">
                 <div class="card-header">
@@ -586,16 +602,17 @@
                             <div class="stat-label">Total Revenue</div>
                         </div>
                     </div>
-                    
+
                     <div class="mt-4">
                         <h6>Occupancy Rate</h6>
                         <div class="progress">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 50%;"
+                                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-8">
                     <!-- Recent Bookings -->
@@ -609,7 +626,7 @@
                         <div class="card-body">
                             <!-- Alert messages -->
                             <div id="bookingsAlertContainer"></div>
-                            
+
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead>
@@ -633,19 +650,20 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Parking Slots Management -->
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="card-title mb-0"><i class="fas fa-parking"></i> Parking Slots</h5>
-                            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addSlotModal">
+                            <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#addSlotModal">
                                 <i class="fas fa-plus"></i> Add Slot
                             </button>
                         </div>
                         <div class="card-body">
                             <!-- Alert messages -->
                             <div id="slotsAlertContainer"></div>
-                            
+
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead>
@@ -668,7 +686,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4">
                     <!-- Vehicle Statistics -->
                     <div class="card">
@@ -681,42 +699,47 @@
                                 <div><span id="twoWheelerCount">10</span>/<span id="twoWheelerTotal">10</span></div>
                             </div>
                             <div class="progress mb-4">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 100%;"
+                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            
+
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div><i class="fas fa-truck-pickup me-2"></i> Three Wheelers</div>
                                 <div><span id="threeWheelerCount">5</span>/<span id="threeWheelerTotal">5</span></div>
                             </div>
                             <div class="progress mb-4">
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 100%;"
+                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            
+
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div><i class="fas fa-car me-2"></i> Four Wheelers</div>
                                 <div><span id="fourWheelerCount">15</span>/<span id="fourWheelerTotal">15</span></div>
                             </div>
                             <div class="progress mb-4">
-                                <div class="progress-bar bg-primary" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 100%;"
+                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            
+
                             <div class="d-flex justify-content-between align-items-center">
                                 <div><i class="fas fa-plug me-2"></i> EV Charging</div>
                                 <div><span id="evCount">5</span>/<span id="evTotal">5</span></div>
                             </div>
                             <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%;"
+                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Quick Actions -->
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title"><i class="fas fa-bolt"></i> Quick Actions</h5>
                         </div>
                         <div class="card-body action-buttons">
-                            <button class="btn btn-outline-light w-100 mb-2" data-bs-toggle="modal" data-bs-target="#addSlotModal">
+                            <button class="btn btn-outline-light w-100 mb-2" data-bs-toggle="modal"
+                                data-bs-target="#addSlotModal">
                                 <i class="fas fa-plus-circle me-2"></i> Add Parking Slot
                             </button>
                             <button class="btn btn-outline-light w-100 mb-2" id="manageUsers">
@@ -730,7 +753,7 @@
                             </button>
                         </div>
                     </div>
-                    
+
                     <!-- System Status -->
                     <div class="card">
                         <div class="card-header">
@@ -864,8 +887,9 @@
                     <p><strong>Booking ID:</strong> <span id="statusBookingId">12345</span></p>
                     <p><strong>User:</strong> <span id="statusUser">John Doe</span></p>
                     <p><strong>Slot:</strong> <span id="statusSlot">A1</span></p>
-                    <p><strong>Current Status:</strong> <span id="currentStatus" class="badge badge-info">BOOKED</span></p>
-                    
+                    <p><strong>Current Status:</strong> <span id="currentStatus" class="badge badge-info">BOOKED</span>
+                    </p>
+
                     <div class="mt-3">
                         <label for="newStatus" class="form-label">Select New Status</label>
                         <select class="form-select" id="newStatus">
@@ -884,7 +908,8 @@
     </div>
 
     <!-- Delete Slot Modal -->
-    <div class="modal fade" id="deleteSlotModal" tabindex="-1" aria-labelledby="deleteSlotModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deleteSlotModal" tabindex="-1" aria-labelledby="deleteSlotModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -893,7 +918,8 @@
                 </div>
                 <div class="modal-body">
                     <p>Are you sure you want to delete parking slot <strong id="deleteSlotNumber">A1</strong>?</p>
-                    <p class="text-danger"><i class="fas fa-exclamation-triangle me-2"></i> This action cannot be undone. Only slots without active bookings can be deleted.</p>
+                    <p class="text-danger"><i class="fas fa-exclamation-triangle me-2"></i> This action cannot be
+                        undone. Only slots without active bookings can be deleted.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -905,25 +931,31 @@
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- Chart.js for charts (optional) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
     <!-- Custom JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        // FIXED: Dynamic base URL detection for production deployment
+        const BASE_URL = window.location.origin;
+        // This will automatically be:
+        // - http://localhost:8080 (when testing locally)
+        // - https://vehicle-parking-management-production.up.railway.app (when deployed)
+
+        document.addEventListener('DOMContentLoaded', function () {
             // DOM elements
             const adminName = document.getElementById('adminName');
             const adminEmail = document.getElementById('adminEmail');
             const lastLogin = document.getElementById('lastLogin');
-            
+
             const totalSlots = document.getElementById('totalSlots');
             const availableSlots = document.getElementById('availableSlots');
             const occupiedSlots = document.getElementById('occupiedSlots');
             const totalBookings = document.getElementById('totalBookings');
             const todayBookings = document.getElementById('todayBookings');
             const totalRevenue = document.getElementById('totalRevenue');
-            
+
             const twoWheelerCount = document.getElementById('twoWheelerCount');
             const twoWheelerTotal = document.getElementById('twoWheelerTotal');
             const threeWheelerCount = document.getElementById('threeWheelerCount');
@@ -932,76 +964,76 @@
             const fourWheelerTotal = document.getElementById('fourWheelerTotal');
             const evCount = document.getElementById('evCount');
             const evTotal = document.getElementById('evTotal');
-            
+
             const bookingsTableBody = document.getElementById('bookingsTableBody');
             const slotsTableBody = document.getElementById('slotsTableBody');
-            
+
             const bookingsAlertContainer = document.getElementById('bookingsAlertContainer');
             const slotsAlertContainer = document.getElementById('slotsAlertContainer');
-            
+
             const refreshBookings = document.getElementById('refreshBookings');
             const manageUsers = document.getElementById('manageUsers');
             const viewReports = document.getElementById('viewReports');
             const systemSettings = document.getElementById('systemSettings');
             const logoutLink = document.getElementById('logoutLink');
-            
+
             // Modal elements
             const addSlotModal = document.getElementById('addSlotModal');
             const editSlotModal = document.getElementById('editSlotModal');
             const statusModal = document.getElementById('statusModal');
             const deleteSlotModal = document.getElementById('deleteSlotModal');
-            
+
             const addSlotForm = document.getElementById('addSlotForm');
             const editSlotForm = document.getElementById('editSlotForm');
             const statusForm = document.getElementById('statusForm');
-            
+
             const slotNumber = document.getElementById('slotNumber');
             const vehicleType = document.getElementById('vehicleType');
             const hourlyRate = document.getElementById('hourlyRate');
             const isAvailable = document.getElementById('isAvailable');
-            
+
             const editSlotId = document.getElementById('editSlotId');
             const editSlotNumber = document.getElementById('editSlotNumber');
             const editVehicleType = document.getElementById('editVehicleType');
             const editHourlyRate = document.getElementById('editHourlyRate');
             const editIsAvailable = document.getElementById('editIsAvailable');
-            
+
             const statusBookingId = document.getElementById('statusBookingId');
             const statusUser = document.getElementById('statusUser');
             const statusSlot = document.getElementById('statusSlot');
             const currentStatus = document.getElementById('currentStatus');
             const newStatus = document.getElementById('newStatus');
-            
+
             const deleteSlotNumber = document.getElementById('deleteSlotNumber');
-            
+
             const saveSlotBtn = document.getElementById('saveSlot');
             const updateSlotBtn = document.getElementById('updateSlot');
             const updateStatusBtn = document.getElementById('updateStatus');
             const confirmDeleteBtn = document.getElementById('confirmDelete');
-            
+
             // Current admin data
-const storedAdmin = localStorage.getItem('adminUser');
-        if (storedAdmin) {
-            try {
-                const currentAdmin = JSON.parse(storedAdmin);
-                setAdminData(currentAdmin);
-            } catch (e) {
-                // Invalid data, redirect to login
+            const storedAdmin = localStorage.getItem('adminUser');
+            if (storedAdmin) {
+                try {
+                    const currentAdmin = JSON.parse(storedAdmin);
+                    setAdminData(currentAdmin);
+                } catch (e) {
+                    // Invalid data, redirect to login
+                    window.location.href = 'login.html';
+                    return;
+                }
+            } else {
+                // No admin logged in, redirect to login
                 window.location.href = 'login.html';
                 return;
             }
-        } else {
-            // No admin logged in, redirect to login
-            window.location.href = 'login.html';
-            return;
-        }
 
-   // Set admin data
-        function setAdminData(admin) {
-            adminName.textContent = admin.fullName;
-            adminEmail.textContent = admin.email;
-            lastLogin.textContent = admin.lastLogin ? new Date(admin.lastLogin).toLocaleString() : '';
-        }
+            // Set admin data
+            function setAdminData(admin) {
+                adminName.textContent = admin.fullName;
+                adminEmail.textContent = admin.email;
+                lastLogin.textContent = admin.lastLogin ? new Date(admin.lastLogin).toLocaleString() : '';
+            }
 
             // Show alert function
             function showAlert(container, message, type) {
@@ -1011,7 +1043,7 @@ const storedAdmin = localStorage.getItem('adminUser');
                         ${message}
                     </div>
                 `;
-                
+
                 // Hide alert after 5 seconds
                 setTimeout(() => {
                     const alert = container.querySelector('.alert');
@@ -1023,7 +1055,7 @@ const storedAdmin = localStorage.getItem('adminUser');
                     }
                 }, 5000);
             }
-            
+
             // Format date and time
             function formatDateTime(dateTimeStr) {
                 const date = new Date(dateTimeStr);
@@ -1035,44 +1067,65 @@ const storedAdmin = localStorage.getItem('adminUser');
                     minute: '2-digit'
                 });
             }
-            
-            // Populate dashboard stats
+
+            // FIXED: Populate dashboard stats (ready for API integration)
             function populateStats() {
-                // In a real app, this would be an API call
-                // For demo, we'll use sample data
+                // TODO: Replace with actual API call when backend is ready
+                // fetch(`${BASE_URL}/api/admin/dashboard/stats`)
+                //     .then(response => response.json())
+                //     .then(stats => {
+                //         totalSlots.textContent = stats.totalSlots;
+                //         availableSlots.textContent = stats.availableSlots;
+                //         // ... etc
+                //     });
+
+                // For now, using demo data
                 totalSlots.textContent = '30';
                 availableSlots.textContent = '15';
                 occupiedSlots.textContent = '15';
                 totalBookings.textContent = '127';
                 todayBookings.textContent = '18';
                 totalRevenue.textContent = '2,450';
-                
+
                 // Update progress bar
                 const progressBar = document.querySelector('.progress-bar');
                 progressBar.style.width = '50%';
                 progressBar.textContent = '50%';
             }
-            
-            // Populate vehicle statistics
+
+            // FIXED: Populate vehicle statistics (ready for API integration)
             function populateVehicleStats() {
-                // In a real app, this would be an API call
-                // For demo, we'll use sample data
+                // TODO: Replace with actual API call when backend is ready
+                // fetch(`${BASE_URL}/api/admin/dashboard/vehicleStats`)
+                //     .then(response => response.json())
+                //     .then(stats => {
+                //         twoWheelerCount.textContent = stats.twoWheelerCount;
+                //         // ... etc
+                //     });
+
+                // For now, using demo data
                 twoWheelerCount.textContent = '8';
                 threeWheelerCount.textContent = '4';
                 fourWheelerCount.textContent = '13';
                 evCount.textContent = '3';
-                
+
                 // Update progress bars
                 document.querySelectorAll('.progress-bar')[0].style.width = '80%';
                 document.querySelectorAll('.progress-bar')[1].style.width = '80%';
                 document.querySelectorAll('.progress-bar')[2].style.width = '87%';
                 document.querySelectorAll('.progress-bar')[3].style.width = '60%';
             }
-            
-            // Populate bookings table
+
+            // FIXED: Populate bookings table (ready for API integration)
             function populateBookingsTable() {
-                // In a real app, this would be an API call
-                // For demo, we'll create some sample bookings
+                // TODO: Replace with actual API call when backend is ready
+                // fetch(`${BASE_URL}/api/admin/bookings`)
+                //     .then(response => response.json())
+                //     .then(bookings => {
+                //         // Process real bookings data
+                //     });
+
+                // For now, using demo data
                 const bookings = [
                     {
                         id: 12345,
@@ -1115,13 +1168,13 @@ const storedAdmin = localStorage.getItem('adminUser');
                         status: 'COMPLETED'
                     }
                 ];
-                
+
                 let bookingsHTML = '';
                 bookings.forEach(booking => {
                     const vehicleIcon = booking.vehicleType === 'TWO_WHEELER' ? 'motorcycle' :
-                                        booking.vehicleType === 'THREE_WHEELER' ? 'truck-pickup' : 
-                                        booking.vehicleType === 'EV' ? 'plug' : 'car';
-                    
+                        booking.vehicleType === 'THREE_WHEELER' ? 'truck-pickup' :
+                            booking.vehicleType === 'EV' ? 'plug' : 'car';
+
                     bookingsHTML += `
                         <tr>
                             <td>#${booking.id}</td>
@@ -1136,8 +1189,8 @@ const storedAdmin = localStorage.getItem('adminUser');
                             </td>
                             <td>${formatDateTime(booking.entryTime)}</td>
                             <td>
-                                <span class="badge badge-${booking.status === 'BOOKED' ? 'info' : 
-                                           booking.status === 'COMPLETED' ? 'success' : 'danger'}">
+                                <span class="badge badge-${booking.status === 'BOOKED' ? 'info' :
+                            booking.status === 'COMPLETED' ? 'success' : 'danger'}">
                                     ${booking.status}
                                 </span>
                             </td>
@@ -1153,35 +1206,41 @@ const storedAdmin = localStorage.getItem('adminUser');
                         </tr>
                     `;
                 });
-                
+
                 bookingsTableBody.innerHTML = bookingsHTML;
-                
+
                 // Add event listeners to update status buttons
                 document.querySelectorAll('.update-status').forEach(btn => {
-                    btn.addEventListener('click', function() {
+                    btn.addEventListener('click', function () {
                         const bookingId = this.getAttribute('data-booking-id');
                         const user = this.getAttribute('data-user');
                         const slot = this.getAttribute('data-slot');
                         const status = this.getAttribute('data-status');
-                        
+
                         statusBookingId.textContent = '#' + bookingId;
                         statusUser.textContent = user;
                         statusSlot.textContent = slot;
                         currentStatus.textContent = status;
-                        currentStatus.className = `badge badge-${status === 'BOOKED' ? 'info' : 
-                                                      status === 'COMPLETED' ? 'success' : 'danger'}`;
+                        currentStatus.className = `badge badge-${status === 'BOOKED' ? 'info' :
+                            status === 'COMPLETED' ? 'success' : 'danger'}`;
                         newStatus.value = status;
-                        
+
                         const statusModalInstance = bootstrap.Modal.getOrCreateInstance(statusModal);
                         statusModalInstance.show();
                     });
                 });
             }
-            
-            // Populate slots table
+
+            // FIXED: Populate slots table (ready for API integration)
             function populateSlotsTable() {
-                // In a real app, this would be an API call
-                // For demo, we'll create some sample slots
+                // TODO: Replace with actual API call when backend is ready
+                // fetch(`${BASE_URL}/api/admin/slots`)
+                //     .then(response => response.json())
+                //     .then(slots => {
+                //         // Process real slots data
+                //     });
+
+                // For now, using demo data
                 const slots = [
                     { id: 1, number: 'A1', vehicleType: 'TWO_WHEELER', hourlyRate: 3.00, isAvailable: true },
                     { id: 2, number: 'A2', vehicleType: 'TWO_WHEELER', hourlyRate: 3.00, isAvailable: true },
@@ -1199,13 +1258,13 @@ const storedAdmin = localStorage.getItem('adminUser');
                     { id: 14, number: 'F2', vehicleType: 'EV', hourlyRate: 6.00, isAvailable: true },
                     { id: 15, number: 'F3', vehicleType: 'EV', hourlyRate: 6.00, isAvailable: false }
                 ];
-                
+
                 let slotsHTML = '';
                 slots.forEach(slot => {
                     const vehicleIcon = slot.vehicleType === 'TWO_WHEELER' ? 'motorcycle' :
-                                        slot.vehicleType === 'THREE_WHEELER' ? 'truck-pickup' : 
-                                        slot.vehicleType === 'EV' ? 'plug' : 'car';
-                    
+                        slot.vehicleType === 'THREE_WHEELER' ? 'truck-pickup' :
+                            slot.vehicleType === 'EV' ? 'plug' : 'car';
+
                     slotsHTML += `
                         <tr>
                             <td>${slot.number}</td>
@@ -1237,174 +1296,196 @@ const storedAdmin = localStorage.getItem('adminUser');
                         </tr>
                     `;
                 });
-                
+
                 slotsTableBody.innerHTML = slotsHTML;
-                
+
                 // Add event listeners to edit buttons
                 document.querySelectorAll('.edit-slot').forEach(btn => {
-                    btn.addEventListener('click', function() {
+                    btn.addEventListener('click', function () {
                         const id = this.getAttribute('data-id');
                         const number = this.getAttribute('data-number');
                         const vehicleType = this.getAttribute('data-vehicle-type');
                         const hourlyRate = this.getAttribute('data-hourly-rate');
                         const isAvailable = this.getAttribute('data-is-available') === 'true';
-                        
+
                         editSlotId.value = id;
                         editSlotNumber.value = number;
                         editVehicleType.value = vehicleType;
                         editHourlyRate.value = hourlyRate;
                         editIsAvailable.checked = isAvailable;
-                        
+
                         const editSlotModalInstance = bootstrap.Modal.getOrCreateInstance(editSlotModal);
                         editSlotModalInstance.show();
                     });
                 });
-                
+
                 // Add event listeners to delete buttons
                 document.querySelectorAll('.delete-slot').forEach(btn => {
-                    btn.addEventListener('click', function() {
+                    btn.addEventListener('click', function () {
                         const id = this.getAttribute('data-id');
                         const number = this.getAttribute('data-number');
-                        
+
                         deleteSlotNumber.textContent = number;
                         confirmDeleteBtn.setAttribute('data-slot-id', id);
-                        
+
                         const deleteSlotModalInstance = bootstrap.Modal.getOrCreateInstance(deleteSlotModal);
                         deleteSlotModalInstance.show();
                     });
                 });
             }
-            
+
             // Event Listeners
             // Refresh bookings
-            refreshBookings.addEventListener('click', function() {
+            refreshBookings.addEventListener('click', function () {
                 showAlert(bookingsAlertContainer, 'Data refreshed!', 'info');
                 populateBookingsTable();
                 populateSlotsTable();
                 populateStats();
                 populateVehicleStats();
             });
-            
+
             // Manage users
-            manageUsers.addEventListener('click', function() {
+            manageUsers.addEventListener('click', function () {
                 showAlert(bookingsAlertContainer, 'User management feature coming soon!', 'info');
             });
-            
+
             // View reports
-            viewReports.addEventListener('click', function() {
+            viewReports.addEventListener('click', function () {
                 showAlert(bookingsAlertContainer, 'Generating reports...', 'info');
             });
-            
+
             // System settings
-            systemSettings.addEventListener('click', function() {
+            systemSettings.addEventListener('click', function () {
                 showAlert(bookingsAlertContainer, 'System settings feature coming soon!', 'info');
             });
-            
+
             // Logout
-            logoutLink.addEventListener('click', function(e) {
+            logoutLink.addEventListener('click', function (e) {
                 e.preventDefault();
                 if (confirm('Are you sure you want to logout?')) {
                     // In a real app, this would clear the session and redirect
                     window.location.href = 'index.html';
                 }
             });
-            
+
             // Save new slot
-            saveSlotBtn.addEventListener('click', function() {
+            saveSlotBtn.addEventListener('click', function () {
                 const number = slotNumber.value;
                 const type = vehicleType.value;
                 const rate = hourlyRate.value;
                 const available = isAvailable.checked;
-                
+
                 if (!number || !type || !rate) {
                     showAlert(slotsAlertContainer, 'Please fill in all fields.', 'danger');
                     return;
                 }
-                
-                // In a real app, this would be an API call
-                // For demo, we'll simulate a successful save
+
+                // TODO: Replace with actual API call when backend is ready
+                // fetch(`${BASE_URL}/api/admin/slots`, {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({ slotNumber: number, vehicleType: type, hourlyRate: rate, available: available })
+                // });
+
+                // For now, simulate success
                 showAlert(slotsAlertContainer, `Parking slot ${number} added successfully!`, 'success');
-                
+
                 // Close modal
                 const addSlotModalInstance = bootstrap.Modal.getInstance(addSlotModal);
                 addSlotModalInstance.hide();
-                
+
                 // Reset form
                 addSlotForm.reset();
                 isAvailable.checked = true;
-                
+
                 // Refresh slots table
                 populateSlotsTable();
-                
+
                 // Update stats
                 totalSlots.textContent = parseInt(totalSlots.textContent) + 1;
                 availableSlots.textContent = parseInt(availableSlots.textContent) + (available ? 1 : 0);
                 occupiedSlots.textContent = parseInt(occupiedSlots.textContent) + (available ? 0 : 1);
             });
-            
+
             // Update slot
-            updateSlotBtn.addEventListener('click', function() {
+            updateSlotBtn.addEventListener('click', function () {
                 const id = editSlotId.value;
                 const number = editSlotNumber.value;
                 const type = editVehicleType.value;
                 const rate = editHourlyRate.value;
                 const available = editIsAvailable.checked;
-                
+
                 if (!number || !type || !rate) {
                     showAlert(slotsAlertContainer, 'Please fill in all fields.', 'danger');
                     return;
                 }
-                
-                // In a real app, this would be an API call
-                // For demo, we'll simulate a successful update
+
+                // TODO: Replace with actual API call when backend is ready
+                // fetch(`${BASE_URL}/api/admin/slots/${id}`, {
+                //     method: 'PUT',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({ slotNumber: number, vehicleType: type, hourlyRate: rate, available: available })
+                // });
+
+                // For now, simulate success
                 showAlert(slotsAlertContainer, `Parking slot ${number} updated successfully!`, 'success');
-                
+
                 // Close modal
                 const editSlotModalInstance = bootstrap.Modal.getInstance(editSlotModal);
                 editSlotModalInstance.hide();
-                
+
                 // Refresh slots table
                 populateSlotsTable();
             });
-            
+
             // Update booking status
-            updateStatusBtn.addEventListener('click', function() {
+            updateStatusBtn.addEventListener('click', function () {
                 const bookingId = statusBookingId.textContent.replace('#', '');
                 const status = newStatus.value;
-                
-                // In a real app, this would be an API call
-                // For demo, we'll simulate a successful update
+
+                // TODO: Replace with actual API call when backend is ready
+                // fetch(`${BASE_URL}/api/admin/bookings/status`, {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({ bookingId: bookingId, status: status })
+                // });
+
+                // For now, simulate success
                 showAlert(bookingsAlertContainer, `Booking #${bookingId} status updated to ${status}!`, 'success');
-                
+
                 // Close modal
                 const statusModalInstance = bootstrap.Modal.getInstance(statusModal);
                 statusModalInstance.hide();
-                
+
                 // Refresh bookings table
                 populateBookingsTable();
             });
-            
+
             // Confirm delete slot
-            confirmDeleteBtn.addEventListener('click', function() {
+            confirmDeleteBtn.addEventListener('click', function () {
                 const slotId = this.getAttribute('data-slot-id');
                 const slotNumberText = deleteSlotNumber.textContent;
-                
-                // In a real app, this would be an API call
-                // For demo, we'll simulate a successful deletion
+
+                // TODO: Replace with actual API call when backend is ready
+                // fetch(`${BASE_URL}/api/admin/slots/${slotId}`, {
+                //     method: 'DELETE'
+                // });
+
+                // For now, simulate success
                 showAlert(slotsAlertContainer, `Parking slot ${slotNumberText} deleted successfully!`, 'success');
-                
+
                 // Close modal
                 const deleteSlotModalInstance = bootstrap.Modal.getInstance(deleteSlotModal);
                 deleteSlotModalInstance.hide();
-                
+
                 // Refresh slots table
                 populateSlotsTable();
-                
+
                 // Update stats
                 totalSlots.textContent = parseInt(totalSlots.textContent) - 1;
                 // We don't know if the deleted slot was available or not, so we won't update those stats
             });
-            
+
             // Initialize the page
             populateStats();
             populateVehicleStats();
@@ -1413,4 +1494,5 @@ const storedAdmin = localStorage.getItem('adminUser');
         });
     </script>
 </body>
+
 </html>

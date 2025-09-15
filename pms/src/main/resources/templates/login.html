@@ -1,6 +1,7 @@
 <!-- login.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -100,7 +101,7 @@
             border-radius: 3px;
         }
 
-        .form-floating > label {
+        .form-floating>label {
             color: rgba(255, 255, 255, 0.7);
         }
 
@@ -166,7 +167,8 @@
             font-size: 0.9rem;
         }
 
-        .divider::before, .divider::after {
+        .divider::before,
+        .divider::after {
             content: '';
             flex: 1;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -266,8 +268,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Admin login toggle */
@@ -301,6 +310,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -308,7 +318,8 @@
             <a class="navbar-brand" href="/">
                 <i class="fas fa-parking"></i> Park<span>Easy</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -389,7 +400,8 @@
     </div>
 
     <!-- Admin Login Modal -->
-    <div class="modal fade" id="adminLoginModal" tabindex="-1" aria-labelledby="adminLoginModalLabel" aria-hidden="true">
+    <div class="modal fade" id="adminLoginModal" tabindex="-1" aria-labelledby="adminLoginModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -418,7 +430,13 @@
 
     <!-- Custom JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        // FIXED: Dynamic base URL detection for production deployment
+        const BASE_URL = window.location.origin;
+        // This will automatically be:
+        // - http://localhost:8080 (when testing locally)
+        // - https://vehicle-parking-management-production.up.railway.app (when deployed)
+
+        document.addEventListener('DOMContentLoaded', function () {
             const loginForm = document.getElementById('loginForm');
             const adminLoginForm = document.getElementById('adminLoginForm');
             const alertContainer = document.getElementById('alertContainer');
@@ -443,68 +461,70 @@
             }
 
             // ---------- User Login ----------
-            loginForm.addEventListener('submit', function(e) {
+            loginForm.addEventListener('submit', function (e) {
                 e.preventDefault();
 
                 const username = document.getElementById('username').value;
                 const password = document.getElementById('password').value;
 
-                fetch('http://localhost:8080/api/user/login', {
+                // FIXED: Using dynamic BASE_URL instead of hardcoded localhost:8080
+                fetch(`${BASE_URL}/api/user/login`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username: username, password: password })
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        showAlert(data.message, 'success');
-                        setTimeout(() => window.location.href = 'user.html', 1000);
-                    } else {
-                        showAlert(data.message, 'danger');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    showAlert('Something went wrong! Please try again.', 'danger');
-                });
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            showAlert(data.message, 'success');
+                            setTimeout(() => window.location.href = 'user.html', 1000);
+                        } else {
+                            showAlert(data.message, 'danger');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        showAlert('Something went wrong! Please try again.', 'danger');
+                    });
             });
 
             // ---------- Admin Login ----------
-            adminLoginForm.addEventListener('submit', function(e) {
+            adminLoginForm.addEventListener('submit', function (e) {
                 e.preventDefault();
 
                 const username = document.getElementById('adminUsername').value;
                 const password = document.getElementById('adminPassword').value;
 
-                fetch('http://localhost:8080/api/admin/login', {
+                // FIXED: Using dynamic BASE_URL instead of hardcoded localhost:8080
+                fetch(`${BASE_URL}/api/admin/login`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username: username, password: password })
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        showAlert(data.message, 'success');
-                        setTimeout(() => window.location.href = 'admin.html', 1000);
-                    } else {
-                        showAlert(data.message, 'danger');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    showAlert('Something went wrong! Please try again.', 'danger');
-                });
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            showAlert(data.message, 'success');
+                            setTimeout(() => window.location.href = 'admin.html', 1000);
+                        } else {
+                            showAlert(data.message, 'danger');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        showAlert('Something went wrong! Please try again.', 'danger');
+                    });
             });
 
             // ---------- Admin modal toggle ----------
-            adminLoginLink.addEventListener('click', function(e) {
+            adminLoginLink.addEventListener('click', function (e) {
                 e.preventDefault();
                 const adminModal = new bootstrap.Modal(document.getElementById('adminLoginModal'));
                 adminModal.show();
             });
 
             // ---------- Forgot password ----------
-            forgotPasswordLink.addEventListener('click', function(e) {
+            forgotPasswordLink.addEventListener('click', function (e) {
                 e.preventDefault();
                 showAlert('Please contact support to reset your password.', 'danger');
             });
@@ -512,4 +532,5 @@
     </script>
 
 </body>
+
 </html>

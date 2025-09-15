@@ -1,6 +1,7 @@
 <!-- admin.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +9,14 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap-Select CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Custom CSS -->
 
     <style>
-
         :root {
             --primary-color: #3498db;
             --secondary-color: #2c3e50;
@@ -326,7 +327,8 @@
             color: rgba(255, 255, 255, 0.9);
         }
 
-        .table td, .table th {
+        .table td,
+        .table th {
             border-color: rgba(255, 255, 255, 0.1);
             vertical-align: middle;
         }
@@ -381,7 +383,8 @@
             font-weight: 500;
         }
 
-        .form-control, .form-select {
+        .form-control,
+        .form-select {
             background-color: rgba(255, 255, 255, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
@@ -389,18 +392,20 @@
             padding: 10px 15px;
         }
 
-        .form-control::placeholder, .form-select {
+        .form-control::placeholder,
+        .form-select {
             color: rgba(255, 255, 255, 0.7);
         }
 
-        .form-control:focus, .form-select:focus {
+        .form-control:focus,
+        .form-select:focus {
             background-color: rgba(255, 255, 255, 0.3);
             border-color: var(--primary-color);
             color: white;
             box-shadow: none;
         }
 
-        .form-floating > label {
+        .form-floating>label {
             color: rgba(255, 255, 255, 0.7);
         }
 
@@ -435,8 +440,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .modal-content {
@@ -509,46 +521,58 @@
 
             .modal-content select,
             .modal-content option {
-            color: #222 !important;            /* dark text */
-            background-color: #fff !important; /* white background */
+                color: #222 !important;
+                /* dark text */
+                background-color: #fff !important;
+                /* white background */
             }
-            }
+        }
 
-           .bootstrap-select .dropdown-toggle,
-           .bootstrap-select > .dropdown-toggle {
-            height: 48px !important;                   /* Match your input box height */
-            border-radius: 8px !important;             /* Rounded corners same as .form-control */
-            background-color: rgba(255,255,255,0.2) !important;  /* Modal input background */
-            border: 1px solid rgba(255,255,255,0.3) !important;  /* Modal input border */
-            color: #fff !important;                    /* Text color as modal inputs */
-            padding: 10px 15px !important;             /* Padding same as .form-control */
-            font-size: 1rem !important;                /* Match font size for consistency */
-            font-family: inherit !important;           /* Match font family */
-            box-shadow: none !important;               /* Remove unwanted dropdown inset shadow */
-            }
+        .bootstrap-select .dropdown-toggle,
+        .bootstrap-select>.dropdown-toggle {
+            height: 48px !important;
+            /* Match your input box height */
+            border-radius: 8px !important;
+            /* Rounded corners same as .form-control */
+            background-color: rgba(255, 255, 255, 0.2) !important;
+            /* Modal input background */
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            /* Modal input border */
+            color: #fff !important;
+            /* Text color as modal inputs */
+            padding: 10px 15px !important;
+            /* Padding same as .form-control */
+            font-size: 1rem !important;
+            /* Match font size for consistency */
+            font-family: inherit !important;
+            /* Match font family */
+            box-shadow: none !important;
+            /* Remove unwanted dropdown inset shadow */
+        }
 
-            .bootstrap-select .dropdown-toggle:focus,
-            .bootstrap-select > .dropdown-toggle:focus {
-             background-color: rgba(255,255,255,0.3) !important;
-             border-color: #3498db !important;         /* Match focused border */
-             color: #fff !important;
-             outline: none !important;
-             }
+        .bootstrap-select .dropdown-toggle:focus,
+        .bootstrap-select>.dropdown-toggle:focus {
+            background-color: rgba(255, 255, 255, 0.3) !important;
+            border-color: #3498db !important;
+            /* Match focused border */
+            color: #fff !important;
+            outline: none !important;
+        }
 
-             .bootstrap-select .dropdown-menu {
-              background-color: #fff;
-              color: #222;
-              border-radius: 8px;
-              font-size: 1rem;
-              }
+        .bootstrap-select .dropdown-menu {
+            background-color: #fff;
+            color: #222;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
 
-              /* For option text coloring in dropdown if needed (optional) */
-              .bootstrap-select .dropdown-menu .dropdown-item {
-               color: #222 !important;
-              }
-
+        /* For option text coloring in dropdown if needed (optional) */
+        .bootstrap-select .dropdown-menu .dropdown-item {
+            color: #222 !important;
+        }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -557,7 +581,8 @@
                 <i class="fas fa-parking"></i> Park<span>Easy</span>
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -597,7 +622,8 @@
 
             <!-- Admin Info -->
             <div class="admin-info">
-                <img src="https://ui-avatars.com/api/?name=Admin+User&background=d35400&color=fff&size=128" alt="Admin Avatar" class="admin-avatar">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=d35400&color=fff&size=128"
+                    alt="Admin Avatar" class="admin-avatar">
                 <div class="admin-details">
                     <h4 id="adminName">Admin User</h4>
                     <p><i class="fas fa-envelope me-2"></i> <span id="adminEmail">admin@parkeasy.com</span></p>
@@ -649,7 +675,8 @@
                     <div class="mt-4">
                         <h6>Occupancy Rate</h6>
                         <div class="progress">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 50%;"
+                                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
                         </div>
                     </div>
                 </div>
@@ -700,7 +727,8 @@
                                 <i class="fas fa-parking"></i> Parking Slots
                             </h5>
                             <div>
-                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addSlotModal">
+                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#addSlotModal">
                                     <i class="fas fa-plus"></i> Add Slot
                                 </button>
                                 <button class="btn btn-sm btn-outline-light ms-2" id="refreshSlots">
@@ -758,7 +786,9 @@
                                 </div>
                             </div>
                             <div class="progress mb-4">
-                                <div class="progress-bar bg-info" id="barTwoWheeler" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-info" id="barTwoWheeler" role="progressbar"
+                                    style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                </div>
                             </div>
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div><i class="fas fa-truck-pickup me-2"></i> Three Wheelers</div>
@@ -767,7 +797,9 @@
                                 </div>
                             </div>
                             <div class="progress mb-4">
-                                <div class="progress-bar bg-warning" id="barThreeWheeler" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-warning" id="barThreeWheeler" role="progressbar"
+                                    style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                </div>
                             </div>
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div><i class="fas fa-car me-2"></i> Four Wheelers</div>
@@ -776,7 +808,9 @@
                                 </div>
                             </div>
                             <div class="progress mb-4">
-                                <div class="progress-bar bg-primary" id="barFourWheeler" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-primary" id="barFourWheeler" role="progressbar"
+                                    style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                </div>
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div><i class="fas fa-plug me-2"></i> EV Charging</div>
@@ -785,7 +819,8 @@
                                 </div>
                             </div>
                             <div class="progress">
-                                <div class="progress-bar bg-success" id="barEV" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-success" id="barEV" role="progressbar" style="width: 100%;"
+                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
@@ -797,7 +832,8 @@
                             <h5 class="card-title"><i class="fas fa-bolt"></i> Quick Actions</h5>
                         </div>
                         <div class="card-body action-buttons">
-                            <button class="btn btn-outline-light w-100 mb-2" data-bs-toggle="modal" data-bs-target="#addSlotModal">
+                            <button class="btn btn-outline-light w-100 mb-2" data-bs-toggle="modal"
+                                data-bs-target="#addSlotModal">
                                 <i class="fas fa-plus-circle me-2"></i> Add Parking Slot
                             </button>
                             <button class="btn btn-outline-light w-100 mb-2" id="manageUsers">
@@ -885,7 +921,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="editVehicleType" class="form-label">Vehicle Type</label>
-                            <select class="selectpicker form-control" data-style="btn-light" id="editVehicleType" required>
+                            <select class="selectpicker form-control" data-style="btn-light" id="editVehicleType"
+                                required>
                                 <option value="TWO_WHEELER">Two Wheeler (Bike)</option>
                                 <option value="THREE_WHEELER">Three Wheeler</option>
                                 <option value="FOUR_WHEELER">Four Wheeler (Car)</option>
@@ -925,7 +962,8 @@
                     <p><strong>Booking ID:</strong> <span id="statusBookingId">12345</span></p>
                     <p><strong>User:</strong> <span id="statusUser">John Doe</span></p>
                     <p><strong>Slot:</strong> <span id="statusSlot">A1</span></p>
-                    <p><strong>Current Status:</strong> <span id="currentStatus" class="badge badge-info">BOOKED</span></p>
+                    <p><strong>Current Status:</strong> <span id="currentStatus" class="badge badge-info">BOOKED</span>
+                    </p>
 
                     <div class="mt-3">
                         <label for="newStatus" class="form-label">Select New Status</label>
@@ -946,7 +984,8 @@
     </div>
 
     <!-- Delete Slot Modal -->
-    <div class="modal fade" id="deleteSlotModal" tabindex="-1" aria-labelledby="deleteSlotModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deleteSlotModal" tabindex="-1" aria-labelledby="deleteSlotModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -955,7 +994,8 @@
                 </div>
                 <div class="modal-body">
                     <p>Are you sure you want to delete parking slot <strong id="deleteSlotNumber">A1</strong>?</p>
-                    <p class="text-danger"><i class="fas fa-exclamation-triangle me-2"></i> This action cannot be undone. Only slots without active bookings can be deleted.</p>
+                    <p class="text-danger"><i class="fas fa-exclamation-triangle me-2"></i> This action cannot be
+                        undone. Only slots without active bookings can be deleted.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -976,133 +1016,137 @@
 
     <!-- Bootstrap-Select JS (ADD THIS HERE) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
-<script>
-    $(document).ready(function() {
-    $('.selectpicker').selectpicker();
-    });
+    <script>
+        $(document).ready(function () {
+            $('.selectpicker').selectpicker();
+        });
     </script>
 
     <!-- Custom JavaScript -->
     <script>
+        // FIXED: Dynamic base URL detection for production deployment
+        const BASE_URL = window.location.origin;
+        // This will automatically be:
+        // - http://localhost:8080 (when testing locally)
+        // - https://vehicle-parking-management-production.up.railway.app (when deployed)
 
-     document.addEventListener('DOMContentLoaded', function() {
-    // DOM elements
+        document.addEventListener('DOMContentLoaded', function () {
+            // DOM elements
+            const adminName = document.getElementById('adminName');
+            const adminEmail = document.getElementById('adminEmail');
 
-    const adminName = document.getElementById('adminName');
-    const adminEmail = document.getElementById('adminEmail');
+            const totalSlots = document.getElementById('totalSlots');
+            const availableSlots = document.getElementById('availableSlots');
+            const occupiedSlots = document.getElementById('occupiedSlots');
+            const totalBookings = document.getElementById('totalBookings');
+            const todayBookings = document.getElementById('todayBookings');
+            const totalRevenue = document.getElementById('totalRevenue');
+            const vehicleStatsAlertContainer = document.getElementById('vehicleStatsAlertContainer');
 
-    const totalSlots = document.getElementById('totalSlots');
-    const availableSlots = document.getElementById('availableSlots');
-    const occupiedSlots = document.getElementById('occupiedSlots');
-    const totalBookings = document.getElementById('totalBookings');
-    const todayBookings = document.getElementById('todayBookings');
-    const totalRevenue = document.getElementById('totalRevenue');
-    const vehicleStatsAlertContainer = document.getElementById('vehicleStatsAlertContainer');
+            const twoWheelerCount = document.getElementById('twoWheelerCount');
+            const twoWheelerTotal = document.getElementById('twoWheelerTotal');
+            const threeWheelerCount = document.getElementById('threeWheelerCount');
+            const threeWheelerTotal = document.getElementById('threeWheelerTotal');
+            const fourWheelerCount = document.getElementById('fourWheelerCount');
+            const fourWheelerTotal = document.getElementById('fourWheelerTotal');
+            const evCount = document.getElementById('evCount');
+            const evTotal = document.getElementById('evTotal');
+            const bookingTimeInput = document.getElementById('bookingTime');
 
-    const twoWheelerCount = document.getElementById('twoWheelerCount');
-    const twoWheelerTotal = document.getElementById('twoWheelerTotal');
-    const threeWheelerCount = document.getElementById('threeWheelerCount');
-    const threeWheelerTotal = document.getElementById('threeWheelerTotal');
-    const fourWheelerCount = document.getElementById('fourWheelerCount');
-    const fourWheelerTotal = document.getElementById('fourWheelerTotal');
-    const evCount = document.getElementById('evCount');
-    const evTotal = document.getElementById('evTotal');
-    const bookingTimeInput = document.getElementById('bookingTime');
+            if (bookingTimeInput) {
+                const now = new Date();
+                bookingTimeInput.min = now.toISOString().slice(0, 16); // YYYY-MM-DDTHH:mm
+            }
+            const bookingsTableBody = document.getElementById('bookingsTableBody');
+            const slotsTableBody = document.getElementById('slotsTableBody');
 
-    if (bookingTimeInput) {
-        const now = new Date();
-        bookingTimeInput.min = now.toISOString().slice(0,16); // YYYY-MM-DDTHH:mm
-    }
-    const bookingsTableBody = document.getElementById('bookingsTableBody');
-    const slotsTableBody = document.getElementById('slotsTableBody');
+            const bookingsAlertContainer = document.getElementById('bookingsAlertContainer');
+            const slotsAlertContainer = document.getElementById('slotsAlertContainer');
+            const systemOverviewAlertContainer = document.getElementById('systemOverviewAlertContainer');
 
-    const bookingsAlertContainer = document.getElementById('bookingsAlertContainer');
-    const slotsAlertContainer = document.getElementById('slotsAlertContainer');
-    const systemOverviewAlertContainer = document.getElementById('systemOverviewAlertContainer');
+            const refreshBookings = document.getElementById('refreshBookings');
+            const manageUsers = document.getElementById('manageUsers');
+            const viewReports = document.getElementById('viewReports');
+            const systemSettings = document.getElementById('systemSettings');
+            const logoutLink = document.getElementById('logoutLink');
 
-    const refreshBookings = document.getElementById('refreshBookings');
-    const manageUsers = document.getElementById('manageUsers');
-    const viewReports = document.getElementById('viewReports');
-    const systemSettings = document.getElementById('systemSettings');
-    const logoutLink = document.getElementById('logoutLink');
+            // Modal elements
+            const addSlotModal = document.getElementById('addSlotModal');
+            const editSlotModal = document.getElementById('editSlotModal');
+            const statusModal = document.getElementById('statusModal');
+            const deleteSlotModal = document.getElementById('deleteSlotModal');
 
-    // Modal elements
-    const addSlotModal = document.getElementById('addSlotModal');
-    const editSlotModal = document.getElementById('editSlotModal');
-    const statusModal = document.getElementById('statusModal');
-    const deleteSlotModal = document.getElementById('deleteSlotModal');
+            const addSlotForm = document.getElementById('addSlotForm');
+            const editSlotForm = document.getElementById('editSlotForm');
+            const statusForm = document.getElementById('statusForm');
 
-    const addSlotForm = document.getElementById('addSlotForm');
-    const editSlotForm = document.getElementById('editSlotForm');
-    const statusForm = document.getElementById('statusForm');
+            const slotNumber = document.getElementById('slotNumber');
+            const vehicleType = document.getElementById('vehicleType');
+            const hourlyRate = document.getElementById('hourlyRate');
+            const isAvailable = document.getElementById('isAvailable');
 
-    const slotNumber = document.getElementById('slotNumber');
-    const vehicleType = document.getElementById('vehicleType');
-    const hourlyRate = document.getElementById('hourlyRate');
-    const isAvailable = document.getElementById('isAvailable');
+            const editSlotId = document.getElementById('editSlotId');
+            const editSlotNumber = document.getElementById('editSlotNumber');
+            const editVehicleType = document.getElementById('editVehicleType');
+            const editHourlyRate = document.getElementById('editHourlyRate');
+            const editIsAvailable = document.getElementById('editIsAvailable');
 
-    const editSlotId = document.getElementById('editSlotId');
-    const editSlotNumber = document.getElementById('editSlotNumber');
-    const editVehicleType = document.getElementById('editVehicleType');
-    const editHourlyRate = document.getElementById('editHourlyRate');
-    const editIsAvailable = document.getElementById('editIsAvailable');
+            const statusBookingId = document.getElementById('statusBookingId');
+            const statusUser = document.getElementById('statusUser');
+            const statusSlot = document.getElementById('statusSlot');
+            const currentStatus = document.getElementById('currentStatus');
+            const newStatus = document.getElementById('newStatus');
 
-    const statusBookingId = document.getElementById('statusBookingId');
-    const statusUser = document.getElementById('statusUser');
-    const statusSlot = document.getElementById('statusSlot');
-    const currentStatus = document.getElementById('currentStatus');
-    const newStatus = document.getElementById('newStatus');
+            const deleteSlotNumber = document.getElementById('deleteSlotNumber');
+            const saveSlotBtn = document.getElementById('saveSlot');
+            const updateSlotBtn = document.getElementById('updateSlot');
+            const updateStatusBtn = document.getElementById('updateStatus');
+            const confirmDeleteBtn = document.getElementById('confirmDelete');
 
-    const deleteSlotNumber = document.getElementById('deleteSlotNumber');
-    const saveSlotBtn = document.getElementById('saveSlot');
-    const updateSlotBtn = document.getElementById('updateSlot');
-    const updateStatusBtn = document.getElementById('updateStatus');
-    const confirmDeleteBtn = document.getElementById('confirmDelete');
+            // Load admin data dynamically from localStorage
+            const storedAdmin = localStorage.getItem('adminUser');
+            if (storedAdmin) {
+                try {
+                    const currentAdmin = JSON.parse(storedAdmin);
+                    setAdminData(currentAdmin);
+                } catch (e) {
+                    // If JSON parsing error, redirect to login
+                    window.location.href = 'login.html'; // Adjust as per your login page
+                    return;
+                }
+            } else {
+                // No admin logged in, redirect to login page
+                window.location.href = 'login.html'; // Adjust as per your login page
+                return;
+            }
 
+            // Set admin data function
+            function setAdminData(admin) {
+                adminName.textContent = admin.fullName || admin.username || 'Admin User';
+                adminEmail.textContent = admin.email || 'admin@parkeasy.com';
+            }
 
-    // Load admin data dynamically from localStorage
-    const storedAdmin = localStorage.getItem('adminUser');
-    if (storedAdmin) {
-        try {
-            const currentAdmin = JSON.parse(storedAdmin);
-            setAdminData(currentAdmin);
-        } catch (e) {
-            // If JSON parsing error, redirect to login
-            window.location.href = 'login.html'; // Adjust as per your login page
-            return;
-        }
-    } else {
-        // No admin logged in, redirect to login page
-        window.location.href = 'login.html'; // Adjust as per your login page
-        return;
-    }
-
-    // Set admin data function
-    function setAdminData(admin) {
-        adminName.textContent = admin.fullName || admin.username || 'Admin User';
-        adminEmail.textContent = admin.email || 'admin@parkeasy.com';
-    }
-
-    // Show alert function remains unchanged
-    function showAlert(container, message, type) {
-        container.innerHTML = `
+            // Show alert function remains unchanged
+            function showAlert(container, message, type) {
+                container.innerHTML = `
             <div class="alert alert-${type} alert-show">
                 <i class="fas fa-exclamation-circle me-2"></i>
                 ${message}
             </div>
         `;
 
-        // Hide alert after 5 seconds
-        setTimeout(() => {
-            const alert = container.querySelector('.alert');
-            if (alert) {
-                alert.classList.remove('alert-show');
+                // Hide alert after 5 seconds
                 setTimeout(() => {
-                    alert.remove();
-                }, 500);
+                    const alert = container.querySelector('.alert');
+                    if (alert) {
+                        alert.classList.remove('alert-show');
+                        setTimeout(() => {
+                            alert.remove();
+                        }, 500);
+                    }
+                }, 5000);
             }
-        }, 5000);
-    }
+
             // Format date and time
             function formatDateTime(dateTimeStr) {
                 const date = new Date(dateTimeStr);
@@ -1116,239 +1160,240 @@
             }
 
             // Populate dashboard stats
-
             function populateStats() {
-    fetch('/api/admin/dashboard/stats')
-        .then(response => response.json())
-        .then(stats => {
-            totalSlots.textContent = stats.totalSlots;
-            availableSlots.textContent = stats.availableSlots;
-            occupiedSlots.textContent = stats.occupiedSlots;
-            totalBookings.textContent = stats.totalBookings;
-            todayBookings.textContent = stats.todayBookings;
+                // FIXED: Using dynamic BASE_URL instead of hardcoded path
+                fetch(`${BASE_URL}/api/admin/dashboard/stats`)
+                    .then(response => response.json())
+                    .then(stats => {
+                        totalSlots.textContent = stats.totalSlots;
+                        availableSlots.textContent = stats.availableSlots;
+                        occupiedSlots.textContent = stats.occupiedSlots;
+                        totalBookings.textContent = stats.totalBookings;
+                        todayBookings.textContent = stats.todayBookings;
 
-            // Skip revenue update for now if you want
-            // totalRevenue.textContent = `$${stats.totalRevenue}`;
+                        // Skip revenue update for now if you want
+                        // totalRevenue.textContent = `$${stats.totalRevenue}`;
 
-            const occupancyPercent = stats.totalSlots > 0
-                ? (stats.occupiedSlots / stats.totalSlots) * 100
-                : 0;
-            const progressBar = document.querySelector('.progress-bar');
-            progressBar.style.width = occupancyPercent + '%';
-            progressBar.textContent = occupancyPercent.toFixed(0) + '%';
-        })
-        .catch(error => {
-            console.error('Failed to load dashboard stats:', error);
-            showAlert(slotsAlertContainer, 'Failed to load dashboard statistics', 'danger');
-        });
-}
-
-    function populateVehicleStats() {
-    fetch('/api/admin/dashboard/stats')
-        .then(response => {
-            if (!response.ok) throw new Error('API failed');
-            return response.json();
-        })
-        .then(stats => {
-            twoWheelerCount.textContent = stats.availableTwoWheelerSlots ?? 0;
-            threeWheelerCount.textContent = stats.availableThreeWheelerSlots ?? 0;
-            fourWheelerCount.textContent = stats.availableFourWheelerSlots ?? 0;
-            evCount.textContent = stats.availableEvSlots ?? 0;
-            twoWheelerTotal.textContent = stats.twoWheelerSlots ?? 0;
-            threeWheelerTotal.textContent = stats.threeWheelerSlots ?? 0;
-            fourWheelerTotal.textContent = stats.fourWheelerSlots ?? 0;
-            evTotal.textContent = stats.evSlots ?? 0;
-
-            const calcPercent = (available, total) => total > 0 ? (available / total * 100).toFixed(0) : 0;
-
-            // Two Wheelers
-            const bar2w = document.querySelector('.progress-bar.bg-info');
-            if (bar2w)
-                bar2w.style.width = calcPercent(stats.availableTwoWheelerSlots, stats.twoWheelerSlots) + '%';
-
-            // Three Wheelers
-            const bar3w = document.querySelector('.progress-bar.bg-warning');
-            if (bar3w)
-                bar3w.style.width = calcPercent(stats.availableThreeWheelerSlots, stats.threeWheelerSlots) + '%';
-
-            // Four Wheelers
-           const bar4w = document.getElementById('barFourWheeler');
-            if (bar4w) {
-            const percent = calcPercent(stats.availableFourWheelerSlots, stats.fourWheelerSlots);
-            bar4w.style.width = percent + '%';
-             }
-
-            // EV Charging
-            const barEv = document.querySelector('.progress-bar.bg-success');
-            if (barEv)
-                barEv.style.width = calcPercent(stats.availableEvSlots, stats.evSlots) + '%';
-              })
-                   .catch(error => {
-                      console.error('Failed to load vehicle stats:', error);
-                      showAlert(slotsAlertContainer, 'Failed to load vehicle statistics.', 'danger');
-        });
-}
-
-     function formatDateTime(dateArray) {
-    // Handle array format from LocalDateTime
-    if (Array.isArray(dateArray) && dateArray.length >= 5) {
-        // dateArray format: [year, month, day, hour, minute]
-        const [year, month, day, hour, minute] = dateArray;
-        const date = new Date(year, month - 1, day, hour, minute); // month is 0-indexed in JS
-
-        return date.toLocaleString('en-US', {
-            year: 'numeric',
-            month: 'short',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: true
-        });
-    }
-
-    // Fallback for string dates
-    return 'Invalid Date';
-}
-
-    function updateBookingStatus() {
-    const bookingId = statusBookingId.textContent.replace('#', '');
-    const newStatusValue = newStatus.value;
-
-    fetch('/api/admin/bookings/status', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            bookingId: bookingId,
-            status: newStatusValue
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Booking status updated successfully!');
-
-            const statusModalInstance = bootstrap.Modal.getInstance(statusModal);
-            statusModalInstance.hide();
-
-            populateBookingsTable();
-        } else {
-            alert('Error: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error updating status:', error);
-        alert('Failed to update booking status');
-    });
-}
-
-
-         // Populate bookings table
-  function populateBookingsTable() {
-  fetch('/api/admin/bookings')
-    .then(response => response.json())
-    .then(bookings => {
-      // Sort by newest entryTime first
-      bookings.sort((a, b) => new Date(b.entryTime) - new Date(a.entryTime));
-      let bookingsHTML = '';
-      bookings.forEach(booking => {
-        const vehicleIcon = booking.vehicleType === 'TWO_WHEELER' ? 'motorcycle' :
-                            booking.vehicleType === 'THREE_WHEELER' ? 'truck-pickup' :
-                            booking.vehicleType === 'EV' ? 'plug' : 'car';
-
-        const userName = booking.user?.fullName || booking.user?.username || `User ${booking.user}` || 'Unknown';
-        const slotNumber = booking.parkingSlot?.slotNumber || 'N/A';
-
-        bookingsHTML += `
-          <tr>
-            <td>#${booking.id}</td>
-            <td><i class="fas fa-user me-2"></i>${userName}</td>
-            <td>${slotNumber}</td>
-            <td><i class="fas fa-${vehicleIcon} me-2"></i>${booking.vehicleType.replace('_', ' ')}</td>
-            <td>${formatDateTime(booking.entryTime)}</td>
-            <td><span class="badge badge-${booking.status === 'BOOKED' ? 'info' : booking.status === 'COMPLETED' ? 'success' : 'danger'}">${booking.status}</span></td>
-            <td>
-              <button class="btn btn-sm btn-info update-status"
-                      data-booking-id="${booking.id}"
-                      data-user="${userName}"
-                      data-slot="${slotNumber}"
-                      data-status="${booking.status}">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-          </tr>
-        `;
-      });
-
-      bookingsTableBody.innerHTML = bookingsHTML;
-
-      // Add event listeners after DOM update
-      document.querySelectorAll('.update-status').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-          console.log('Button clicked!'); // Debug log
-
-          const bookingId = this.getAttribute('data-booking-id');
-          const user = this.getAttribute('data-user');
-          const slot = this.getAttribute('data-slot');
-          const status = this.getAttribute('data-status');
-
-          statusBookingId.textContent = '#' + bookingId;
-          statusUser.textContent = user;
-          statusSlot.textContent = slot;
-          currentStatus.textContent = status;
-          currentStatus.className = `badge badge-${status === 'BOOKED' ? 'info' : status === 'COMPLETED' ? 'success' : 'danger'}`;
-          newStatus.value = status;
-
-          const statusModalInstance = bootstrap.Modal.getOrCreateInstance(statusModal);
-          statusModalInstance.show();
-        });
-      });
-
-    })
-    .catch(error => {
-      console.error('Error fetching bookings:', error);
-      bookingsTableBody.innerHTML = '<tr><td colspan="7">Failed to load bookings</td></tr>';
-    });
-}
-
-   // Added function: fetch slots dynamically based on vehicle type
-    function fetchSlots() {
-    fetch('/api/admin/slots')
-        .then(response => response.json())
-        .then(slots => {
-            renderSlots(slots);
-        })
-        .catch(error => {
-            console.error('Error fetching slots:', error);
-            showAlert(slotsAlertContainer, 'Failed to load slots.', 'danger');
-        });
-}
-
-
-    // Added function: render slots into the slots table
-    function renderSlots(slots) {
-    slots.sort((a, b) => {
-        const regex = /^([A-Za-z]+)(\d+)$/;
-        const matchA = a.slotNumber.match(regex);
-        const matchB = b.slotNumber.match(regex);
-
-        if (matchA && matchB) {
-            if (matchA[1] !== matchB[1]) {
-                return matchA[1].localeCompare(matchB[1]);
+                        const occupancyPercent = stats.totalSlots > 0
+                            ? (stats.occupiedSlots / stats.totalSlots) * 100
+                            : 0;
+                        const progressBar = document.querySelector('.progress-bar');
+                        progressBar.style.width = occupancyPercent + '%';
+                        progressBar.textContent = occupancyPercent.toFixed(0) + '%';
+                    })
+                    .catch(error => {
+                        console.error('Failed to load dashboard stats:', error);
+                        showAlert(slotsAlertContainer, 'Failed to load dashboard statistics', 'danger');
+                    });
             }
-            return Number(matchA[2]) - Number(matchB[2]);
-        }
-        return a.slotNumber.localeCompare(b.slotNumber, undefined, { numeric: true, sensitivity: 'base' });
-    });
-        let slotsHTML = '';
-        slots.forEach(slot => {
-            const vehicleIcon = slot.vehicleType === 'TWO_WHEELER' ? 'motorcycle' :
-                                slot.vehicleType === 'THREE_WHEELER' ? 'truck-pickup' :
-                                slot.vehicleType === 'EV' ? 'plug' : 'car';
 
+            function populateVehicleStats() {
+                // FIXED: Using dynamic BASE_URL instead of hardcoded path
+                fetch(`${BASE_URL}/api/admin/dashboard/stats`)
+                    .then(response => {
+                        if (!response.ok) throw new Error('API failed');
+                        return response.json();
+                    })
+                    .then(stats => {
+                        twoWheelerCount.textContent = stats.availableTwoWheelerSlots ?? 0;
+                        threeWheelerCount.textContent = stats.availableThreeWheelerSlots ?? 0;
+                        fourWheelerCount.textContent = stats.availableFourWheelerSlots ?? 0;
+                        evCount.textContent = stats.availableEvSlots ?? 0;
+                        twoWheelerTotal.textContent = stats.twoWheelerSlots ?? 0;
+                        threeWheelerTotal.textContent = stats.threeWheelerSlots ?? 0;
+                        fourWheelerTotal.textContent = stats.fourWheelerSlots ?? 0;
+                        evTotal.textContent = stats.evSlots ?? 0;
 
-            slotsHTML += `
+                        const calcPercent = (available, total) => total > 0 ? (available / total * 100).toFixed(0) : 0;
+
+                        // Two Wheelers
+                        const bar2w = document.querySelector('.progress-bar.bg-info');
+                        if (bar2w)
+                            bar2w.style.width = calcPercent(stats.availableTwoWheelerSlots, stats.twoWheelerSlots) + '%';
+
+                        // Three Wheelers
+                        const bar3w = document.querySelector('.progress-bar.bg-warning');
+                        if (bar3w)
+                            bar3w.style.width = calcPercent(stats.availableThreeWheelerSlots, stats.threeWheelerSlots) + '%';
+
+                        // Four Wheelers
+                        const bar4w = document.getElementById('barFourWheeler');
+                        if (bar4w) {
+                            const percent = calcPercent(stats.availableFourWheelerSlots, stats.fourWheelerSlots);
+                            bar4w.style.width = percent + '%';
+                        }
+
+                        // EV Charging
+                        const barEv = document.querySelector('.progress-bar.bg-success');
+                        if (barEv)
+                            barEv.style.width = calcPercent(stats.availableEvSlots, stats.evSlots) + '%';
+                    })
+                    .catch(error => {
+                        console.error('Failed to load vehicle stats:', error);
+                        showAlert(slotsAlertContainer, 'Failed to load vehicle statistics.', 'danger');
+                    });
+            }
+
+            function formatDateTime(dateArray) {
+                // Handle array format from LocalDateTime
+                if (Array.isArray(dateArray) && dateArray.length >= 5) {
+                    // dateArray format: [year, month, day, hour, minute]
+                    const [year, month, day, hour, minute] = dateArray;
+                    const date = new Date(year, month - 1, day, hour, minute); // month is 0-indexed in JS
+
+                    return date.toLocaleString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: '2-digit',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: true
+                    });
+                }
+
+                // Fallback for string dates
+                return 'Invalid Date';
+            }
+
+            function updateBookingStatus() {
+                const bookingId = statusBookingId.textContent.replace('#', '');
+                const newStatusValue = newStatus.value;
+
+                // FIXED: Using dynamic BASE_URL instead of hardcoded path
+                fetch(`${BASE_URL}/api/admin/bookings/status`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        bookingId: bookingId,
+                        status: newStatusValue
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Booking status updated successfully!');
+
+                            const statusModalInstance = bootstrap.Modal.getInstance(statusModal);
+                            statusModalInstance.hide();
+
+                            populateBookingsTable();
+                        } else {
+                            alert('Error: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error updating status:', error);
+                        alert('Failed to update booking status');
+                    });
+            }
+
+            // Populate bookings table
+            function populateBookingsTable() {
+                // FIXED: Using dynamic BASE_URL instead of hardcoded path
+                fetch(`${BASE_URL}/api/admin/bookings`)
+                    .then(response => response.json())
+                    .then(bookings => {
+                        // Sort by newest entryTime first
+                        bookings.sort((a, b) => new Date(b.entryTime) - new Date(a.entryTime));
+                        let bookingsHTML = '';
+                        bookings.forEach(booking => {
+                            const vehicleIcon = booking.vehicleType === 'TWO_WHEELER' ? 'motorcycle' :
+                                booking.vehicleType === 'THREE_WHEELER' ? 'truck-pickup' :
+                                    booking.vehicleType === 'EV' ? 'plug' : 'car';
+
+                            const userName = booking.user?.fullName || booking.user?.username || `User ${booking.user}` || 'Unknown';
+                            const slotNumber = booking.parkingSlot?.slotNumber || 'N/A';
+
+                            bookingsHTML += `
+                <tr>
+                    <td>#${booking.id}</td>
+                    <td><i class="fas fa-user me-2"></i>${userName}</td>
+                    <td>${slotNumber}</td>
+                    <td><i class="fas fa-${vehicleIcon} me-2"></i>${booking.vehicleType.replace('_', ' ')}</td>
+                    <td>${formatDateTime(booking.entryTime)}</td>
+                    <td><span class="badge badge-${booking.status === 'BOOKED' ? 'info' : booking.status === 'COMPLETED' ? 'success' : 'danger'}">${booking.status}</span></td>
+                    <td>
+                    <button class="btn btn-sm btn-info update-status"
+                            data-booking-id="${booking.id}"
+                            data-user="${userName}"
+                            data-slot="${slotNumber}"
+                            data-status="${booking.status}">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    </td>
+                </tr>
+                `;
+                        });
+
+                        bookingsTableBody.innerHTML = bookingsHTML;
+
+                        // Add event listeners after DOM update
+                        document.querySelectorAll('.update-status').forEach(btn => {
+                            btn.addEventListener('click', function (e) {
+                                console.log('Button clicked!'); // Debug log
+
+                                const bookingId = this.getAttribute('data-booking-id');
+                                const user = this.getAttribute('data-user');
+                                const slot = this.getAttribute('data-slot');
+                                const status = this.getAttribute('data-status');
+
+                                statusBookingId.textContent = '#' + bookingId;
+                                statusUser.textContent = user;
+                                statusSlot.textContent = slot;
+                                currentStatus.textContent = status;
+                                currentStatus.className = `badge badge-${status === 'BOOKED' ? 'info' : status === 'COMPLETED' ? 'success' : 'danger'}`;
+                                newStatus.value = status;
+
+                                const statusModalInstance = bootstrap.Modal.getOrCreateInstance(statusModal);
+                                statusModalInstance.show();
+                            });
+                        });
+
+                    })
+                    .catch(error => {
+                        console.error('Error fetching bookings:', error);
+                        bookingsTableBody.innerHTML = '<tr><td colspan="7">Failed to load bookings</td></tr>';
+                    });
+            }
+
+            // Added function: fetch slots dynamically based on vehicle type
+            function fetchSlots() {
+                // FIXED: Using dynamic BASE_URL instead of hardcoded path
+                fetch(`${BASE_URL}/api/admin/slots`)
+                    .then(response => response.json())
+                    .then(slots => {
+                        renderSlots(slots);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching slots:', error);
+                        showAlert(slotsAlertContainer, 'Failed to load slots.', 'danger');
+                    });
+            }
+
+            // Added function: render slots into the slots table
+            function renderSlots(slots) {
+                slots.sort((a, b) => {
+                    const regex = /^([A-Za-z]+)(\d+)$/;
+                    const matchA = a.slotNumber.match(regex);
+                    const matchB = b.slotNumber.match(regex);
+
+                    if (matchA && matchB) {
+                        if (matchA[1] !== matchB[1]) {
+                            return matchA[1].localeCompare(matchB[1]);
+                        }
+                        return Number(matchA[2]) - Number(matchB[2]);
+                    }
+                    return a.slotNumber.localeCompare(b.slotNumber, undefined, { numeric: true, sensitivity: 'base' });
+                });
+                let slotsHTML = '';
+                slots.forEach(slot => {
+                    const vehicleIcon = slot.vehicleType === 'TWO_WHEELER' ? 'motorcycle' :
+                        slot.vehicleType === 'THREE_WHEELER' ? 'truck-pickup' :
+                            slot.vehicleType === 'EV' ? 'plug' : 'car';
+
+                    slotsHTML += `
                 <tr>
                     <td>${slot.slotNumber}</td>
                     <td>
@@ -1357,9 +1402,8 @@
                     </td>
                     <td>₹${slot.hourlyRate.toFixed(2)}/hr</td>
                     <td>
-
-                         <span class="badge badge-${slot.available ? 'success' : 'danger'}">
-                       ${slot.available ? 'AVAILABLE' : 'OCCUPIED'}
+                        <span class="badge badge-${slot.available ? 'success' : 'danger'}">
+                        ${slot.available ? 'AVAILABLE' : 'OCCUPIED'}
                         </span>
                     </td>
                     <td>
@@ -1379,37 +1423,37 @@
                     </td>
                 </tr>
             `;
-        });
-        slotsTableBody.innerHTML = slotsHTML;
-        addEditDeleteListeners();
-    }
+                });
+                slotsTableBody.innerHTML = slotsHTML;
+                addEditDeleteListeners();
+            }
 
-                 // Extracted from your populateSlotsTable() - add listeners to edit/delete buttons
-                // Add event listeners to edit buttons
-                function addEditDeleteListeners() {
-                 console.log('Binding edit/delete listeners');
-        document.querySelectorAll('.edit-slot').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const id = this.getAttribute('data-id');
-                const number = this.getAttribute('data-number');
-                const vehicleTypeValue = this.getAttribute('data-vehicle-type');
-                const hourlyRateValue = this.getAttribute('data-hourly-rate');
-                const isAvailableValue = this.getAttribute('data-is-available') === 'true';
+            // Extracted from your populateSlotsTable() - add listeners to edit/delete buttons
+            // Add event listeners to edit buttons
+            function addEditDeleteListeners() {
+                console.log('Binding edit/delete listeners');
+                document.querySelectorAll('.edit-slot').forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        const id = this.getAttribute('data-id');
+                        const number = this.getAttribute('data-number');
+                        const vehicleTypeValue = this.getAttribute('data-vehicle-type');
+                        const hourlyRateValue = this.getAttribute('data-hourly-rate');
+                        const isAvailableValue = this.getAttribute('data-is-available') === 'true';
 
-                editSlotId.value = id;
-                editSlotNumber.value = number;
-                editVehicleType.value = vehicleTypeValue;
-                editHourlyRate.value = hourlyRateValue;
-                editIsAvailable.checked = isAvailableValue;
+                        editSlotId.value = id;
+                        editSlotNumber.value = number;
+                        editVehicleType.value = vehicleTypeValue;
+                        editHourlyRate.value = hourlyRateValue;
+                        editIsAvailable.checked = isAvailableValue;
 
-                const editSlotModalInstance = bootstrap.Modal.getOrCreateInstance(editSlotModal);
-                editSlotModalInstance.show();
-            });
-        });
+                        const editSlotModalInstance = bootstrap.Modal.getOrCreateInstance(editSlotModal);
+                        editSlotModalInstance.show();
+                    });
+                });
 
                 // Add event listeners to delete buttons
                 document.querySelectorAll('.delete-slot').forEach(btn => {
-                    btn.addEventListener('click', function() {
+                    btn.addEventListener('click', function () {
                         const id = this.getAttribute('data-id');
                         const number = this.getAttribute('data-number');
 
@@ -1423,13 +1467,13 @@
             }
 
             // Modified populateSlotsTable() to load slots from backend using fetchSlots with default vehicle type
-    function populateSlotsTable() {
+            function populateSlotsTable() {
+                fetchSlots();
+            }
 
-                   fetchSlots();
-    }
             // Event Listeners
             // Refresh bookings
-            refreshBookings.addEventListener('click', function() {
+            refreshBookings.addEventListener('click', function () {
                 showAlert(bookingsAlertContainer, 'Data refreshed!', 'info');
                 populateBookingsTable();
                 populateSlotsTable();
@@ -1438,15 +1482,15 @@
             });
 
             // Refresh slots
-    document.getElementById('refreshSlots').addEventListener('click', function() {
-    showAlert(slotsAlertContainer, 'Parking slots refreshed!', 'info');
-    populateSlotsTable();    // reload slots data
-    populateStats();         // update overall dashboard summary
-    populateVehicleStats();  // update vehicle type stats
-});
+            document.getElementById('refreshSlots').addEventListener('click', function () {
+                showAlert(slotsAlertContainer, 'Parking slots refreshed!', 'info');
+                populateSlotsTable();    // reload slots data
+                populateStats();         // update overall dashboard summary
+                populateVehicleStats();  // update vehicle type stats
+            });
 
             // Logout
-            logoutLink.addEventListener('click', function(e) {
+            logoutLink.addEventListener('click', function (e) {
                 e.preventDefault();
                 if (confirm('Are you sure you want to logout?')) {
                     // In a real app, this would clear the session and redirect
@@ -1455,162 +1499,160 @@
             });
 
             // Save new slot
-               saveSlotBtn.addEventListener('click', function() {
-    const number = slotNumber.value.trim();
-    const type = vehicleType.value;
-    const rate = parseFloat(hourlyRate.value);
-   const available = isAvailable.checked;
+            saveSlotBtn.addEventListener('click', function () {
+                const number = slotNumber.value.trim();
+                const type = vehicleType.value;
+                const rate = parseFloat(hourlyRate.value);
+                const available = isAvailable.checked;
 
-    console.log('Saving slot with values:', {
-      slotNumber: number,
-      vehicleType: type,
-      hourlyRate: rate,
-      available: available
-    });
+                console.log('Saving slot with values:', {
+                    slotNumber: number,
+                    vehicleType: type,
+                    hourlyRate: rate,
+                    available: available
+                });
 
-    if (!number || !type || isNaN(rate)) {
-        showAlert(slotsAlertContainer, 'Please fill in all fields.', 'danger');
-        return;
-    }
+                if (!number || !type || isNaN(rate)) {
+                    showAlert(slotsAlertContainer, 'Please fill in all fields.', 'danger');
+                    return;
+                }
 
-    // Real API call to your backend to add the slot
-    fetch('/api/admin/slots', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            slotNumber: number,
-            vehicleType: type,
-            hourlyRate: rate,
-             available: available
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            showAlert(slotsAlertContainer, `Parking slot ${number} added successfully!`, 'success');
+                // FIXED: Real API call to your backend to add the slot
+                fetch(`${BASE_URL}/api/admin/slots`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        slotNumber: number,
+                        vehicleType: type,
+                        hourlyRate: rate,
+                        available: available
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            showAlert(slotsAlertContainer, `Parking slot ${number} added successfully!`, 'success');
 
-            // Close modal
-            bootstrap.Modal.getInstance(addSlotModal).hide();
+                            // Close modal
+                            bootstrap.Modal.getInstance(addSlotModal).hide();
 
-            // Reset form fields
-            addSlotForm.reset();
-            isAvailable.checked = true;
+                            // Reset form fields
+                            addSlotForm.reset();
+                            isAvailable.checked = true;
 
-            // Refresh slots table
-            populateSlotsTable();
-        } else {
-            showAlert(slotsAlertContainer, data.message || 'Failed to add parking slot.', 'danger');
-        }
-    })
-    .catch(() => {
-        showAlert(slotsAlertContainer, 'Failed to add parking slot.', 'danger');
-    });
-});
-
+                            // Refresh slots table
+                            populateSlotsTable();
+                        } else {
+                            showAlert(slotsAlertContainer, data.message || 'Failed to add parking slot.', 'danger');
+                        }
+                    })
+                    .catch(() => {
+                        showAlert(slotsAlertContainer, 'Failed to add parking slot.', 'danger');
+                    });
+            });
 
             // Update slot
-            updateSlotBtn.addEventListener('click', function() {
-    const id = editSlotId.value;
-    const number = editSlotNumber.value.trim();
-    const type = editVehicleType.value;
-    const rate = parseFloat(editHourlyRate.value);
-    const available = editIsAvailable.checked;
+            updateSlotBtn.addEventListener('click', function () {
+                const id = editSlotId.value;
+                const number = editSlotNumber.value.trim();
+                const type = editVehicleType.value;
+                const rate = parseFloat(editHourlyRate.value);
+                const available = editIsAvailable.checked;
 
-    if (!number || !type || isNaN(rate)) {
-        showAlert(slotsAlertContainer, 'Please fill in all fields correctly.', 'danger');
-        return;
-    }
+                if (!number || !type || isNaN(rate)) {
+                    showAlert(slotsAlertContainer, 'Please fill in all fields correctly.', 'danger');
+                    return;
+                }
 
-    fetch(`/api/admin/slots/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            slotNumber: number,
-            vehicleType: type,
-            hourlyRate: rate,
-            available: available
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            showAlert(slotsAlertContainer, data.message, 'success');
-            const editSlotModalInstance = bootstrap.Modal.getInstance(editSlotModal);
-            editSlotModalInstance.hide();
-            populateSlotsTable();
-        } else {
-            showAlert(slotsAlertContainer, data.message, 'danger');
-        }
-    })
-    .catch(() => {
-        showAlert(slotsAlertContainer, 'Failed to update parking slot.', 'danger');
-    });
-});
-
+                // FIXED: Using dynamic BASE_URL instead of hardcoded path
+                fetch(`${BASE_URL}/api/admin/slots/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        slotNumber: number,
+                        vehicleType: type,
+                        hourlyRate: rate,
+                        available: available
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            showAlert(slotsAlertContainer, data.message, 'success');
+                            const editSlotModalInstance = bootstrap.Modal.getInstance(editSlotModal);
+                            editSlotModalInstance.hide();
+                            populateSlotsTable();
+                        } else {
+                            showAlert(slotsAlertContainer, data.message, 'danger');
+                        }
+                    })
+                    .catch(() => {
+                        showAlert(slotsAlertContainer, 'Failed to update parking slot.', 'danger');
+                    });
+            });
 
             // Update booking status
             updateStatusBtn.addEventListener('click', updateBookingStatus);
 
+            confirmDeleteBtn.addEventListener('click', function () {
+                const slotId = this.getAttribute('data-slot-id');
+                const slotNumber = deleteSlotNumber.textContent;
 
+                // FIXED: Using dynamic BASE_URL instead of hardcoded path
+                fetch(`${BASE_URL}/api/admin/slots/${slotId}`, {
+                    method: 'DELETE',
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            showAlert(slotsAlertContainer, `Parking slot ${slotNumber} deleted successfully!`, 'success');
 
-    confirmDeleteBtn.addEventListener('click', function() {
-    const slotId = this.getAttribute('data-slot-id');
-    const slotNumber = deleteSlotNumber.textContent;
+                            // Correct modal instance reference
+                            const deleteSlotModalInstance = bootstrap.Modal.getInstance(deleteSlotModal);
+                            deleteSlotModalInstance.hide();
 
-    fetch(`/api/admin/slots/${slotId}`, {
-        method: 'DELETE',
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            showAlert(slotsAlertContainer, `Parking slot ${slotNumber} deleted successfully!`, 'success');
+                            // Refresh slots table and stats
+                            populateSlotsTable();
+                            populateStats();
+                        } else {
+                            showAlert(slotsAlertContainer, data.message, 'danger');
+                        }
+                    })
+                    .catch(() => {
+                        showAlert(slotsAlertContainer, 'Failed to delete parking slot.', 'danger');
+                    });
+            });
 
-            // Correct modal instance reference
-            const deleteSlotModalInstance = bootstrap.Modal.getInstance(deleteSlotModal);
-            deleteSlotModalInstance.hide();
+            function loadTotalRevenue() {
+                // FIXED: Using dynamic BASE_URL instead of hardcoded path
+                fetch(`${BASE_URL}/api/admin/dashboard/totalRevenue`)
+                    .then(response => response.json())
+                    .then(total => {
+                        document.getElementById('totalRevenue').textContent = total.toLocaleString();
+                    })
+                    .catch(() => {
+                        document.getElementById('totalRevenue').textContent = 'N/A';
+                    });
+            }
 
-            // Refresh slots table and stats
-            populateSlotsTable();
-            populateStats();
-        } else {
-            showAlert(slotsAlertContainer, data.message, 'danger');
-        }
-    })
-    .catch(() => {
-        showAlert(slotsAlertContainer, 'Failed to delete parking slot.', 'danger');
-    });
-});
+            var manageUsersBtn = document.getElementById('manageUsers');
+            if (manageUsersBtn) {
+                manageUsersBtn.addEventListener('click', function () {
+                    window.location.href = 'manage-users.html';
+                });
+            }
 
-function loadTotalRevenue() {
-    fetch('/api/admin/dashboard/totalRevenue')
-        .then(response => response.json())
-        .then(total => {
-            document.getElementById('totalRevenue').textContent = total.toLocaleString();
-        })
-        .catch(() => {
-            document.getElementById('totalRevenue').textContent = 'N/A';
-        });
-}
+            document.getElementById('refreshVehicleStats').addEventListener('click', function () {
+                showAlert(vehicleStatsAlertContainer, 'Vehicle statistics refreshed!', 'info');
+                populateVehicleStats();
+                populateStats(); // optionally update overall stats too
+            });
 
+            document.getElementById('refreshSystemOverview').addEventListener('click', function () {
+                showAlert(systemOverviewAlertContainer, 'System overview refreshed!', 'info');
+                populateStats(); // updates the system overview stats and occupancy rate
+            });
 
-var manageUsersBtn = document.getElementById('manageUsers');
-  if (manageUsersBtn) {
-    manageUsersBtn.addEventListener('click', function() {
-      window.location.href = 'manage-users.html';
-    });
-  }
-
-
-document.getElementById('refreshVehicleStats').addEventListener('click', function() {
-    showAlert(vehicleStatsAlertContainer, 'Vehicle statistics refreshed!', 'info');
-    populateVehicleStats();
-    populateStats(); // optionally update overall stats too
-});
-
-document.getElementById('refreshSystemOverview').addEventListener('click', function() {
-    showAlert(systemOverviewAlertContainer, 'System overview refreshed!', 'info');
-    populateStats(); // updates the system overview stats and occupancy rate
-});
             // Initialize the page
             populateStats();
             populateVehicleStats();
@@ -1621,4 +1663,5 @@ document.getElementById('refreshSystemOverview').addEventListener('click', funct
         });
     </script>
 </body>
+
 </html>

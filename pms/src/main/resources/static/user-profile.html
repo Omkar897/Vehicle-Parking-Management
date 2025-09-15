@@ -1,228 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>User Profile</title>
-    <!-- Font Awesome CDN (place in <head> before </style>) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-          --primary-color: #3498db;
-          --secondary-color: #2c3e50;
-          --accent-color: #e74c3c;
-          --light-color: #ecf0f1;
-          --dark-color: #34495e;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User Profile</title>
+  <!-- Font Awesome CDN (place in <head> before </style>) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #3498db;
+      --secondary-color: #2c3e50;
+      --accent-color: #e74c3c;
+      --light-color: #ecf0f1;
+      --dark-color: #34495e;
+    }
 
-        body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          min-height: 100vh;
-          margin: 0;
-          padding: 3rem 1.5rem;
-          color: var(--light-color);
-          max-width: 600px;
-          margin-left: auto;
-          margin-right: auto;
-        }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      margin: 0;
+      padding: 3rem 1.5rem;
+      color: var(--light-color);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-        h1 {
-          margin-bottom: 1rem;
-          font-weight: 700;
-        }
+    h1 {
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
 
-       .profile-container {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 2rem;
-  max-width: 500px;
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0 auto 2rem auto; /* This centers horizontally */
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-
-        label {
-          display: block;
-          margin-top: 1.2rem;
-          font-weight: 500;
-        }
-
-        input {
-          width: 100%;
-          padding: 0.5rem 0.75rem;
-          font-size: 1rem;
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          border-radius: 8px;
-          background-color: rgba(255, 255, 255, 0.2);
-          color: var(--light-color);
-          transition: all 0.3s ease;
-        }
-
-        input::placeholder {
-          color: rgba(255, 255, 255, 0.7);
-        }
-
-        input:focus {
-          outline: none;
-          background-color: rgba(255, 255, 255, 0.3);
-          border-color: var(--primary-color);
-          color: var(--light-color);
-        }
-
-        button {
-          margin-top: 1.5rem;
-          padding: 0.75rem 1.5rem;
-          font-size: 1rem;
-          border-radius: 8px;
-          border: none;
-          background-color: var(--primary-color);
-          color: white;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-
-        button:hover {
-          background-color: #2980b9;
-          transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
-        }
-
-        .message {
-          margin-top: 1rem;
-          font-weight: 600;
-        }
-
-        .error {
-          color: #e74c3c;
-        }
-
-        .success {
-          color: #2ecc71;
-        }
-
-      #backToDashboard {
-  position: absolute;
-  top: 2.5rem;
-  left: 2.5rem;
-  margin-bottom: 0;
-  z-index: 10;
-  background-color: transparent;
-  color: var(--light-color);
-  border: 1px solid var(--light-color);
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+    .profile-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 2rem;
+      max-width: 500px;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0 auto 2rem auto;
+      /* This centers horizontally */
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
 
 
-   #backToDashboard:hover {
-  background-color: var(--light-color);
-  color: var(--dark-color);
-  border-color: var(--light-color);
-}
+    label {
+      display: block;
+      margin-top: 1.2rem;
+      font-weight: 500;
+    }
 
-        .form-group {
-  margin-top: 1.2rem;
-  width: 100%;
-}
+    input {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      font-size: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: var(--light-color);
+      transition: all 0.3s ease;
+    }
 
-.form-group label {
-  color: var(--light-color);
-  font-weight: 500;
-  margin-bottom: 0.2rem;
-  display: block;
-}
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
 
-.form-group input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0.5rem 0.75rem;
-  font-size: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: var(--light-color);
-  transition: all 0.3s ease;
-}
+    input:focus {
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-color: var(--primary-color);
+      color: var(--light-color);
+    }
 
-        #password, input[type="password"] {
-  background-color: rgba(255, 255, 255, 0.2) !important;
-  color: var(--light-color) !important;
-}
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+    }
+
+    .message {
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    .error {
+      color: #e74c3c;
+    }
+
+    .success {
+      color: #2ecc71;
+    }
+
+    #backToDashboard {
+      position: absolute;
+      top: 2.5rem;
+      left: 2.5rem;
+      margin-bottom: 0;
+      z-index: 10;
+      background-color: transparent;
+      color: var(--light-color);
+      border: 1px solid var(--light-color);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
 
-    </style>
+    #backToDashboard:hover {
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      border-color: var(--light-color);
+    }
+
+    .form-group {
+      margin-top: 1.2rem;
+      width: 100%;
+    }
+
+    .form-group label {
+      color: var(--light-color);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      display: block;
+    }
+
+    .form-group input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.5rem 0.75rem;
+      font-size: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: var(--light-color);
+      transition: all 0.3s ease;
+    }
+
+    #password,
+    input[type="password"] {
+      background-color: rgba(255, 255, 255, 0.2) !important;
+      color: var(--light-color) !important;
+    }
+  </style>
 
 </head>
+
 <body>
-<button id="backToDashboard" type="button">&larr; Back to Dashboard</button>
-<h1 style="text-align:center; margin-bottom: 2rem;">Edit Profile</h1>
+  <button id="backToDashboard" type="button">&larr; Back to Dashboard</button>
+  <h1 style="text-align:center; margin-bottom: 2rem;">Edit Profile</h1>
 
 
-<div class="profile-container">
+  <div class="profile-container">
     <form id="profileForm">
-        <div class="form-group">
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" name="fullName" required />
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" required />
+      </div>
+
+      <div class="form-group" style="margin-bottom:0;">
+        <label for="password">Password</label>
+        <div style="display: flex; align-items: center;">
+          <input type="password" id="password" name="password"
+            style="padding-right:2.2rem; flex:1; height:44px; background-color:rgba(255,255,255,0.2); color:var(--light-color); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 8px; font-size: 1rem;" />
+          <button type="button" id="toggleProfilePassword"
+            style="margin-left:-2.5rem; background:none; border:none; color:#3498db; font-size:1.25em; cursor:pointer; display:flex; align-items:center; height:44px; width:2.3rem; justify-content:center; padding:0; line-height:1;"
+            tabindex="-1">
+            <i class="fa fa-eye"></i>
+          </button>
         </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
-        </div>
-        <div class="form-group">
-            <label for="phoneNumber">Phone Number</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" required />
-        </div>
-
-        <div class="form-group" style="margin-bottom:0;">
-            <label for="password">Password</label>
-            <div style="display: flex; align-items: center;">
-                <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        style="padding-right:2.2rem; flex:1; height:44px; background-color:rgba(255,255,255,0.2); color:var(--light-color); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 8px; font-size: 1rem;"
-                />
-                <button
-                        type="button"
-                        id="toggleProfilePassword"
-                        style="margin-left:-2.5rem; background:none; border:none; color:#3498db; font-size:1.25em; cursor:pointer; display:flex; align-items:center; height:44px; width:2.3rem; justify-content:center; padding:0; line-height:1;"
-                        tabindex="-1"
-                >
-                    <i class="fa fa-eye"></i>
-                </button>
-            </div>
-        </div>
+      </div>
 
 
 
 
-        <button type="submit">Update Profile</button>
+      <button type="submit">Update Profile</button>
     </form>
 
 
-<div id="message" class="message"></div>
-</div>
+    <div id="message" class="message"></div>
+  </div>
 
-<script>
+  <script>
+    // FIXED: Dynamic base URL detection for production deployment
+    const BASE_URL = window.location.origin;
+    // This will automatically be:
+    // - http://localhost:8080 (when testing locally)
+    // - https://vehicle-parking-management-production.up.railway.app (when deployed)
+
     // Change this userId as needed or make dynamic
-   function getUserIdFromQuery() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('userId');
-}
-const userId = getUserIdFromQuery();
+    function getUserIdFromQuery() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('userId');
+    }
+    const userId = getUserIdFromQuery();
 
     async function fetchUserProfile() {
       try {
-        const response = await fetch(`/api/users/${userId}`);
+        // FIXED: Using dynamic BASE_URL instead of hardcoded path
+        const response = await fetch(`${BASE_URL}/api/users/${userId}`);
         if (!response.ok) throw new Error('User not found');
         const user = await response.json();
 
@@ -236,7 +238,8 @@ const userId = getUserIdFromQuery();
 
     async function updateUserProfile(data) {
       try {
-        const response = await fetch(`/api/users/${userId}`, {
+        // FIXED: Using dynamic BASE_URL instead of hardcoded path
+        const response = await fetch(`${BASE_URL}/api/users/${userId}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
@@ -269,28 +272,28 @@ const userId = getUserIdFromQuery();
       updateUserProfile(updateData);
     });
 
-document.addEventListener('DOMContentLoaded', function() {
-  const backBtn = document.getElementById('backToDashboard');
-  if (backBtn) {
-    backBtn.addEventListener('click', function() {
-      window.location.href = 'user.html';  // Redirect to your dashboard page
+    document.addEventListener('DOMContentLoaded', function () {
+      const backBtn = document.getElementById('backToDashboard');
+      if (backBtn) {
+        backBtn.addEventListener('click', function () {
+          window.location.href = 'user.html';  // Redirect to your dashboard page
+        });
+      }
     });
-  }
-});
 
-// Password show/hide for profile
-const profilePassword = document.getElementById('password');
-const togglePwBtn = document.getElementById('toggleProfilePassword');
-let pwVisible = false;
-togglePwBtn.addEventListener('click', function () {
-    pwVisible = !pwVisible;
-    profilePassword.type = pwVisible ? 'text' : 'password';
-    togglePwBtn.innerHTML = pwVisible ? '<i class="fa fa-eye-slash"></i>' : '<i class="fa fa-eye"></i>';
-});
-
+    // Password show/hide for profile
+    const profilePassword = document.getElementById('password');
+    const togglePwBtn = document.getElementById('toggleProfilePassword');
+    let pwVisible = false;
+    togglePwBtn.addEventListener('click', function () {
+      pwVisible = !pwVisible;
+      profilePassword.type = pwVisible ? 'text' : 'password';
+      togglePwBtn.innerHTML = pwVisible ? '<i class="fa fa-eye-slash"></i>' : '<i class="fa fa-eye"></i>';
+    });
 
     // Load user data when page loads
     fetchUserProfile();
-</script>
+  </script>
 </body>
+
 </html>
