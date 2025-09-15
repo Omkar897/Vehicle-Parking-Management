@@ -6,6 +6,7 @@ import com.example.model.User;
 import com.example.repository.BookingRepository;
 import com.example.repository.ParkingSlotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,7 +15,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-
 @Transactional
 public class BookingService {
  
@@ -28,7 +28,6 @@ public List<Booking> getAllBookings() {
     updateExpiredBookingsAndFreeSlots();  // update statuses before fetching
     return bookingRepository.findAllWithUserAndSlot();
 }
-
 
     public List<Booking> getUserBookings(User user) {
         updateExpiredBookingsAndFreeSlots();
@@ -93,7 +92,6 @@ public List<Booking> getAllBookings() {
  }
  
  public long getTotalBookingsCount() {
-
     return bookingRepository.count();
  }
  
@@ -125,6 +123,9 @@ public List<Booking> getAllBookings() {
     dto.setPayment(booking.getPayment() != null ? new PaymentDTO(booking.getPayment()) : null);
     return dto;
 }
+
+    // 🎯 FIXED: Now runs automatically every 1 minute
+    @Scheduled(fixedRate = 60000) // Runs every 60 seconds (1 minute)
     @Transactional
     public void updateExpiredBookingsAndFreeSlots() {
         LocalDateTime now = LocalDateTime.now();
@@ -136,8 +137,14 @@ public List<Booking> getAllBookings() {
             booking.setStatus("COMPLETED");  // or another status indicating booking ended
             bookingRepository.save(booking);
             parkingSlotService.updateSlotAvailability(booking.getParkingSlot().getId(), true);
+            
+            // Add logging to see it working
+            System.out.println("✅ Expired booking freed: Slot " + booking.getParkingSlot().getSlotNumber() + 
+                             " (Booking ID: " + booking.getId() + ") at " + LocalDateTime.now());
+        }
+        
+        if (!expiredBookings.isEmpty()) {
+            System.out.println("🔄 Processed " + expiredBookings.size() + " expired bookings at " + LocalDateTime.now());
         }
     }
-
-
 }
