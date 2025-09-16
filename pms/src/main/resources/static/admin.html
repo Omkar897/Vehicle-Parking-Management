@@ -1024,14 +1024,10 @@
 
     <!-- Custom JavaScript -->
     <script>
-        // FIXED: Dynamic base URL detection for production deployment
-        const BASE_URL = window.location.origin;
-        // This will automatically be:
-        // - http://localhost:8080 (when testing locally)
-        // - https://vehicle-parking-management-production.up.railway.app (when deployed)
 
         document.addEventListener('DOMContentLoaded', function () {
             // DOM elements
+
             const adminName = document.getElementById('adminName');
             const adminEmail = document.getElementById('adminEmail');
 
@@ -1103,6 +1099,7 @@
             const updateStatusBtn = document.getElementById('updateStatus');
             const confirmDeleteBtn = document.getElementById('confirmDelete');
 
+
             // Load admin data dynamically from localStorage
             const storedAdmin = localStorage.getItem('adminUser');
             if (storedAdmin) {
@@ -1146,7 +1143,6 @@
                     }
                 }, 5000);
             }
-
             // Format date and time
             function formatDateTime(dateTimeStr) {
                 const date = new Date(dateTimeStr);
@@ -1160,9 +1156,9 @@
             }
 
             // Populate dashboard stats
+
             function populateStats() {
-                // FIXED: Using dynamic BASE_URL instead of hardcoded path
-                fetch(`${BASE_URL}/api/admin/dashboard/stats`)
+                fetch('/api/admin/dashboard/stats')
                     .then(response => response.json())
                     .then(stats => {
                         totalSlots.textContent = stats.totalSlots;
@@ -1188,8 +1184,7 @@
             }
 
             function populateVehicleStats() {
-                // FIXED: Using dynamic BASE_URL instead of hardcoded path
-                fetch(`${BASE_URL}/api/admin/dashboard/stats`)
+                fetch('/api/admin/dashboard/stats')
                     .then(response => {
                         if (!response.ok) throw new Error('API failed');
                         return response.json();
@@ -1259,8 +1254,7 @@
                 const bookingId = statusBookingId.textContent.replace('#', '');
                 const newStatusValue = newStatus.value;
 
-                // FIXED: Using dynamic BASE_URL instead of hardcoded path
-                fetch(`${BASE_URL}/api/admin/bookings/status`, {
+                fetch('/api/admin/bookings/status', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1289,10 +1283,10 @@
                     });
             }
 
+
             // Populate bookings table
             function populateBookingsTable() {
-                // FIXED: Using dynamic BASE_URL instead of hardcoded path
-                fetch(`${BASE_URL}/api/admin/bookings`)
+                fetch('/api/admin/bookings')
                     .then(response => response.json())
                     .then(bookings => {
                         // Sort by newest entryTime first
@@ -1307,24 +1301,24 @@
                             const slotNumber = booking.parkingSlot?.slotNumber || 'N/A';
 
                             bookingsHTML += `
-                <tr>
-                    <td>#${booking.id}</td>
-                    <td><i class="fas fa-user me-2"></i>${userName}</td>
-                    <td>${slotNumber}</td>
-                    <td><i class="fas fa-${vehicleIcon} me-2"></i>${booking.vehicleType.replace('_', ' ')}</td>
-                    <td>${formatDateTime(booking.entryTime)}</td>
-                    <td><span class="badge badge-${booking.status === 'BOOKED' ? 'info' : booking.status === 'COMPLETED' ? 'success' : 'danger'}">${booking.status}</span></td>
-                    <td>
-                    <button class="btn btn-sm btn-info update-status"
-                            data-booking-id="${booking.id}"
-                            data-user="${userName}"
-                            data-slot="${slotNumber}"
-                            data-status="${booking.status}">
-                        <i class="fas fa-edit"></i>
-                    </button>
-                    </td>
-                </tr>
-                `;
+          <tr>
+            <td>#${booking.id}</td>
+            <td><i class="fas fa-user me-2"></i>${userName}</td>
+            <td>${slotNumber}</td>
+            <td><i class="fas fa-${vehicleIcon} me-2"></i>${booking.vehicleType.replace('_', ' ')}</td>
+            <td>${formatDateTime(booking.entryTime)}</td>
+            <td><span class="badge badge-${booking.status === 'BOOKED' ? 'info' : booking.status === 'COMPLETED' ? 'success' : 'danger'}">${booking.status}</span></td>
+            <td>
+              <button class="btn btn-sm btn-info update-status"
+                      data-booking-id="${booking.id}"
+                      data-user="${userName}"
+                      data-slot="${slotNumber}"
+                      data-status="${booking.status}">
+                <i class="fas fa-edit"></i>
+              </button>
+            </td>
+          </tr>
+        `;
                         });
 
                         bookingsTableBody.innerHTML = bookingsHTML;
@@ -1360,8 +1354,7 @@
 
             // Added function: fetch slots dynamically based on vehicle type
             function fetchSlots() {
-                // FIXED: Using dynamic BASE_URL instead of hardcoded path
-                fetch(`${BASE_URL}/api/admin/slots`)
+                fetch('/api/admin/slots')
                     .then(response => response.json())
                     .then(slots => {
                         renderSlots(slots);
@@ -1371,6 +1364,7 @@
                         showAlert(slotsAlertContainer, 'Failed to load slots.', 'danger');
                     });
             }
+
 
             // Added function: render slots into the slots table
             function renderSlots(slots) {
@@ -1393,6 +1387,7 @@
                         slot.vehicleType === 'THREE_WHEELER' ? 'truck-pickup' :
                             slot.vehicleType === 'EV' ? 'plug' : 'car';
 
+
                     slotsHTML += `
                 <tr>
                     <td>${slot.slotNumber}</td>
@@ -1402,8 +1397,9 @@
                     </td>
                     <td>₹${slot.hourlyRate.toFixed(2)}/hr</td>
                     <td>
-                        <span class="badge badge-${slot.available ? 'success' : 'danger'}">
-                        ${slot.available ? 'AVAILABLE' : 'OCCUPIED'}
+
+                         <span class="badge badge-${slot.available ? 'success' : 'danger'}">
+                       ${slot.available ? 'AVAILABLE' : 'OCCUPIED'}
                         </span>
                     </td>
                     <td>
@@ -1468,9 +1464,9 @@
 
             // Modified populateSlotsTable() to load slots from backend using fetchSlots with default vehicle type
             function populateSlotsTable() {
+
                 fetchSlots();
             }
-
             // Event Listeners
             // Refresh bookings
             refreshBookings.addEventListener('click', function () {
@@ -1517,8 +1513,8 @@
                     return;
                 }
 
-                // FIXED: Real API call to your backend to add the slot
-                fetch(`${BASE_URL}/api/admin/slots`, {
+                // Real API call to your backend to add the slot
+                fetch('/api/admin/slots', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -1551,6 +1547,7 @@
                     });
             });
 
+
             // Update slot
             updateSlotBtn.addEventListener('click', function () {
                 const id = editSlotId.value;
@@ -1564,8 +1561,7 @@
                     return;
                 }
 
-                // FIXED: Using dynamic BASE_URL instead of hardcoded path
-                fetch(`${BASE_URL}/api/admin/slots/${id}`, {
+                fetch(`/api/admin/slots/${id}`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -1579,9 +1575,29 @@
                     .then(data => {
                         if (data.success) {
                             showAlert(slotsAlertContainer, data.message, 'success');
-                            const editSlotModalInstance = bootstrap.Modal.getInstance(editSlotModal);
-                            editSlotModalInstance.hide();
+                            bootstrap.Modal.getInstance(editSlotModal).hide();
                             populateSlotsTable();
+
+                            // Only trigger booking completion if slot is being made available
+                            if (available) {
+                                fetch(`/api/parkingSlots/completeBooking/${id}`, {
+                                    method: 'PUT'
+                                })
+                                    .then(resp => {
+                                        if (!resp.ok) throw new Error('Failed to complete booking');
+                                        return resp.text();
+                                    })
+                                    .then(msg => {
+                                        // Optionally show an extra message or refresh bookings table
+                                        console.log(msg);
+                                        populateBookingsTable();
+                                    })
+                                    .catch(err => {
+                                        console.error('Booking completion failed:', err);
+                                        showAlert(slotsAlertContainer, 'Failed to update booking status.', 'danger');
+                                    });
+                            }
+
                         } else {
                             showAlert(slotsAlertContainer, data.message, 'danger');
                         }
@@ -1591,15 +1607,19 @@
                     });
             });
 
+
+
+
             // Update booking status
             updateStatusBtn.addEventListener('click', updateBookingStatus);
+
+
 
             confirmDeleteBtn.addEventListener('click', function () {
                 const slotId = this.getAttribute('data-slot-id');
                 const slotNumber = deleteSlotNumber.textContent;
 
-                // FIXED: Using dynamic BASE_URL instead of hardcoded path
-                fetch(`${BASE_URL}/api/admin/slots/${slotId}`, {
+                fetch(`/api/admin/slots/${slotId}`, {
                     method: 'DELETE',
                 })
                     .then(response => response.json())
@@ -1624,8 +1644,7 @@
             });
 
             function loadTotalRevenue() {
-                // FIXED: Using dynamic BASE_URL instead of hardcoded path
-                fetch(`${BASE_URL}/api/admin/dashboard/totalRevenue`)
+                fetch('/api/admin/dashboard/totalRevenue')
                     .then(response => response.json())
                     .then(total => {
                         document.getElementById('totalRevenue').textContent = total.toLocaleString();
@@ -1635,12 +1654,14 @@
                     });
             }
 
+
             var manageUsersBtn = document.getElementById('manageUsers');
             if (manageUsersBtn) {
                 manageUsersBtn.addEventListener('click', function () {
                     window.location.href = 'manage-users.html';
                 });
             }
+
 
             document.getElementById('refreshVehicleStats').addEventListener('click', function () {
                 showAlert(vehicleStatsAlertContainer, 'Vehicle statistics refreshed!', 'info');
@@ -1652,7 +1673,6 @@
                 showAlert(systemOverviewAlertContainer, 'System overview refreshed!', 'info');
                 populateStats(); // updates the system overview stats and occupancy rate
             });
-
             // Initialize the page
             populateStats();
             populateVehicleStats();

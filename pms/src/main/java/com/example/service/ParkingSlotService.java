@@ -12,6 +12,7 @@ import com.example.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.stream.Collectors;
 import java.util.List;
 import java.util.Optional;
@@ -87,6 +88,17 @@ public class ParkingSlotService {
             }
         } else {
             System.err.println("❌ Slot with ID " + slotId + " not found!");
+        }
+    }
+
+    @Transactional
+    public void completePaidBookingForSlot(Long slotId) {
+        List<Booking> paidBookings = bookingRepository.findByParkingSlotIdAndStatus(slotId, "PAID");
+        if (paidBookings != null && !paidBookings.isEmpty()) {
+            for (Booking booking : paidBookings) {
+                booking.setStatus("COMPLETED");
+                bookingRepository.save(booking);
+            }
         }
     }
 
@@ -225,5 +237,4 @@ public class ParkingSlotService {
 
         return stats;
     }
-
 }
