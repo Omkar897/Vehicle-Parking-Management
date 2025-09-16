@@ -1544,6 +1544,8 @@
             });
 
             // 🎯 UPDATED SLOT METHOD WITH FIXED ADMIN OVERRIDE
+            // 🎯 FIXED VERSION - Add delays for backend processing
+            // 🎯 FIXED updateSlotBtn with proper delays
             updateSlotBtn.addEventListener('click', function () {
                 const id = editSlotId.value;
                 const number = editSlotNumber.value.trim();
@@ -1555,6 +1557,8 @@
                     showAlert(slotsAlertContainer, 'Please fill in all fields correctly.', 'danger');
                     return;
                 }
+
+                console.log('🔄 Updating slot:', id, 'Available:', available);
 
                 fetch(`${BASE_URL}/api/admin/slots/${id}`, {
                     method: 'PUT',
@@ -1569,11 +1573,30 @@
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            showAlert(slotsAlertContainer, data.message, 'success');
+                            showAlert(slotsAlertContainer, data.message + ' Processing booking updates...', 'success');
                             bootstrap.Modal.getInstance(editSlotModal).hide();
+
+                            // Immediate refresh of slots table
                             populateSlotsTable();
-                            populateBookingsTable(); // Refresh bookings to see completed status
-                            populateStats(); // Refresh stats
+
+                            // 🎯 CRITICAL: Wait for backend to complete booking processing
+                            if (available) {
+                                console.log('🕒 Waiting for backend to complete bookings...');
+                                setTimeout(() => {
+                                    console.log('🔄 Now refreshing bookings table...');
+                                    populateBookingsTable();
+                                }, 2000); // 2 second delay when marking as available
+
+                                setTimeout(() => {
+                                    populateStats();
+                                    showAlert(slotsAlertContainer, 'Slot updated and bookings completed!', 'info');
+                                }, 2500);
+                            } else {
+                                // No delay needed when marking as occupied
+                                populateBookingsTable();
+                                populateStats();
+                            }
+
                         } else {
                             showAlert(slotsAlertContainer, data.message, 'danger');
                         }
@@ -1582,6 +1605,8 @@
                         showAlert(slotsAlertContainer, 'Failed to update parking slot.', 'danger');
                     });
             });
+
+
 
             // Update booking status
             updateStatusBtn.addEventListener('click', updateBookingStatus);
