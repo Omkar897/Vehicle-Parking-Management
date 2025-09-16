@@ -6,14 +6,10 @@ import com.example.model.User;
 import com.example.repository.BookingRepository;
 import com.example.repository.ParkingSlotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-import java.time.Instant;
-import java.util.TimeZone;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,6 +28,7 @@ public List<Booking> getAllBookings() {
     return bookingRepository.findAllWithUserAndSlot();
 }
 
+
     public List<Booking> getUserBookings(User user) {
         updateExpiredBookingsAndFreeSlots();
         return bookingRepository.findByUser(user);
@@ -41,13 +38,13 @@ public List<Booking> getAllBookings() {
      Optional<Booking> booking = bookingRepository.findById(id);
      return booking.orElse(null);
  }
- 
+
  public Booking createBooking(User user, ParkingSlot parkingSlot,String vehicleType, LocalDateTime entryTime, LocalDateTime exitTime) {
      // Check if the slot is available
      if (!parkingSlot.isAvailable()) {
          return null;
      }
-     
+
      // Check for overlapping bookings - get all bookings for this slot except cancelled ones
      List<Booking> existingBookings = bookingRepository.findByParkingSlotIdAndStatusNot(
          parkingSlot.getId(), "CANCELLED");
@@ -95,6 +92,7 @@ public List<Booking> getAllBookings() {
  }
  
  public long getTotalBookingsCount() {
+
     return bookingRepository.count();
  }
  
@@ -126,66 +124,19 @@ public List<Booking> getAllBookings() {
     dto.setPayment(booking.getPayment() != null ? new PaymentDTO(booking.getPayment()) : null);
     return dto;
 }
-
-    // 🎯 ENHANCED DEBUG SCHEDULER - Runs every 1 minute
-    @Scheduled(fixedRate = 60000)
     @Transactional
     public void updateExpiredBookingsAndFreeSlots() {
-        // Get times in multiple ways
         LocalDateTime now = LocalDateTime.now();
-        LocalDateTime utcNow = LocalDateTime.now(ZoneOffset.UTC);
-        Instant instant = Instant.now();
-        
-        System.out.println("🕒 TIMEZONE DEBUG:");
-        System.out.println("   Local Now: " + now);
-        System.out.println("   UTC Now: " + utcNow);
-        System.out.println("   Instant: " + instant);
-        System.out.println("   JVM Timezone: " + TimeZone.getDefault().getID());
-        System.out.println("   System Timezone: " + System.getProperty("user.timezone"));
-        
         List<String> activeStatuses = List.of("BOOKED", "PAID");
-        List<Booking> expiredBookings = bookingRepository.findByStatusInAndExitTimeBefore(activeStatuses, now);
-        
-        System.out.println("🔍 Found " + expiredBookings.size() + " expired bookings (LOCAL time comparison)");
-        
-        // Also try with UTC time
-        List<Booking> expiredBookingsUTC = bookingRepository.findByStatusInAndExitTimeBefore(activeStatuses, utcNow);
-        System.out.println("🔍 Found " + expiredBookingsUTC.size() + " expired bookings (UTC time comparison)");
-        
-        // Debug first few bookings
-        List<Booking> allBookings = bookingRepository.findAll();
-        System.out.println("🔍 Total bookings in database: " + allBookings.size());
-        
-        allBookings.stream()
-            .filter(b -> activeStatuses.contains(b.getStatus()))
-            .limit(3)
-            .forEach(booking -> {
-                System.out.println("📋 Booking #" + booking.getId() + 
-                                 " | Status: " + booking.getStatus() + 
-                                 " | Exit: " + booking.getExitTime() +
-                                 " | Expired (Local): " + (booking.getExitTime() != null && booking.getExitTime().isBefore(now)) +
-                                 " | Expired (UTC): " + (booking.getExitTime() != null && booking.getExitTime().isBefore(utcNow)));
-            });
 
-        // Process expired bookings (try both approaches)
-        List<Booking> toProcess = expiredBookings.isEmpty() ? expiredBookingsUTC : expiredBookings;
-        System.out.println("🔧 Processing " + toProcess.size() + " bookings...");
-        
-        for (Booking booking : toProcess) {
-            try {
-                String oldStatus = booking.getStatus();
-                booking.setStatus("COMPLETED");
-                bookingRepository.save(booking);
-                parkingSlotService.updateSlotAvailability(booking.getParkingSlot().getId(), true);
-                System.out.println("✅ Freed slot: " + booking.getParkingSlot().getSlotNumber() + 
-                                 " (Booking #" + booking.getId() + " changed from " + oldStatus + " to COMPLETED)");
-            } catch (Exception e) {
-                System.err.println("❌ Error processing booking #" + booking.getId() + ": " + e.getMessage());
-            }
-        }
-        
-        if (toProcess.size() > 0) {
-            System.out.println("🎉 Booking expiry check completed - processed " + toProcess.size() + " bookings");
+        List<Booking> expiredBookings = bookingRepository.findByStatusInAndExitTimeBefore(activeStatuses, now);
+
+        for (Booking booking : expiredBookings) {
+            booking.setStatus("COMPLETED");  // or another status indicating booking ended
+            bookingRepository.save(booking);
+            parkingSlotService.updateSlotAvailability(booking.getParkingSlot().getId(), true);
         }
     }
+
+
 }

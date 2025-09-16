@@ -3,12 +3,7 @@ package com.example.controller;
 import com.example.dto.ParkingStatsDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,7 +16,6 @@ public class ParkingSlotController {
 
     @Autowired
     private ParkingSlotService parkingSlotService;
-    
     @GetMapping
     public List<ParkingSlot> getAvailableSlots(
             @RequestParam(required = false) String vehicleType,
@@ -42,10 +36,12 @@ public class ParkingSlotController {
         ParkingStatsDTO stats = parkingSlotService.getParkingStats();
         return ResponseEntity.ok(stats);
     }
-    
+
     @PutMapping("/completeBooking/{slotId}")
     public ResponseEntity<String> completePaidBooking(@PathVariable Long slotId) {
         parkingSlotService.completePaidBookingForSlot(slotId);
         return ResponseEntity.ok("Booking status updated to COMPLETED");
     }
+
+
 }
