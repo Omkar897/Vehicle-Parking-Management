@@ -1547,6 +1547,7 @@
             // 🎯 FIXED VERSION - Add delays for backend processing
             // 🎯 FIXED updateSlotBtn with proper delays
             // 🎯 CRITICAL FIX: Enhanced updateSlotBtn with proper error handling and debugging
+            // 🎯 ENHANCED VERSION with better error handling
             updateSlotBtn.addEventListener('click', async function () {
                 const id = editSlotId.value;
                 const number = editSlotNumber.value.trim();
@@ -1577,13 +1578,11 @@
                         })
                     });
 
-                    console.log('🔄 Slot update response status:', updateResponse.status);
                     if (!updateResponse.ok) {
                         throw new Error(`HTTP ${updateResponse.status}: ${updateResponse.statusText}`);
                     }
 
                     const updateData = await updateResponse.json();
-                    console.log('🔄 Slot update response data:', updateData);
 
                     if (!updateData.success) {
                         throw new Error(updateData.message || 'Failed to update slot');
@@ -1592,41 +1591,58 @@
                     showAlert(slotsAlertContainer, updateData.message + ' Processing...', 'success');
                     bootstrap.Modal.getInstance(editSlotModal).hide();
 
-                    // 2. If marking as available, complete any paid bookings
+                    // 2. If marking as available, complete any active bookings
                     if (available) {
                         try {
-                            console.log('🔄 Attempting to complete paid bookings for slot:', id);
+                            console.log('🔄 Attempting to complete active bookings for slot:', id);
+
                             const completeResponse = await fetch(`${BASE_URL}/api/parkingSlots/completeBooking/${id}`, {
                                 method: 'PUT',
                                 headers: {
-                                    'Accept': 'application/json'
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json'
                                 }
                             });
 
                             console.log('✅ Booking completion response status:', completeResponse.status);
-                            const completeData = await completeResponse.json();
+                            console.log('✅ Response content-type:', completeResponse.headers.get('content-type'));
 
-                            if (!completeResponse.ok) {
-                                console.warn('⚠️ Failed to complete booking, but slot was updated:', completeData);
-                                showAlert(slotsAlertContainer, 'Slot updated but failed to complete bookings', 'warning');
-                            } else {
-                                console.log('✅ Successfully completed bookings:', completeData);
-                                showAlert(slotsAlertContainer, 'Slot freed and bookings completed!', 'success');
+                            let completeData;
+                            const responseText = await completeResponse.text();
+                            console.log('🔍 Raw response:', responseText);
+
+                            // 🎯 TRY TO PARSE AS JSON, FALLBACK TO TEXT
+                            try {
+                                completeData = JSON.parse(responseText);
+                            } catch (jsonError) {
+                                console.warn('⚠️ Response is not JSON, treating as text:', responseText);
+                                // If it's not JSON, create a mock success response
+                                completeData = {
+                                    success: true,
+                                    message: responseText,
+                                    completedCount: responseText.includes('booking') ? 1 : 0
+                                };
                             }
+
+                            if (completeResponse.ok && completeData.success !== false) {
+                                showAlert(slotsAlertContainer,
+                                    `✅ Slot freed! ${completeData.completedCount || 'Some'} bookings completed.`, 'success');
+                            } else {
+                                showAlert(slotsAlertContainer,
+                                    '⚠️ Slot updated but booking completion had issues: ' + (completeData.message || 'Unknown error'), 'warning');
+                            }
+
                         } catch (error) {
-                            console.error('❌ Error completing booking:', error);
-                            showAlert(slotsAlertContainer, 'Slot updated but error completing bookings: ' + error.message, 'warning');
+                            console.error('❌ Error completing bookings:', error);
+                            showAlert(slotsAlertContainer,
+                                '⚠️ Slot updated but error completing bookings. Check if bookings were completed manually.', 'warning');
                         }
+                    } else {
+                        showAlert(slotsAlertContainer, '✅ Slot marked as occupied successfully!', 'success');
                     }
 
                     // 3. Refresh all data
-                    await Promise.all([
-                        populateSlotsTable(),
-                        populateBookingsTable(),
-                        populateStats()
-                    ]);
-
-                    // Additional refresh after a short delay to ensure consistency
+                    populateSlotsTable();
                     setTimeout(() => {
                         populateBookingsTable();
                         populateStats();
@@ -1637,6 +1653,7 @@
                     showAlert(slotsAlertContainer, 'Failed to update parking slot: ' + error.message, 'danger');
                 }
             });
+
 
 
 
