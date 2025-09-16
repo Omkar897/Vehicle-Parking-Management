@@ -38,74 +38,41 @@ public class BookingController {
     @Autowired
     private BookingRepository bookingRepository;
 
-//    @PostMapping
-//    public ResponseEntity<?> createBooking(@RequestBody BookingRequestDTO bookingRequest, HttpSession session) {
-//        System.out.println("DEBUG slotNumber received: " + bookingRequest.getSlotNumber());
-//        System.out.println("DEBUG vehicleType received: " + bookingRequest.getVehicleType());
-//        System.out.println("DEBUG entryTime received: " + bookingRequest.getEntryTime());
-//        System.out.println("DEBUG exitTime received: " + bookingRequest.getExitTime());
-//        Long userId = (Long) session.getAttribute("userId");
-//        if (userId == null) {
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Please log in");
-//        }
-//        User user = userService.findById(userId);
-//
-//        ParkingSlot slot = parkingSlotService.getSlotByNumber(bookingRequest.getSlotNumber());
-//        if (user == null || slot == null) {
-//            return ResponseEntity.badRequest().body("Invalid user or slot");
-//        }
-//        String vehicleType = bookingRequest.getVehicleType();
-//
-//        Booking booking = bookingService.createBooking(user, slot, bookingRequest.getVehicleType(),bookingRequest.getEntryTime(), bookingRequest.getExitTime());
-//
-//        if (booking == null) {
-//            return ResponseEntity.status(HttpStatus.CONFLICT).body("Slot unavailable or overlapping booking");
-//        }
-//
-//        return ResponseEntity.ok(booking);
-//    }
-@PostMapping
-public ResponseEntity<?> createBooking(@RequestBody BookingRequestDTO bookingRequest, HttpSession session) {
-    Long userId = (Long) session.getAttribute("userId");
-    if (userId == null) {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Please log in");
+    @PostMapping
+    public ResponseEntity<?> createBooking(@RequestBody BookingRequestDTO bookingRequest, HttpSession session) {
+        Long userId = (Long) session.getAttribute("userId");
+        if (userId == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Please log in");
+        }
+
+        User user = userService.findById(userId);
+        ParkingSlot slot = parkingSlotService.getSlotByNumber(bookingRequest.getSlotNumber());
+
+        if (user == null || slot == null) {
+            return ResponseEntity.badRequest().body("Invalid user or parking slot");
+        }
+
+        if (!slot.isAvailable()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Slot is not available");
+        }
+
+        List<String> activeStatuses = List.of("BOOKED", "PAID");
+
+        List<Booking> conflictingBookings = bookingRepository.findConflictingActiveBookings(
+                slot.getId(), bookingRequest.getEntryTime(), bookingRequest.getExitTime(), activeStatuses);
+
+        if (!conflictingBookings.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Slot already booked for the selected time");
+        }
+
+        Booking booking = new Booking(user, slot, bookingRequest.getVehicleType(), bookingRequest.getEntryTime(), bookingRequest.getExitTime());
+
+        parkingSlotService.updateSlotAvailability(slot.getId(), false);
+
+        bookingRepository.save(booking);
+
+        return ResponseEntity.ok(booking);
     }
-
-    User user = userService.findById(userId);
-    ParkingSlot slot = parkingSlotService.getSlotByNumber(bookingRequest.getSlotNumber());
-
-    if (user == null || slot == null) {
-        return ResponseEntity.badRequest().body("Invalid user or parking slot");
-    }
-
-    if (!slot.isAvailable()) {
-        return ResponseEntity.status(HttpStatus.CONFLICT).body("Slot is not available");
-    }
-
-    // Define active booking statuses
-    List<String> activeStatuses = List.of("BOOKED", "PAID");
-
-    // Check for overlapping active bookings in the requested time range
-    List<Booking> conflictingBookings = bookingRepository.findConflictingActiveBookings(
-            slot.getId(), bookingRequest.getEntryTime(), bookingRequest.getExitTime(), activeStatuses);
-
-    if (!conflictingBookings.isEmpty()) {
-        return ResponseEntity.status(HttpStatus.CONFLICT).body("Slot already booked for the selected time");
-    }
-
-    // Create a new booking
-    Booking booking = new Booking(user, slot, bookingRequest.getVehicleType(), bookingRequest.getEntryTime(), bookingRequest.getExitTime());
-
-    // Mark slot as occupied
-    parkingSlotService.updateSlotAvailability(slot.getId(), false);
-
-    // Save booking
-    bookingRepository.save(booking);
-
-    return ResponseEntity.ok(booking);
-}
-
-
 
     @GetMapping
     public ResponseEntity<?> getUserBookings(HttpSession session) {
@@ -118,12 +85,9 @@ public ResponseEntity<?> createBooking(@RequestBody BookingRequestDTO bookingReq
         List<Booking> bookings = bookingService.getUserBookings(user);
         List<BookingResponseDTO> dtos = bookings.stream()
                 .map(bookingService::mapToDTO)
-                .peek(dto -> System.out.println("Mapped booking user name: " + (dto.getUser() != null ? dto.getUser().getUsername() : "null user")))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(dtos);
-
     }
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> cancelBooking(@PathVariable Long id, HttpSession session) {
@@ -138,6 +102,7 @@ public ResponseEntity<?> createBooking(@RequestBody BookingRequestDTO bookingReq
         bookingService.cancelBooking(id);
         return ResponseEntity.ok("Booking cancelled");
     }
+
     @GetMapping("/frontend")
     public ResponseEntity<?> getUserBookingsForFrontend(HttpSession session) {
         Long userId = (Long) session.getAttribute("userId");
@@ -156,7 +121,7 @@ public ResponseEntity<?> createBooking(@RequestBody BookingRequestDTO bookingReq
             String slotNumber = booking.getParkingSlot() != null ? booking.getParkingSlot().getSlotNumber() : "Unknown";
             dto.setSlot(slotNumber);
             dto.setVehicleType(booking.getVehicleType() != null && !booking.getVehicleType().isEmpty() ? booking.getVehicleType() : "FOUR_WHEELER");
-            dto.setEntryTime(booking.getEntryTime().toString());  // format as ISO string or use formatter
+            dto.setEntryTime(booking.getEntryTime().toString());
             dto.setExitTime(booking.getExitTime().toString());
             dto.setTotalAmount(booking.getTotalAmount());
             dto.setStatus(booking.getStatus());
@@ -165,8 +130,4 @@ public ResponseEntity<?> createBooking(@RequestBody BookingRequestDTO bookingReq
 
         return ResponseEntity.ok(frontendBookings);
     }
-
 }
-
-
-

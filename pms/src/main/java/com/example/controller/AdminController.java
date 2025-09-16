@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -69,7 +68,6 @@ public class AdminController {
      }
  }
 
-
  // Get dashboard statistics
  @GetMapping("/dashboard/stats")
  public ResponseEntity<Map<String, Object>> getDashboardStats() {
@@ -124,16 +122,12 @@ public class AdminController {
                 booking.setStatus(status);
                 bookingRepository.save(booking);
 
-                // ADD THIS: Update slot availability based on status
+                // Update slot availability based on status
                 Long slotId = booking.getParkingSlot().getId();
                 if ("COMPLETED".equals(status) || "CANCELLED".equals(status)) {
-                    // Make slot available when booking is completed or cancelled
                     parkingSlotService.updateSlotAvailability(slotId, true);
-                    System.out.println("Setting slot " + slotId + " as AVAILABLE");
                 } else if ("BOOKED".equals(status)) {
-                    // Make slot unavailable when booking is active
                     parkingSlotService.updateSlotAvailability(slotId, false);
-                    System.out.println("Setting slot " + slotId + " as UNAVAILABLE");
                 }
 
                 return ResponseEntity.ok(Map.of("success", true));
@@ -144,7 +138,6 @@ public class AdminController {
             return ResponseEntity.ok(Map.of("success", false, "message", e.getMessage()));
         }
     }
-
 
     // Get all users
  @GetMapping("/users")
@@ -270,5 +263,4 @@ public class AdminController {
 
         return ResponseEntity.ok(totalRevenue);
     }
-
 }
